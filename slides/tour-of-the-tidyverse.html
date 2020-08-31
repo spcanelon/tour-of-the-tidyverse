@@ -48,22 +48,15 @@ class: about-me, middle, center
 &lt;img style="border-radius: 50%;" src="https://silvia.rbind.io/authors/silvia/avatar_hu5008cfaae4fe27558f3c3604a254cbf4_10721386_270x270_fill_lanczos_center_2.png" width="150px"/&gt;
 
 
-[<i class="fas  fa-link "></i> silvia.rbind.io](https://silvia.rbind.io)
-
-[<i class="fab  fa-twitter "></i> @spcanelon](https://twitter.com/spcanelon) 
-
+[<i class="fas  fa-link "></i> silvia.rbind.io](https://silvia.rbind.io)&lt;br/&gt;
+[<i class="fab  fa-twitter "></i> @spcanelon](https://twitter.com/spcanelon)&lt;br/&gt;
 [<i class="fab  fa-github "></i> @spcanelon](https://github.com/spcanelon)  
 
 .footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@lukehuff?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;lucas huffman&lt;/a&gt; on &lt;a href="https://unsplash.com/s/photos/antarctica?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
 
 ???
 
-Hi! I'm Silvia Canelón and I'm a postdoctoral research scientist at the University of Pennsylvania.
-
----
-layout: true
-
-background-color: black;
+Hi! I'm Silvia Canelón and I'm a postdoctoral research scientist at the University of Pennsylvania. I'm also in the process of getting certified as an RStudio Instructor!
 
 ---
 class: left, middle
@@ -121,8 +114,7 @@ background-size: cover
 
 &lt;img src="../slides/images/pptx/01-readr.png" width="1200" /&gt;
 
-.footnote[
-&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
+.footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
@@ -133,6 +125,23 @@ background-size: 80px
 # readr: info
 
 .panelset[
+
+.panel[.panel-name[Overview]
+
+.pull-left[
+### Importing data is the very first step! &lt;br/&gt; You can use `readr` to import rectangular data.
+]
+.pull-right[
+#### comma separated (CSV) files with `read_csv()`
+#### tab separated files with `read_tsv()`
+#### general delimited files with `read_delim()`
+#### fixed width files with `read_fwf()`
+#### tabular files where columns are separated by white-space with `read_table()`
+#### web log files with `read_log()` 
+
+]
+]
+
 .panel[.panel-name[Cheatsheet]
 
 <i class="fas  fa-file-pdf "></i> PDF: https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf
@@ -196,6 +205,21 @@ background-size: 80px
 # tibble: info
 
 .panelset[
+
+.panel[.panel-name[Overview]
+
+.pull-left[
+### Importing data is the very first step! 
+
+- 
+]
+.pull-right[
+### You can use `readr` to import data from...
+#### a CSV file using `read_csv()`
+#### an excel file `read_excel()`
+]
+]
+
 .panel[.panel-name[Cheatsheet]
 
 <i class="fas  fa-file-pdf "></i> PDF (tidyr): https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
@@ -247,8 +271,7 @@ background-size: cover
 
 &lt;img src="../slides/images/pptx/03-ggplot2.png" width="1200" /&gt;
 
-.footnote[
-&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
+.footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
@@ -277,7 +300,6 @@ background-size: 80px
 ### Package documentation: https://ggplot2.tidyverse.org/
 ]
 ]
-
 ]
 
 ---
@@ -310,8 +332,7 @@ background-size: cover
 
 &lt;img src="../slides/images/pptx/04-dplyr.png" width="1200" /&gt;
 
-.footnote[
-&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
+.footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
@@ -322,9 +343,30 @@ background-size: 80px
 # dplyr: info
 
 .panelset[
+.panel[.panel-name[Overview]
+
+.pull-left[
+### Data transformation helps you get the data in exactly the right form you need. &lt;br/&gt; With `dplyr` you can:
+
+- create new variables
+- create summaries
+- rename variables
+- reorder observations
+- ...and more!
+]
+.pull-right[
+#### Pick observations by their values with `filter()`.
+#### Reorder the rows with `arrange()`.
+#### Pick variables by their names `select()`.
+#### Create new variables with functions of existing variables `mutate()`.
+#### Collapse many values down to a single summary `summarize()`.
+#### and `group_by()` gets the above functions to operate group-by-group rather than on the entire dataset
+]
+]
+
 .panel[.panel-name[Cheatsheet]
 
-<i class="fas  fa-file-pdf "></i> <i class="fas  fa-file-pdf "></i> PDF: https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
+<i class="fas  fa-file-pdf "></i> PDF: https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
 ![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-transformation-cheatsheet-thumbs.png)
 ]
 
@@ -372,8 +414,7 @@ background-size: cover
 
 &lt;img src="../slides/images/pptx/05-forcats.png" width="1200" /&gt;
 
-.footnote[
-&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
+.footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
@@ -402,7 +443,6 @@ background-size: 80px
 ### Package documentation: https://forcats.tidyverse.org/
 ]
 ]
-
 ]
 
 ---
@@ -435,8 +475,7 @@ background-size: cover
 
 &lt;img src="../slides/images/pptx/06-stringr.png" width="1200" /&gt;
 
-.footnote[
-&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
+.footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
@@ -497,8 +536,7 @@ background-size: cover
 
 &lt;img src="../slides/images/pptx/07-tidyr.png" width="1200" /&gt;
 
-.footnote[
-&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
+.footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
@@ -559,8 +597,7 @@ background-size: cover
 
 &lt;img src="../slides/images/pptx/08-purrr.png" width="1200" /&gt;
 
-.footnote[
-&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
+.footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
@@ -635,7 +672,7 @@ class: about-me, middle, center
 "highlightStyle": "github",
 "highlightLines": true,
 "highlightLanguage": ["r", "css", "yaml"],
-"countIncrementalSlides": false,
+"countIncrementalSlides": true,
 "ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
