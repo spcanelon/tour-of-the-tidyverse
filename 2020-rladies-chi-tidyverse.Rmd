@@ -179,7 +179,7 @@ penguins %>%
   ungroup() %>%
   group_by(species, sex, count_species) %>%
   summarize(count = n()) %>%
-  mutate(percentage = count/count_species*100)
+  mutate(prop = count/count_species*100)
 ```
 
 Filtering rows using `filter()`
@@ -199,14 +199,43 @@ penguins %>%
 **Work in progress**
 
 # stringr 
+
+Let's play around with strings a little bit!
+
+```{r}
+penguins %>%
+  select(species, island) %>%
+  mutate(ISLAND = str_to_upper(island))
+
+penguins %>%
+  select(species, island) %>%
+  mutate(ISLAND = str_to_upper(island)) %>%
+  mutate(species_island = str_c(species, ISLAND, sep = "_"))
+```
+
 - concatenate species and ID, or something?
 - add characters, remove characters, find patterns?
 
 # tidyr 
-**Work in progress** Would like to think of a potentially use of `pivot` functions 
+
+Both penguin datasets are already tidy!
+
+We can pretend that it wasn't and that `body_mass_g` was recorded separately for `male`, `female`, and sex `NA` penguins. Like `untidy_penguins` below:
+```{r}
+untidy_penguins <-
+  penguins %>%
+    pivot_wider(names_from = sex,
+                values_from = body_mass_g)
+untidy_penguins
+```
+
+Now let's make it tidy!
 
 ```{r}
-glimpse(penguins)
+untidy_penguins %>%
+  pivot_longer(cols = male:`NA`, 
+               names_to = "sex",
+               values_to = "body_mass_g")
 ```
 
 # purrr 

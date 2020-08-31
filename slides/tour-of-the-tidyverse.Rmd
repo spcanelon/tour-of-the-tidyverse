@@ -401,16 +401,14 @@ Let's see if body mass varies by penguin sex
 
 .pull-left[
 ```{r eval=FALSE}
-penguins %>%
-  ggplot(aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_point()
 ```
 ]
 
 .pull-right[
 ```{r, echo=FALSE, warning=FALSE, fig.height=5}
-penguins %>%
-  ggplot(aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_point()
 ```
 ]
@@ -420,16 +418,14 @@ penguins %>%
 
 .pull-left[
 ```{r eval=FALSE}
-penguins %>%
-  ggplot(aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_boxplot()
 ```
 ]
 
 .pull-right[
 ```{r echo=FALSE, warning=FALSE, fig.height=5}
-penguins %>%
-  ggplot(aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_boxplot()
 ```
 ]
@@ -439,8 +435,7 @@ penguins %>%
 
 .pull-left[
 ```{r eval=FALSE}
-penguins %>%
-  ggplot(aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species))
 ```
 
@@ -449,8 +444,7 @@ penguins %>%
 
 .pull-right[
 ```{r echo=FALSE, warning=FALSE, fig.height=5}
-penguins %>%
-  ggplot(aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) #<<
 ```
 ]
@@ -548,10 +542,11 @@ knitr::include_graphics("../slides/images/r4ds-cover.png")
 
 .panelset[
 .panel[.panel-name[Select]
-
+.center[ 
+### Can you spot the difference in performing the same operation?
+]
 .pull-left[
-```{r eval=TRUE}
-#glimpse(penguins)
+```{r}
 select(penguins, species, sex, body_mass_g)
 ```
 ]
@@ -560,17 +555,60 @@ select(penguins, species, sex, body_mass_g)
 penguins %>%
   select(species, sex, body_mass_g)
 ```
+]
+]
 
-]
-]
 .panel[.panel-name[Arrange]
-
-```{r error=TRUE}
+.pull-left[
+```{r}
+glimpse(penguins)
+```
+]
+.pull-right[
+```{r}
 penguins %>%
   select(species, sex, body_mass_g) %>%
   arrange(desc(body_mass_g))
 ```
 ]
+]
+
+.panel[.panel-name[Group By & Summarize]
+#### Summarizing the data using `group_by()` and `summarize()`
+```{r}
+penguins %>% 
+  group_by(species, sex) %>%
+  summarize(count = n())
+```
+]
+
+.panel[.panel-name[Mutate]
+#### Creating new variables with `mutate()`
+```{r}
+penguins %>% 
+  group_by(species) %>%
+  mutate(count_species = n()) %>%
+  ungroup() %>%
+  group_by(species, sex, count_species) %>%
+  summarize(count = n()) %>%
+  mutate(prop = count/count_species*100)
+```
+]
+
+.panel[.panel-name[Filter]
+#### Filtering rows using `filter()`
+```{r}
+penguins %>% 
+  group_by(species) %>%
+  mutate(count_species = n()) %>%
+  ungroup() %>%
+  group_by(species, sex, count_species) %>%
+  summarize(count = n()) %>%
+  mutate(percentage = count/count_species*100) %>%
+  filter(species == "Chinstrap")
+```
+]
+
 ]
 
 ---
@@ -654,6 +692,27 @@ background-size: 80px
 # stringr: info
 
 .panelset[
+
+.panel[.panel-name[Overview]
+
+.pull-left[
+### `stringr` helps us manipulate strings! The package includes many functions to help us with **regular expressions**, which are a concise language for describing patterns in strings.
+]
+
+.pull-right[
+### These functions help us
+
+-  detect matches
+-  subset strings
+-  manage string lengths
+-  mutate strings
+-  join and split strings
+-  order strings
+-  ...and more!
+]
+
+]
+
 .panel[.panel-name[Cheatsheet]
 
 `r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/strings.pdf
@@ -680,19 +739,24 @@ knitr::include_graphics("../slides/images/r4ds-cover.png")
 # stringr: exercise
 
 .panelset[
-.panel[.panel-name[Code]
+.panel[.panel-name[Mutate]
 
-```{r eval=FALSE}
-penguins %>% 
-  dplyr::n_distinct(species)
+### What does this chunk do?
+```{r}
+penguins %>%
+  select(species, island) %>%
+  mutate(ISLAND = str_to_upper(island))
 ```
 ]
 
-.panel[.panel-name[Result]
+.panel[.panel-name[Join]
 
-```{r error=TRUE}
-penguins %>% 
-  dplyr::n_distinct(species)
+### How about this one?
+```{r}
+penguins %>%
+  select(species, island) %>%
+  mutate(ISLAND = str_to_upper(island)) %>%
+  mutate(species_island = str_c(species, ISLAND, sep = "_"))
 ```
 ]
 ]
@@ -716,6 +780,18 @@ background-size: 80px
 # tidyr: info
 
 .panelset[
+
+.panel[.panel-name[Overview]
+> There are three interrelated rules which make a dataset tidy:
+
+> - Each variable must have its own column.
+> - Each observation must have its own row.
+> - Each value must have its own cell.
+
+![](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png)
+
+]
+
 .panel[.panel-name[Cheatsheet]
 
 `r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf
@@ -742,19 +818,33 @@ knitr::include_graphics("../slides/images/r4ds-cover.png")
 # tidyr: exercise
 
 .panelset[
-.panel[.panel-name[Code]
+.panel[.panel-name[Un-tidying]
 
-```{r eval=FALSE}
-penguins %>% 
-  dplyr::n_distinct(species)
+### Both penguin datasets are already tidy!
+
+We can pretend that it wasn't and that `body_mass_g` was recorded separately for `male`, `female`, and sex `NA` penguins. Like `untidy_penguins`.
+
+```{r}
+untidy_penguins <-
+  penguins %>%
+    pivot_wider(names_from = sex,
+                values_from = body_mass_g)
+untidy_penguins
 ```
+
 ]
 
-.panel[.panel-name[Result]
+.panel[.panel-name[Re-tidying]
 
-```{r error=TRUE}
-penguins %>% 
-  dplyr::n_distinct(species)
+### Now let's make it tidy again!
+
+#### We'll use the help of `pivot_longer()`
+
+```{r}
+untidy_penguins %>%
+  pivot_longer(cols = male:`NA`, 
+               names_to = "sex",
+               values_to = "body_mass_g")
 ```
 ]
 ]
@@ -804,29 +894,117 @@ knitr::include_graphics("../slides/images/r4ds-cover.png")
 # purrr: exercise
 
 .panelset[
+.panel[.panel-name[Goal]
+
+.pull-left[
+### Ok, we love our earlier boxplot showing us `body_mass_g` by `sex` and colored by `species`... but let's change up the colors to keep with our Antarctica theme!
+
+### I'm a big fan of the color palettes in the `nord` `r emo::ji("package")`
+]
+.pull-right[
+![](https://raw.githubusercontent.com/jkaupp/nord/master/man/figures/README-palettes-1.png)
+]
+]
+
+.panel[.panel-name[Plot]
+
+.pull-left[
+### Let's turn this plot
+```{r echo=FALSE, warning=FALSE, fig.height=5}
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species))
+```
+]
+
+.pull-right[
+### Into this one!
+```{r echo=FALSE, warning=FALSE, fig.height=5}
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  nord::scale_fill_nord(palette = "frost")
+```
+
 .panel[.panel-name[Code]
 
-```{r eval=FALSE}
-penguins %>% 
-  dplyr::n_distinct(species)
+.pull-left[
+```{r}
+library(nord)
 ```
+
+```{r eval=FALSE}
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  nord::scale_fill_nord(palette = "frost")
+```
+]
+
+.pull-right[
+```{r}
+# you can choose colors using the color hex codes
+nord::nord_palettes$frost
+```
+
+```{r eval=FALSE, warning=FALSE, fig.height=5}
+# but you might prefer to use `scale_fill_manual()`
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  scale_fill_manual(values = nord::nord_palettes$frost)
+```
+]
 ]
 
 .panel[.panel-name[Result]
+.pull-left[
+```{r eval=FALSE}
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  scale_fill_manual(values = nord::nord_palettes$frost)
+```
+]
 
-```{r error=TRUE}
-penguins %>% 
-  dplyr::n_distinct(species)
+.pull-right[
+```{r, echo=FALSE, warning = FALSE, fig.height=5}
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  scale_fill_manual(values = nord::nord_palettes$frost)
 ```
 ]
 ]
 
----
-class: left, middle
+.panel[.panel-name[Purrr?]
 
-# How can we practice?
+.pull-left[
+The `prismatic` `r emo::ji("package")` help us **see** the colors that correspond to each color hex code (mostly)
 
-## #TidyTuesdays!
+```{r}
+library(prismatic)
+```
+
+```{r, warning=FALSE, eval=FALSE}
+prismatic::color(nord::nord_palettes$frost)
+```
+![](../slides/images/nord_frost.png)
+]
+
+.pull-right[
+`purrr`'s `map()` function can help us iterate the `prismatic::color()` function over all palettes in a palette package like `nord`!
+
+```{r, eval = FALSE}
+nord::nord_palettes %>% map(prismatic::color)
+```
+
+![](../slides/images/nord_multiple.png)
+]
+]
+]
+]
+]
 
 ---
 class: about-me, middle, center

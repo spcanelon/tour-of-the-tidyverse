@@ -597,8 +597,7 @@ Let's see if body mass varies by penguin sex
 .pull-left[
 
 ```r
-penguins %&gt;%
-  ggplot(aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_point()
 ```
 ]
@@ -613,8 +612,7 @@ penguins %&gt;%
 .pull-left[
 
 ```r
-penguins %&gt;%
-  ggplot(aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_boxplot()
 ```
 ]
@@ -629,8 +627,7 @@ penguins %&gt;%
 .pull-left[
 
 ```r
-penguins %&gt;%
-  ggplot(aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species))
 ```
 
@@ -725,23 +722,166 @@ background-size: 80px
 # dplyr: exercise
 
 .panelset[
-.panel[.panel-name[Code]
+.panel[.panel-name[Select]
+.center[ 
+### Can you spot the difference in performing the same operation?
+]
+.pull-left[
 
+```r
+select(penguins, species, sex, body_mass_g)
+## # A tibble: 344 x 3
+##    species sex    body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;        &lt;int&gt;
+##  1 Adelie  male          3750
+##  2 Adelie  female        3800
+##  3 Adelie  female        3250
+##  4 Adelie  &lt;NA&gt;            NA
+##  5 Adelie  female        3450
+##  6 Adelie  male          3650
+##  7 Adelie  female        3625
+##  8 Adelie  male          4675
+##  9 Adelie  &lt;NA&gt;          3475
+## 10 Adelie  &lt;NA&gt;          4250
+## # … with 334 more rows
+```
+]
+.pull-right[
+
+```r
+penguins %&gt;%
+  select(species, sex, body_mass_g)
+## # A tibble: 344 x 3
+##    species sex    body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;        &lt;int&gt;
+##  1 Adelie  male          3750
+##  2 Adelie  female        3800
+##  3 Adelie  female        3250
+##  4 Adelie  &lt;NA&gt;            NA
+##  5 Adelie  female        3450
+##  6 Adelie  male          3650
+##  7 Adelie  female        3625
+##  8 Adelie  male          4675
+##  9 Adelie  &lt;NA&gt;          3475
+## 10 Adelie  &lt;NA&gt;          4250
+## # … with 334 more rows
+```
+]
+]
+
+.panel[.panel-name[Arrange]
+.pull-left[
 
 ```r
 glimpse(penguins)
+## Rows: 344
+## Columns: 8
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, A…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, T…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8, 37.8, 41.1, 38.6, 34.6, 3…
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1, 17.3, 17.6, 21.2, 21.1, 1…
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182, 191, 198, 185, 195, 197, …
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300, 3700, 3200, 3800, 4400, 3…
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male, NA, NA, NA, NA, female, male, male,…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007,…
 ```
 ]
+.pull-right[
 
-.panel[.panel-name[Result]
+```r
+penguins %&gt;%
+  select(species, sex, body_mass_g) %&gt;%
+  arrange(desc(body_mass_g))
+## # A tibble: 344 x 3
+##    species sex   body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;       &lt;int&gt;
+##  1 Gentoo  male         6300
+##  2 Gentoo  male         6050
+##  3 Gentoo  male         6000
+##  4 Gentoo  male         6000
+##  5 Gentoo  male         5950
+##  6 Gentoo  male         5950
+##  7 Gentoo  male         5850
+##  8 Gentoo  male         5850
+##  9 Gentoo  male         5850
+## 10 Gentoo  male         5800
+## # … with 334 more rows
+```
+]
+]
 
+.panel[.panel-name[Group By &amp; Summarize]
+#### Summarizing the data using `group_by()` and `summarize()`
 
 ```r
 penguins %&gt;% 
-  dplyr::n_distinct(species)
-## Error in FUN(X[[i]], ...): object 'species' not found
+  group_by(species, sex) %&gt;%
+  summarize(count = n())
+## `summarise()` regrouping output by 'species' (override with `.groups` argument)
+## # A tibble: 8 x 3
+## # Groups:   species [3]
+##   species   sex    count
+##   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;
+## 1 Adelie    female    73
+## 2 Adelie    male      73
+## 3 Adelie    &lt;NA&gt;       6
+## 4 Chinstrap female    34
+## 5 Chinstrap male      34
+## 6 Gentoo    female    58
+## 7 Gentoo    male      61
+## 8 Gentoo    &lt;NA&gt;       5
 ```
 ]
+
+.panel[.panel-name[Mutate]
+#### Creating new variables with `mutate()`
+
+```r
+penguins %&gt;% 
+  group_by(species) %&gt;%
+  mutate(count_species = n()) %&gt;%
+  ungroup() %&gt;%
+  group_by(species, sex, count_species) %&gt;%
+  summarize(count = n()) %&gt;%
+  mutate(prop = count/count_species*100)
+## `summarise()` regrouping output by 'species', 'sex' (override with `.groups` argument)
+## # A tibble: 8 x 5
+## # Groups:   species, sex [8]
+##   species   sex    count_species count  prop
+##   &lt;fct&gt;     &lt;fct&gt;          &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 Adelie    female           152    73 48.0 
+## 2 Adelie    male             152    73 48.0 
+## 3 Adelie    &lt;NA&gt;             152     6  3.95
+## 4 Chinstrap female            68    34 50   
+## 5 Chinstrap male              68    34 50   
+## 6 Gentoo    female           124    58 46.8 
+## 7 Gentoo    male             124    61 49.2 
+## 8 Gentoo    &lt;NA&gt;             124     5  4.03
+```
+]
+
+.panel[.panel-name[Filter]
+#### Filtering rows using `filter()`
+
+```r
+penguins %&gt;% 
+  group_by(species) %&gt;%
+  mutate(count_species = n()) %&gt;%
+  ungroup() %&gt;%
+  group_by(species, sex, count_species) %&gt;%
+  summarize(count = n()) %&gt;%
+  mutate(percentage = count/count_species*100) %&gt;%
+  filter(species == "Chinstrap")
+## `summarise()` regrouping output by 'species', 'sex' (override with `.groups` argument)
+## # A tibble: 2 x 5
+## # Groups:   species, sex [2]
+##   species   sex    count_species count percentage
+##   &lt;fct&gt;     &lt;fct&gt;          &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;
+## 1 Chinstrap female            68    34         50
+## 2 Chinstrap male              68    34         50
+```
+]
+
 ]
 
 ---
@@ -822,6 +962,27 @@ background-size: 80px
 # stringr: info
 
 .panelset[
+
+.panel[.panel-name[Overview]
+
+.pull-left[
+### `stringr` helps us manipulate strings! The package includes many functions to help us with **regular expressions**, which are a concise language for describing patterns in strings.
+]
+
+.pull-right[
+### These functions help us
+
+-  detect matches
+-  subset strings
+-  manage string lengths
+-  mutate strings
+-  join and split strings
+-  order strings
+-  ...and more!
+]
+
+]
+
 .panel[.panel-name[Cheatsheet]
 
 <i class="fas  fa-file-pdf "></i> PDF: https://github.com/rstudio/cheatsheets/raw/master/strings.pdf
@@ -846,22 +1007,54 @@ background-size: 80px
 # stringr: exercise
 
 .panelset[
-.panel[.panel-name[Code]
+.panel[.panel-name[Mutate]
 
+### What does this chunk do?
 
 ```r
-penguins %&gt;% 
-  dplyr::n_distinct(species)
+penguins %&gt;%
+  select(species, island) %&gt;%
+  mutate(ISLAND = str_to_upper(island))
+## # A tibble: 344 x 3
+##    species island    ISLAND   
+##    &lt;fct&gt;   &lt;fct&gt;     &lt;chr&gt;    
+##  1 Adelie  Torgersen TORGERSEN
+##  2 Adelie  Torgersen TORGERSEN
+##  3 Adelie  Torgersen TORGERSEN
+##  4 Adelie  Torgersen TORGERSEN
+##  5 Adelie  Torgersen TORGERSEN
+##  6 Adelie  Torgersen TORGERSEN
+##  7 Adelie  Torgersen TORGERSEN
+##  8 Adelie  Torgersen TORGERSEN
+##  9 Adelie  Torgersen TORGERSEN
+## 10 Adelie  Torgersen TORGERSEN
+## # … with 334 more rows
 ```
 ]
 
-.panel[.panel-name[Result]
+.panel[.panel-name[Join]
 
+### How about this one?
 
 ```r
-penguins %&gt;% 
-  dplyr::n_distinct(species)
-## Error in FUN(X[[i]], ...): object 'species' not found
+penguins %&gt;%
+  select(species, island) %&gt;%
+  mutate(ISLAND = str_to_upper(island)) %&gt;%
+  mutate(species_island = str_c(species, ISLAND, sep = "_"))
+## # A tibble: 344 x 4
+##    species island    ISLAND    species_island  
+##    &lt;fct&gt;   &lt;fct&gt;     &lt;chr&gt;     &lt;chr&gt;           
+##  1 Adelie  Torgersen TORGERSEN Adelie_TORGERSEN
+##  2 Adelie  Torgersen TORGERSEN Adelie_TORGERSEN
+##  3 Adelie  Torgersen TORGERSEN Adelie_TORGERSEN
+##  4 Adelie  Torgersen TORGERSEN Adelie_TORGERSEN
+##  5 Adelie  Torgersen TORGERSEN Adelie_TORGERSEN
+##  6 Adelie  Torgersen TORGERSEN Adelie_TORGERSEN
+##  7 Adelie  Torgersen TORGERSEN Adelie_TORGERSEN
+##  8 Adelie  Torgersen TORGERSEN Adelie_TORGERSEN
+##  9 Adelie  Torgersen TORGERSEN Adelie_TORGERSEN
+## 10 Adelie  Torgersen TORGERSEN Adelie_TORGERSEN
+## # … with 334 more rows
 ```
 ]
 ]
@@ -883,6 +1076,18 @@ background-size: 80px
 # tidyr: info
 
 .panelset[
+
+.panel[.panel-name[Overview]
+&gt; There are three interrelated rules which make a dataset tidy:
+
+&gt; - Each variable must have its own column.
+&gt; - Each observation must have its own row.
+&gt; - Each value must have its own cell.
+
+![](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png)
+
+]
+
 .panel[.panel-name[Cheatsheet]
 
 <i class="fas  fa-file-pdf "></i> PDF: https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf
@@ -907,22 +1112,63 @@ background-size: 80px
 # tidyr: exercise
 
 .panelset[
-.panel[.panel-name[Code]
+.panel[.panel-name[Un-tidying]
+
+### Both penguin datasets are already tidy!
+
+We can pretend that it wasn't and that `body_mass_g` was recorded separately for `male`, `female`, and sex `NA` penguins. Like `untidy_penguins`.
 
 
 ```r
-penguins %&gt;% 
-  dplyr::n_distinct(species)
+untidy_penguins &lt;-
+  penguins %&gt;%
+    pivot_wider(names_from = sex,
+                values_from = body_mass_g)
+untidy_penguins
+## # A tibble: 344 x 9
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm  year  male female  `NA`
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181  2007  3750     NA    NA
+##  2 Adelie  Torgersen           39.5          17.4               186  2007    NA   3800    NA
+##  3 Adelie  Torgersen           40.3          18                 195  2007    NA   3250    NA
+##  4 Adelie  Torgersen           NA            NA                  NA  2007    NA     NA    NA
+##  5 Adelie  Torgersen           36.7          19.3               193  2007    NA   3450    NA
+##  6 Adelie  Torgersen           39.3          20.6               190  2007  3650     NA    NA
+##  7 Adelie  Torgersen           38.9          17.8               181  2007    NA   3625    NA
+##  8 Adelie  Torgersen           39.2          19.6               195  2007  4675     NA    NA
+##  9 Adelie  Torgersen           34.1          18.1               193  2007    NA     NA  3475
+## 10 Adelie  Torgersen           42            20.2               190  2007    NA     NA  4250
+## # … with 334 more rows
 ```
+
 ]
 
-.panel[.panel-name[Result]
+.panel[.panel-name[Re-tidying]
+
+### Now let's make it tidy again!
+
+#### We'll use the help of `pivot_longer()`
 
 
 ```r
-penguins %&gt;% 
-  dplyr::n_distinct(species)
-## Error in FUN(X[[i]], ...): object 'species' not found
+untidy_penguins %&gt;%
+  pivot_longer(cols = male:`NA`, 
+               names_to = "sex",
+               values_to = "body_mass_g")
+## # A tibble: 1,032 x 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm  year sex    body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt; &lt;int&gt; &lt;chr&gt;        &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181  2007 male          3750
+##  2 Adelie  Torgersen           39.1          18.7               181  2007 female          NA
+##  3 Adelie  Torgersen           39.1          18.7               181  2007 NA              NA
+##  4 Adelie  Torgersen           39.5          17.4               186  2007 male            NA
+##  5 Adelie  Torgersen           39.5          17.4               186  2007 female        3800
+##  6 Adelie  Torgersen           39.5          17.4               186  2007 NA              NA
+##  7 Adelie  Torgersen           40.3          18                 195  2007 male            NA
+##  8 Adelie  Torgersen           40.3          18                 195  2007 female        3250
+##  9 Adelie  Torgersen           40.3          18                 195  2007 NA              NA
+## 10 Adelie  Torgersen           NA            NA                  NA  2007 male            NA
+## # … with 1,022 more rows
 ```
 ]
 ]
@@ -968,32 +1214,112 @@ background-size: 80px
 # purrr: exercise
 
 .panelset[
+.panel[.panel-name[Goal]
+
+.pull-left[
+### Ok, we love our earlier boxplot showing us `body_mass_g` by `sex` and colored by `species`... but let's change up the colors to keep with our Antarctica theme!
+
+### I'm a big fan of the color palettes in the `nord` 📦
+]
+.pull-right[
+![](https://raw.githubusercontent.com/jkaupp/nord/master/man/figures/README-palettes-1.png)
+]
+]
+
+.panel[.panel-name[Plot]
+
+.pull-left[
+### Let's turn this plot
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-48-1.png" width="504" /&gt;
+]
+
+.pull-right[
+### Into this one!
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-49-1.png" width="504" /&gt;
+
 .panel[.panel-name[Code]
+
+.pull-left[
+
+```r
+library(nord)
+```
 
 
 ```r
-penguins %&gt;% 
-  dplyr::n_distinct(species)
+penguins %&gt;%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  nord::scale_fill_nord(palette = "frost")
 ```
+]
+
+.pull-right[
+
+```r
+# you can choose colors using the color hex codes
+nord::nord_palettes$frost
+## [1] "#8FBCBB" "#88C0D0" "#81A1C1" "#5E81AC"
+```
+
+
+```r
+# but you might prefer to use `scale_fill_manual()`
+penguins %&gt;%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  scale_fill_manual(values = nord::nord_palettes$frost)
+```
+]
 ]
 
 .panel[.panel-name[Result]
+.pull-left[
+
+```r
+penguins %&gt;%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  scale_fill_manual(values = nord::nord_palettes$frost)
+```
+]
+
+.pull-right[
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-55-1.png" width="504" /&gt;
+]
+]
+
+.panel[.panel-name[Purrr?]
+
+.pull-left[
+The `prismatic` 📦 help us **see** the colors that correspond to each color hex code (mostly)
 
 
 ```r
-penguins %&gt;% 
-  dplyr::n_distinct(species)
-## Error in FUN(X[[i]], ...): object 'species' not found
+library(prismatic)
 ```
+
+
+```r
+prismatic::color(nord::nord_palettes$frost)
+```
+![](../slides/images/nord_frost.png)
+]
+
+.pull-right[
+`purrr`'s `map()` function can help us iterate the `prismatic::color()` function over all palettes in a palette package like `nord`!
+
+
+```r
+nord::nord_palettes %&gt;% map(prismatic::color)
+```
+
+![](../slides/images/nord_multiple.png)
 ]
 ]
-
----
-class: left, middle
-
-# How can we practice?
-
-## #TidyTuesdays!
+]
+]
+]
 
 ---
 class: about-me, middle, center
