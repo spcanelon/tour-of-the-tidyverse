@@ -901,6 +901,13 @@ background-size: 80px
 # forcats: info
 
 .panelset[
+
+.panel[.panel-name[Overview]
+### Helps us work with **categorical variables** or factors. 
+
+### These are variables that have a fixed and known set of possible values, like `species`, `island`, and `sex` in our `penguins` dataset.
+]
+
 .panel[.panel-name[Cheatsheet]
 
 <i class="fas  fa-file-pdf "></i> PDF: https://github.com/rstudio/cheatsheets/raw/master/factors.pdf
@@ -926,22 +933,60 @@ background-size: 80px
 
 .panelset[
 .panel[.panel-name[Code]
+.pull-left[
+### Currently the `year` variable in `penguins` is continuous from 2007 to 2009.
 
+### There may be situations where this isn't what we want and we might want to turn it into a categorical variable instead.
+]
+
+.pull-right[
+
+### The `factor()` function is perfect for this.
 
 ```r
-penguins %&gt;% 
-  dplyr::n_distinct(species)
+penguins %&gt;%
+  mutate(year_factor = factor(year, levels = unique(year)))
 ```
 ]
 
-.panel[.panel-name[Result]
 
+]
+
+.panel[.panel-name[Result]
+### The result is a new factor `year_factor` with levels `2007`, `2008` and `2009`
+.pull-left[
 
 ```r
-penguins %&gt;% 
-  dplyr::n_distinct(species)
-## Error in FUN(X[[i]], ...): object 'species' not found
+penguins_new &lt;-
+  penguins %&gt;%
+  mutate(year_factor = factor(year, levels = unique(year)))
+penguins_new
+## # A tibble: 344 x 9
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year year_factor
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt; &lt;fct&gt;      
+##  1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007 2007       
+##  2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007 2007       
+##  3 Adelie  Torgersen           40.3          18                 195        3250 female  2007 2007       
+##  4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007 2007       
+##  5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007 2007       
+##  6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007 2007       
+##  7 Adelie  Torgersen           38.9          17.8               181        3625 female  2007 2007       
+##  8 Adelie  Torgersen           39.2          19.6               195        4675 male    2007 2007       
+##  9 Adelie  Torgersen           34.1          18.1               193        3475 &lt;NA&gt;    2007 2007       
+## 10 Adelie  Torgersen           42            20.2               190        4250 &lt;NA&gt;    2007 2007       
+## # … with 334 more rows
 ```
+]
+
+.pull-right[
+
+```r
+class(penguins_new$year_factor)
+## [1] "factor"
+levels(penguins_new$year_factor)
+## [1] "2007" "2008" "2009"
+```
+]
 ]
 ]
 
@@ -1190,6 +1235,13 @@ background-size: 80px
 # purrr: info
 
 .panelset[
+
+.panel[.panel-name[Overview]
+### Provides tools for working with functions and vectors 
+
+### The `map()` family of functions helps us replace for loops, &lt;br/&gt; making our code easier to read and more succint.
+]
+
 .panel[.panel-name[Cheatsheet]
 
 <i class="fas  fa-file-pdf "></i> PDF: https://github.com/rstudio/cheatsheets/raw/master/purrr.pdf
@@ -1230,12 +1282,12 @@ background-size: 80px
 
 .pull-left[
 ### Let's turn this plot
-&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-48-1.png" width="504" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-49-1.png" width="504" /&gt;
 ]
 
 .pull-right[
 ### Into this one!
-&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-49-1.png" width="504" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-50-1.png" width="504" /&gt;
 
 .panel[.panel-name[Code]
 
@@ -1250,7 +1302,7 @@ library(nord)
 penguins %&gt;%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  nord::scale_fill_nord(palette = "frost")
+  scale_fill_manual(values = nord::nord_palettes$frost)
 ```
 ]
 
@@ -1264,11 +1316,14 @@ nord::nord_palettes$frost
 
 
 ```r
-# but you might prefer to use `scale_fill_manual()`
+# but you might prefer to use `scale_fill_manual()` 
+# or more specialized functions like `scale_fill_nord()` 
+# included in the {nord} package
 penguins %&gt;%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
   scale_fill_manual(values = nord::nord_palettes$frost)
+  #scale_fill_nord(palette = "frost")
 ```
 ]
 ]
@@ -1280,12 +1335,13 @@ penguins %&gt;%
 penguins %&gt;%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = nord::nord_palettes$frost)
+  #scale_fill_manual(values = nord::nord_palettes$frost)
+  scale_fill_nord(palette = "frost")
 ```
 ]
 
 .pull-right[
-&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-55-1.png" width="504" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-56-1.png" width="504" /&gt;
 ]
 ]
 
@@ -1319,6 +1375,20 @@ nord::nord_palettes %&gt;% map(prismatic::color)
 ]
 ]
 ]
+
+.panel[.panel-name[More palettes!]
+
+.pull-left[
+### [r-color-palettes repo](https://github.com/EmilHvitfeldt/r-color-palettes) from Emil Hvitfeldt
+
+### Like this Wes Anderson themed one! And many, many others. 🤩
+]
+
+.pull-right[
+![](../slides/images/wesanderson_example.png)
+]
+]
+
 ]
 
 ---

@@ -630,6 +630,13 @@ background-size: 80px
 # forcats: info
 
 .panelset[
+
+.panel[.panel-name[Overview]
+### Helps us work with **categorical variables** or factors. 
+
+### These are variables that have a fixed and known set of possible values, like `species`, `island`, and `sex` in our `penguins` dataset.
+]
+
 .panel[.panel-name[Cheatsheet]
 
 `r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/factors.pdf
@@ -657,19 +664,41 @@ knitr::include_graphics("../slides/images/r4ds-cover.png")
 
 .panelset[
 .panel[.panel-name[Code]
+.pull-left[
+### Currently the `year` variable in `penguins` is continuous from 2007 to 2009.
 
+### There may be situations where this isn't what we want and we might want to turn it into a categorical variable instead.
+]
+
+.pull-right[
+
+### The `factor()` function is perfect for this.
 ```{r eval=FALSE}
-penguins %>% 
-  dplyr::n_distinct(species)
+penguins %>%
+  mutate(year_factor = factor(year, levels = unique(year)))
 ```
 ]
 
-.panel[.panel-name[Result]
 
-```{r error=TRUE}
-penguins %>% 
-  dplyr::n_distinct(species)
+]
+
+.panel[.panel-name[Result]
+### The result is a new factor `year_factor` with levels `2007`, `2008` and `2009`
+.pull-left[
+```{r}
+penguins_new <-
+  penguins %>%
+  mutate(year_factor = factor(year, levels = unique(year)))
+penguins_new
 ```
+]
+
+.pull-right[
+```{r}
+class(penguins_new$year_factor)
+levels(penguins_new$year_factor)
+```
+]
 ]
 ]
 
@@ -868,6 +897,13 @@ background-size: 80px
 # purrr: info
 
 .panelset[
+
+.panel[.panel-name[Overview]
+### Provides tools for working with functions and vectors 
+
+### The `map()` family of functions helps us replace for loops, <br/> making our code easier to read and more succint.
+]
+
 .panel[.panel-name[Cheatsheet]
 
 `r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/purrr.pdf
@@ -923,7 +959,7 @@ penguins %>%
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  nord::scale_fill_nord(palette = "frost")
+  scale_fill_manual(values = nord::nord_palettes$frost)
 ```
 
 .panel[.panel-name[Code]
@@ -937,7 +973,7 @@ library(nord)
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  nord::scale_fill_nord(palette = "frost")
+  scale_fill_manual(values = nord::nord_palettes$frost)
 ```
 ]
 
@@ -948,11 +984,14 @@ nord::nord_palettes$frost
 ```
 
 ```{r eval=FALSE, warning=FALSE, fig.height=5}
-# but you might prefer to use `scale_fill_manual()`
+# but you might prefer to use `scale_fill_manual()` 
+# or more specialized functions like `scale_fill_nord()` 
+# included in the {nord} package
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
   scale_fill_manual(values = nord::nord_palettes$frost)
+  #scale_fill_nord(palette = "frost")
 ```
 ]
 ]
@@ -963,7 +1002,8 @@ penguins %>%
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = nord::nord_palettes$frost)
+  #scale_fill_manual(values = nord::nord_palettes$frost)
+  scale_fill_nord(palette = "frost")
 ```
 ]
 
@@ -972,7 +1012,8 @@ penguins %>%
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = nord::nord_palettes$frost)
+  #scale_fill_manual(values = nord::nord_palettes$frost)
+  scale_fill_nord(palette = "frost")
 ```
 ]
 ]
@@ -1004,6 +1045,20 @@ nord::nord_palettes %>% map(prismatic::color)
 ]
 ]
 ]
+
+.panel[.panel-name[More palettes!]
+
+.pull-left[
+### [r-color-palettes repo](https://github.com/EmilHvitfeldt/r-color-palettes) from Emil Hvitfeldt
+
+### Like this Wes Anderson themed one! And many, many others. `r emo::ji("star_struck")`
+]
+
+.pull-right[
+![](../slides/images/wesanderson_example.png)
+]
+]
+
 ]
 
 ---

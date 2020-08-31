@@ -196,25 +196,53 @@ penguins %>%
 
 
 # forcats 
-**Work in progress**
+
+Currently the `year` variable in `penguins` is continuous from 2007 to 2009.
+
+There may be situations where this isn't what we want and we might want to turn it into a categorical variable instead.
+
+The `factor()` function is perfect for this.
+```{r}
+penguins %>%
+  mutate(year_factor = factor(year, levels = unique(year)))
+```
+
+The result is a new factor `year_factor` with levels `2007`, `2008` and `2009`!
+
+```{r}
+penguins_new <-
+  penguins %>%
+  mutate(year_factor = factor(year, levels = unique(year)))
+penguins_new
+```
+
+Double check the variable class and factor levels below:
+
+```{r}
+class(penguins_new$year_factor)
+levels(penguins_new$year_factor)
+```
 
 # stringr 
 
 Let's play around with strings a little bit!
 
+From what we've learned so far, take a guess at what this code chunk will do before running it. 
+
 ```{r}
 penguins %>%
   select(species, island) %>%
   mutate(ISLAND = str_to_upper(island))
+```
 
+How about this one? How is it different from the previous code chunk?
+
+```{r}
 penguins %>%
   select(species, island) %>%
   mutate(ISLAND = str_to_upper(island)) %>%
   mutate(species_island = str_c(species, ISLAND, sep = "_"))
 ```
-
-- concatenate species and ID, or something?
-- add characters, remove characters, find patterns?
 
 # tidyr 
 
@@ -229,7 +257,8 @@ untidy_penguins <-
 untidy_penguins
 ```
 
-Now let's make it tidy!
+Now let's make it tidy again with the help of the `pivot_longer()` function!
+`pivot_wider()`is another very popular tidying function. Have you seen it before? Hint: see the code chunk above!
 
 ```{r}
 untidy_penguins %>%
@@ -239,47 +268,72 @@ untidy_penguins %>%
 ```
 
 # purrr 
-- add cool colors to our data viz using nord
-- nord::nord_palettes %>% map(prismatic::color) to see a color vector for all palette colors in palette list
+
+Ok, we love our earlier boxplot showing us `body_mass_g` by `sex` and colored by `species`... but let's change up the colors to keep with our Antarctica theme!
+
+I'm a big fan of the color palettes in the `nord` `r emo::ji("package")`
+
+![](https://raw.githubusercontent.com/jkaupp/nord/master/man/figures/README-palettes-1.png)
+
+Let's turn this plot:
 
 ```{r}
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species))
+```
+]
+
+Into this one!
+
+```{r}
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  scale_fill_manual(values = nord::nord_palettes$frost)
+```
+
+Let's try out the `frost` palette.
+
+```{r}
+# we'll need to load the {nord} package
 library(nord)
+
+# you can choose colors using the color hex codes
+nord::nord_palettes$frost
+```
+]
+
+
+```{r}
+# but you might prefer to use `scale_fill_manual()` 
+# or more specialized functions like `scale_fill_nord()` 
+# included in the {nord} package
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  scale_fill_manual(values = nord::nord_palettes$frost)
+  #scale_fill_nord(palette = "frost")
+```
+
+Ok now for a handy package/function trio!
+
+```{r}
+# we'll have to load the {prismatic} package
 library(prismatic)
+
+prismatic::color(nord::nord_palettes$frost)
+```
+
+`purrr`'s `map()` function can help us iterate the `prismatic::color()` function over all palettes in a palette package like `nord`!
+
+> Note: Not all colors will show well, like `polarnight` below. `prismatic::color()` relies on a package that kinda has limited functionality in this sense (`crayon`). It's doing it's best :)
+
+```{r, eval = FALSE}
 nord::nord_palettes %>% map(prismatic::color)
-
-```
-```{r}
-my_nord_show_palette <- function(palette) {
-
-   name <- palette
-
-   palette <- nord(palette)
-
-   n <- length(palette)
-
-   if (length(palette > 0)) {
-
-    graphics::image(1:n, 1, as.matrix(1:n), col = palette,
-          xlab = "", ylab = palette, xaxt = "n", yaxt = "n",
-          bty = "n")
-    graphics::title(main = name)
-
-  }
-}
 ```
 
-
-```{r}
-plot(prismatic::color(nord_palettes$polarnight))
-mtext(nord_palettes$polarnight, labels=nord_palettes$polarnight)
-
-my_nord_show_palette("polarnight")
-nord_show_palette("polarnight")
-nord("polarnight")
-```
-
-
-# Extra ideas
+# Extra material below! ##########################################################################
 
 ## Recreating a {palmerpenguins} plot
 
@@ -348,8 +402,6 @@ penguins %>%
 ```
 
 
-
-
 # TidyTuesday
 
 ## Getting started
@@ -378,7 +430,7 @@ readme(tt_data)
 print(tt_data)
 ```
 
-## Level up
+## Level up with modeling
 - [Julia Silge (RStudio) teaches Tidymodels with {palmerpenguins} on YouTube](https://www.youtube.com/watch?v=z57i2GVcdww)
 
 ## Examples
@@ -390,8 +442,3 @@ print(tt_data)
 - General to #tidytuesday:
   - R-Ladies Chicago TidyTuesday leader Ola!: https://twitter.com/AmazingSpeciali
   - R-Ladies Chicago TidyTuesday setup: https://twitter.com/RLadiesChicago/status/1192243170412761088?s=20
-
-# Tomorrow's TidyTuesday!
-
-- Twitter post for 8/31 or 9/1
-- screenshot of the dataset ReadMe
