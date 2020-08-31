@@ -42,7 +42,7 @@ Let's get data into R!
 raw_adelie_url <- read_csv("https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.219.3&entityid=002f3893385f710df69eeebe893144ff")
 
 # option 2: load using filepath ----
-raw_adelie_filepath <- read_csv(here("raw_adelie.csv"))
+raw_adelie_filepath <- read_csv("raw_adelie.csv")
 ```
 
 Lucky for us, Allison Horst compiled data from all three species together for us in the {palmerpenguins} package!
@@ -70,7 +70,7 @@ as_tibble(penguins)
 as.data.frame(penguins)
 ```
 
-**CHAT BOX: WHAT DIFFERENCES DO YOU SEE?**
+# What differences do you see?
 You might see a tibble prints:
 - variable classes
 - only 10 rows
@@ -134,7 +134,7 @@ penguins %>%
 
 # What do you notice?
 ```
-**CHAT BOX: WHAT OBSERVATIONS CAN YOU MAKE FROM THE PLOT?**
+# What observations can you make from the plot?
 You might see:
 - Gentoo penguins have higher body mass than Adelie and Chinstrap penguins
 - Higher body mass among male Gentoo penguins compared to female penguins
@@ -339,7 +339,7 @@ nord::nord_palettes %>% map(prismatic::color)
 
 Let's practice in real time!
 
-![https://github.com/allisonhorst/palmerpenguins](artwork/README-flipper-bill-1.png)
+![https://github.com/allisonhorst/palmerpenguins](https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/README-flipper-bill-1.png)
 
 ```{r scatterplot-bill-length}
 # scatterplot sequence ----
