@@ -1,2 +1,2 @@
 # 2020-rladies-chi-tidyverse
-An Arctic Tour of the Tidyverse: a tutorial created for R-Ladies Chicago
+An Antarctic Tour of the Tidyverse: a tutorial created for a virtual R-Ladies Chicago event.
