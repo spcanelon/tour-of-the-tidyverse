@@ -1,0 +1,652 @@
+---
+title: "An Antarctic Tour of the Tidyverse"
+subtitle: "R-Ladies Chicago"
+author: "Silvia Canelón, PhD"
+institute: "University of Pennsylvania, Philadelphia, PA, US"
+date: "August 31, 2020"
+output:
+  xaringan::moon_reader:
+    css: ["default", "rladies-spc.css", "rladies-fonts-spc.css"]
+    #css: ["default", "rladies", "rladies-fonts"]
+    lib_dir: libs
+    seal: false 
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      highlightLanguage: ["r", "css", "yaml"]
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(collapse = TRUE,
+                      fig.retina = 3)
+
+
+library(tidyverse)
+library(palmerpenguins)
+library(nord)
+library(prismatic)
+library(xaringanExtra)
+xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view"))
+```
+
+
+class: title-slide, center, bottom
+
+```{r, echo=FALSE, out.width=400}
+knitr::include_graphics("../slides/images/lter_penguins.png")
+```
+# `r rmarkdown::metadata$title`
+
+## `r rmarkdown::metadata$subtitle`
+
+### `r rmarkdown::metadata$author`
+
+### August 31, 2020
+
+???
+
+Hello! I'm excited to be here virtually with R-Ladies Chicago, thank you for having me.
+
+---
+class: about-me, middle, center
+
+## Silvia Canelón 
+
+### Postdoctoral Research Scientist
+
+### University of Pennsylvania, Philadelphia, PA, USA
+
+<img style="border-radius: 50%;" src="https://silvia.rbind.io/authors/silvia/avatar_hu5008cfaae4fe27558f3c3604a254cbf4_10721386_270x270_fill_lanczos_center_2.png" width="150px"/>
+
+
+[`r icon::fa("link")` silvia.rbind.io](https://silvia.rbind.io)
+
+[`r icon::fa("twitter")` @spcanelon](https://twitter.com/spcanelon) 
+
+[`r icon::fa("github")` @spcanelon](https://github.com/spcanelon)  
+
+.footnote[<span>Photo by <a href="https://unsplash.com/@lukehuff?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">lucas huffman</a> on <a href="https://unsplash.com/s/photos/antarctica?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>]
+
+???
+
+Hi! I'm Silvia Canelón and I'm a postdoctoral research scientist at the University of Pennsylvania.
+
+---
+layout: true
+
+background-color: black;
+
+---
+class: left, middle
+
+# Acknowledgments
+
+### [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/articles/intro.html) `r emo::ji("package")` developed by Drs. [Allison Horst](https://www.allisonhorst.com/), [Alison Hill](https://alison.rbind.io/), and [Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php).
+
+### Penguin artwork by Allison Horst ([@allison_horst](https://twitter.com/allison_horst))
+
+### Slide inspiration from Alison Hill ([@apreshill](https://twitter.com/apreshill))'s recent education training materials "[Teaching in Production](https://rstudio-education.github.io/teaching-in-production/)"
+
+### Slides made using Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`, and adapted from the R-Ladies `xaringan` theme designed by [Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
+
+### Photographs from various photographers on Unsplash, and noted on the relevant slide
+
+---
+class: left, top
+background-image: url(/slides/images/logo.png)
+background-position: 92% 10%
+background-size: 80px
+
+# Meet our penguin friends!
+
+<div class="flex" style="margin: 0 0em;">
+  <div class="column">
+    <h3> Chinstrap </h3>
+    <img src="/slides/images/penguin_chinstrap.jpg" style="width: 100%;">
+  </div>
+  
+  <div class="column" style="margin: 0 1em;">
+    <h3> Gentoo </h3>
+    <img src="/slides/images/penguin_gentoo.jpg" style="">
+  </div>
+  
+  <div class="column" style="margin: 0 0em;">
+    <h3> Adélie </h3>
+    <img src="/slides/images/penguin_adelie.jpg" style="">
+  </div>
+</div>
+
+.footnote[`r emo::ji("penguin")`<span>Photos by <a href="https://unsplash.com/@longmaspirit?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Long Ma</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+class: right, top
+background-image: url(/slides/images/pptx/tidyverse.png)
+background-size: 1150px
+
+## Collection of R packages, including <br/> these 8 core packages (and more!)
+
+---
+background-image: url(/slides/images/antarctica.jpg)
+background-size: cover
+
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("../slides/images/pptx/01-readr.png")
+```
+
+.footnote[
+<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+background-image: url(../slides/images/hex/readr.png)
+background-position: 92% 10%
+background-size: 80px
+  
+# readr: info
+
+.panelset[
+.panel[.panel-name[Cheatsheet]
+
+`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-import-cheatsheet-thumbs.png)
+]
+
+.panel[.panel-name[Reading]
+
+.left-column[
+```{r echo=FALSE}
+knitr::include_graphics("../slides/images/r4ds-cover.png")
+```
+]
+
+.right-column[
+### R for Data Science: [Ch 11 Data import](https://r4ds.had.co.nz/data-import.html)
+
+### Package documentation: https://readr.tidyverse.org/
+]
+]
+
+]
+
+---
+# readr: exercise
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r eval=FALSE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+
+.panel[.panel-name[Result]
+
+```{r error=TRUE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+]
+
+---
+background-image: url(/slides/images/antarctica.jpg)
+background-size: cover
+
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("../slides/images/pptx/02-tibble.png")
+```
+
+.footnote[
+<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+background-image: url(../slides/images/hex/tibble.png)
+background-position: 92% 10%
+background-size: 80px
+  
+# tibble: info
+
+.panelset[
+.panel[.panel-name[Cheatsheet]
+
+`r icon::fa("file-pdf")` PDF (tidyr): https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-import-cheatsheet-thumbs.png)
+]
+
+.panel[.panel-name[Reading]
+
+.left-column[
+```{r echo=FALSE}
+knitr::include_graphics("../slides/images/r4ds-cover.png")
+```
+]
+
+.right-column[
+### R for Data Science: [Ch 10 Tibbles](https://r4ds.had.co.nz/tibbles.html)
+
+### Package documentation: https://tibble.tidyverse.org/
+]
+]
+
+]
+
+---
+# tibble: exercise
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r eval=FALSE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+
+.panel[.panel-name[Result]
+
+```{r error=TRUE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+]
+
+---
+background-image: url(/slides/images/antarctica.jpg)
+background-size: cover
+
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("../slides/images/pptx/03-ggplot2.png")
+```
+
+.footnote[
+<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+background-image: url(../slides/images/hex/ggplot2.png)
+background-position: 92% 10%
+background-size: 80px
+  
+# ggplot2: info
+
+.panelset[
+.panel[.panel-name[Cheatsheet]
+
+`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-visualization-cheatsheet-thumbs.png)
+]
+
+.panel[.panel-name[Reading]
+
+.left-column[
+```{r echo=FALSE}
+knitr::include_graphics("../slides/images/r4ds-cover.png")
+```
+]
+
+.right-column[
+### R for Data Science: [Ch 3 Data visualization](https://r4ds.had.co.nz/data-visualisation.html)
+
+### Package documentation: https://ggplot2.tidyverse.org/
+]
+]
+
+]
+
+---
+# ggplot2: exercise
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r eval=FALSE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+
+.panel[.panel-name[Result]
+
+```{r error=TRUE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+]
+
+---
+background-image: url(/slides/images/antarctica.jpg)
+background-size: cover
+
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("../slides/images/pptx/04-dplyr.png")
+```
+
+.footnote[
+<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+background-image: url(../slides/images/hex/dplyr.png)
+background-position: 92% 10%
+background-size: 80px
+  
+# dplyr: info
+
+.panelset[
+.panel[.panel-name[Cheatsheet]
+
+`r icon::fa("file-pdf")` `r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-transformation-cheatsheet-thumbs.png)
+]
+
+.panel[.panel-name[Reading]
+
+.left-column[
+```{r echo=FALSE}
+knitr::include_graphics("../slides/images/r4ds-cover.png")
+```
+]
+
+.right-column[
+### R for Data Science: [Ch 11 Data transformation](https://r4ds.had.co.nz/transform.html)
+
+### Package documentation: https://dplyr.tidyverse.org/
+]
+]
+]
+
+---
+# dplyr: exercise
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r eval=FALSE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+
+.panel[.panel-name[Result]
+
+```{r error=TRUE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+]
+
+---
+background-image: url(/slides/images/antarctica.jpg)
+background-size: cover
+
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("../slides/images/pptx/05-forcats.png")
+```
+
+.footnote[
+<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+background-image: url(../slides/images/hex/forcats.png)
+background-position: 92% 10%
+background-size: 80px
+  
+# forcats: info
+
+.panelset[
+.panel[.panel-name[Cheatsheet]
+
+`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/factors.pdf
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/forcats-cheatsheet-thumbs.png)
+]
+
+.panel[.panel-name[Reading]
+
+.left-column[
+```{r echo=FALSE}
+knitr::include_graphics("../slides/images/r4ds-cover.png")
+```
+]
+
+.right-column[
+### R for Data Science: [Ch 15 Factors](https://r4ds.had.co.nz/factors.html)
+
+### Package documentation: https://forcats.tidyverse.org/
+]
+]
+
+]
+
+---
+# forcats: exercise
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r eval=FALSE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+
+.panel[.panel-name[Result]
+
+```{r error=TRUE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+]
+
+---
+background-image: url(/slides/images/antarctica.jpg)
+background-size: cover
+
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("../slides/images/pptx/06-stringr.png")
+```
+
+.footnote[
+<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+background-image: url(../slides/images/hex/stringr.png)
+background-position: 92% 10%
+background-size: 80px
+  
+# stringr: info
+
+.panelset[
+.panel[.panel-name[Cheatsheet]
+
+`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/strings.pdf
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/strings-cheatsheet-thumbs.png)
+]
+
+.panel[.panel-name[Reading]
+
+.left-column[
+```{r echo=FALSE}
+knitr::include_graphics("../slides/images/r4ds-cover.png")
+```
+]
+
+.right-column[
+### R for Data Science: [Ch 14 Strings](https://r4ds.had.co.nz/strings.html)
+
+### Package documentation: https://stringr.tidyverse.org/
+]
+]
+]
+
+---
+# stringr: exercise
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r eval=FALSE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+
+.panel[.panel-name[Result]
+
+```{r error=TRUE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+]
+
+---
+background-image: url(/slides/images/antarctica.jpg)
+background-size: cover
+
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("../slides/images/pptx/07-tidyr.png")
+```
+
+.footnote[
+<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+background-image: url(../slides/images/hex/tidyr.png)
+background-position: 92% 10%
+background-size: 80px
+  
+# tidyr: info
+
+.panelset[
+.panel[.panel-name[Cheatsheet]
+
+`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-import-cheatsheet-thumbs.png)
+]
+
+.panel[.panel-name[Reading]
+
+.left-column[
+```{r echo=FALSE}
+knitr::include_graphics("../slides/images/r4ds-cover.png")
+```
+]
+
+.right-column[
+### R for Data Science: [Ch 12 Tidy data](https://r4ds.had.co.nz/tidy-data.html)
+
+### Package documentation: https://tidyr.tidyverse.org/
+]
+]
+]
+
+---
+# tidyr: exercise
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r eval=FALSE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+
+.panel[.panel-name[Result]
+
+```{r error=TRUE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+]
+
+---
+background-image: url(/slides/images/antarctica.jpg)
+background-size: cover
+
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("../slides/images/pptx/08-purrr.png")
+```
+
+.footnote[
+<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+background-image: url(../slides/images/hex/purrr.png)
+background-position: 92% 10%
+background-size: 80px
+  
+# purrr: info
+
+.panelset[
+.panel[.panel-name[Cheatsheet]
+
+`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/purrr.pdf
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/purrr-cheatsheet-thumbs.png)
+]
+
+.panel[.panel-name[Reading]
+
+.left-column[
+```{r echo=FALSE}
+knitr::include_graphics("../slides/images/r4ds-cover.png")
+```
+]
+
+.right-column[
+### R for Data Science: [Ch 21 Iteration](https://r4ds.had.co.nz/iteration.html)
+
+### Package documentation: https://purrr.tidyverse.org/
+]
+]
+]
+
+---
+# purrr: exercise
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r eval=FALSE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+
+.panel[.panel-name[Result]
+
+```{r error=TRUE}
+penguins %>% 
+  dplyr::n_distinct(species)
+```
+]
+]
+
+---
+class: left, middle
+
+# How can we practice?
+
+## #TidyTuesdays!
+
+---
+class: about-me, middle, center
+
+# Thank you! 
+
+## Any questions?

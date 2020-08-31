@@ -1,0 +1,111 @@
+h1, h2, h3 {
+  font-weight: normal;
+  color: #562457;
+}
+a, a > code {
+  color: #88398a;
+}
+.remark-code-line-highlighted { 
+  background-color: rgba(136, 57, 138, 0.3); 
+}
+
+.inverse {
+  /*background-color: #2E3440;*/
+  background-color: #562457;
+  text-shadow: none;
+}
+
+.inverse, .inverse h1, .inverse h2, .inverse h3, .inverse a, inverse a > code {
+  color: #ECEFF4;
+}
+
+/* title slide */
+.title-slide {
+  background-color: #562457;
+}
+.title-slide h1 {
+  color: #ECEFF4;
+}
+.title-slide h2, .title-slide h3 {
+  color: #ECEFF4; 
+  line-height: 1em;
+}
+
+/* about me slide */
+.about-me {
+  background-image: url(https://images.unsplash.com/photo-1505168125601-4ddfdea4c7e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80);
+  background-position: 52% 5%;
+  background-size: cover;
+  background-color: #181830;
+}
+.about-me h1 {
+  color: #562457;
+  opacity: 1;
+}
+.about-me h2, .about-me h3 {
+  color: #562457; 
+  line-height: 1em;
+  font-weight: 400;
+}
+.about-me a {
+  color: #88398a;
+}
+
+/* footnotes */
+.footnote {
+  position: absolute;
+  bottom: 1em;
+  right: 5px;
+  padding-right: 1em;
+  font-size: 80%;
+}
+
+/* 3-column split */
+/* https://rstudio-education.github.io/teaching-in-production/ */
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+
+
+/*-------*/
+
+
+.columns {
+  display: flex;
+}
+
+.left-col {
+  width: 33%;
+  text-align: left;
+}
+
+.middle-col {
+  width: 33%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.right-col {
+  width: 33%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* inline code highlighting */
+/* https://github.com/yihui/xaringan/wiki/Inline-code-highlighting */
+
+.remark-inline-code{
+  /* background: #F5F5F5; /* lighter */
+  background: #e7e8e2; /* darker */
+  border-radius: 2px;
+  padding: 1.5px;
+}

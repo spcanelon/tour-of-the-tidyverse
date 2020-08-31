@@ -1,0 +1,368 @@
+---
+title: "An Arctic Tour of the Tidyverse"
+author: "Silvia P. Canelón, PhD (@spcanelon)"
+institute: University of Pennsylvania
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+  html_document:
+    toc: yes
+    df_print: paged
+---
+
+
+---
+
+- [{palmerpenguins} Documentation](https://allisonhorst.github.io/palmerpenguins/)
+- [Allison Horst's GitHub repo for Palmer Penguins dataset](https://github.com/allisonhorst/palmerpenguins)
+
+
+```{r, eval = FALSE}
+# install.packages("remotes")
+# remotes::install_github("allisonhorst/palmerpenguins")
+```
+
+```{r}
+# loading packages
+library(tidyverse)
+library(palmerpenguins)
+library(here) # << explain
+
+# viewing data sets in package "palmerpenguins"
+data(package = "palmerpenguins")
+```
+
+# readr 
+
+Let's get data into R!
+
+```{r}
+# option 1: load using URL ----
+raw_adelie_url <- read_csv("https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.219.3&entityid=002f3893385f710df69eeebe893144ff")
+
+# option 2: load using filepath ----
+raw_adelie_filepath <- read_csv(here("raw_adelie.csv"))
+```
+
+Lucky for us, Allison Horst compiled data from all three species together for us in the {palmerpenguins} package!
+
+- `penguins` contains a clean dataset, and
+- `penguins_raw` contains raw data
+
+```{r}
+# saves package tibble into global environment
+penguins <- palmerpenguins::penguins 
+head(penguins)
+
+penguins_raw <- palmerpenguins::penguins_raw
+head(penguins_raw)
+```
+
+# tibble 
+
+A `tibble` is much like the `data frame` in base R, but optimized for use in the Tidyverse. Let's take a look at the differences.
+
+```{r}
+# try each of these commands in the console and see if you can spot the differences!
+
+as_tibble(penguins)
+as.data.frame(penguins)
+```
+
+**CHAT BOX: WHAT DIFFERENCES DO YOU SEE?**
+You might see a tibble prints:
+- variable classes
+- only 10 rows
+- only as many columns as can fit on the screen
+- NAs are highlighted in console so they're easy to spot (font highlighting and styling in `tibble`)
+
+Not so much a concern in an R Markdown file, but noticeable in the console. Print method makes it easier to work with large datasets.
+
+There are a couple of other main differences, namely in **subsetting** and **recycling**. Check them out in the [`vignette("tibble")](https://tibble.tidyverse.org/articles/tibble.html)
+
+Try it out here!
+```{r}
+vignette("tibble")
+```
+
+
+## Taking a closer look at `penguins`
+
+Get a full view of the dataset:
+```{r}
+View(penguins)
+```
+
+Or catch a `glimpse`:
+```{r}
+glimpse(penguins)
+```
+
+# ggplot2 
+
+Let's start by making a simple plot of our data!
+
+`ggplot2` uses the "Grammar of Graphics" and layers graphical components together to create a plot.
+
+## Let's see if body mass varies by penguin sex
+
+```{r}
+penguins %>%
+  ggplot()
+
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g))
+
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_point()
+
+# A scatter plot doesn't really tell us much.
+# Let's try a different geometry
+
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot()
+
+# That's more informative!
+# Let's see if there are differences by penguin species
+
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species))
+
+# What do you notice?
+```
+**CHAT BOX: WHAT OBSERVATIONS CAN YOU MAKE FROM THE PLOT?**
+You might see:
+- Gentoo penguins have higher body mass than Adelie and Chinstrap penguins
+- Higher body mass among male Gentoo penguins compared to female penguins
+- Pattern not as discernable when comparing Adelie and Chinstrap penguins
+- No `NA`s among Chinstrap penguin data points! `sex` was available for each observation
+
+I wonder what percentage of observations are `NA` for each species? Let's get the tidyverse to help us with this!
+
+Next stop, `dplyr`!
+
+# dplyr 
+
+```{r}
+glimpse(penguins)
+```
+
+Selecting dataset columns with `select()`
+```{r select}
+penguins %>%
+  select(species, sex, body_mass_g)
+```
+
+Reordering the data set with `arrange()`
+```{r arrange}
+penguins %>%
+  select(species, sex, body_mass_g) %>%
+  arrange(desc(body_mass_g))
+```
+
+Summarizing the data using `group_by()` and `summarize()`
+```{r group-by-summarize}
+penguins %>% 
+  group_by(species, sex) %>%
+  summarize(count = n())
+```
+
+Creating new variables with `mutate()`
+```{r mutate}
+penguins %>% 
+  group_by(species) %>%
+  mutate(count_species = n()) %>%
+  ungroup() %>%
+  group_by(species, sex, count_species) %>%
+  summarize(count = n()) %>%
+  mutate(percentage = count/count_species*100)
+```
+
+Filtering rows using `filter()`
+```{r filter}
+penguins %>% 
+  group_by(species) %>%
+  mutate(count_species = n()) %>%
+  ungroup() %>%
+  group_by(species, sex, count_species) %>%
+  summarize(count = n()) %>%
+  mutate(percentage = count/count_species*100) %>%
+  filter(species == "Chinstrap")
+```
+
+
+# forcats 
+**Work in progress**
+
+# stringr 
+- concatenate species and ID, or something?
+- add characters, remove characters, find patterns?
+
+# tidyr 
+**Work in progress** Would like to think of a potentially use of `pivot` functions 
+
+```{r}
+glimpse(penguins)
+```
+
+# purrr 
+- add cool colors to our data viz using nord
+- nord::nord_palettes %>% map(prismatic::color) to see a color vector for all palette colors in palette list
+
+```{r}
+library(nord)
+library(prismatic)
+nord::nord_palettes %>% map(prismatic::color)
+
+```
+```{r}
+my_nord_show_palette <- function(palette) {
+
+   name <- palette
+
+   palette <- nord(palette)
+
+   n <- length(palette)
+
+   if (length(palette > 0)) {
+
+    graphics::image(1:n, 1, as.matrix(1:n), col = palette,
+          xlab = "", ylab = palette, xaxt = "n", yaxt = "n",
+          bty = "n")
+    graphics::title(main = name)
+
+  }
+}
+```
+
+
+```{r}
+plot(prismatic::color(nord_palettes$polarnight))
+mtext(nord_palettes$polarnight, labels=nord_palettes$polarnight)
+
+my_nord_show_palette("polarnight")
+nord_show_palette("polarnight")
+nord("polarnight")
+```
+
+
+# Extra ideas
+
+## Recreating a {palmerpenguins} plot
+
+Let's practice in real time!
+
+![https://github.com/allisonhorst/palmerpenguins](artwork/README-flipper-bill-1.png)
+
+```{r scatterplot-bill-length}
+# scatterplot sequence ----
+penguins %>%
+  ggplot() + 
+  geom_point(aes(x = flipper_length_mm, y = bill_length_mm)) # add aesthetics
+
+penguins %>%
+  ggplot() +
+  geom_point(aes(x = flipper_length_mm, y = bill_length_mm, 
+                 color = species)) # add color per species
+
+penguins %>%
+  ggplot() +
+  geom_point(aes(x = flipper_length_mm, y = bill_length_mm, 
+                 color = species, shape = species)) # add shape per species
+
+penguins %>%
+  ggplot() +
+  geom_point(aes(x = flipper_length_mm, y = bill_length_mm, 
+                 color = species, shape = species)) # add shape per species
+
+penguins %>%
+  ggplot() +
+  geom_point(aes(x = flipper_length_mm, y = bill_length_mm, 
+                 color = species, shape = species)) +
+  geom_smooth(aes(x = flipper_length_mm, y = bill_length_mm, 
+                  color = species))
+
+penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = bill_length_mm)) + 
+  geom_point(aes(color = species, shape = species)) +
+  geom_smooth(aes(color = species), se = FALSE, method = "lm")
+```
+
+```{r scatterplot-body-mass}
+penguins %>%
+  ggplot() +
+  geom_point(aes(x = flipper_length_mm, y = body_mass_g, 
+                 color = species, shape = species))
+```
+
+```{r histogram}
+penguins %>%
+  ggplot() +
+  geom_histogram(aes(x = flipper_length_mm))
+
+penguins %>%
+  ggplot() +
+  geom_histogram(aes(x = flipper_length_mm, color = species))
+
+penguins %>%
+  ggplot() +
+  geom_histogram(aes(x = flipper_length_mm, fill = species))
+
+penguins %>%
+  ggplot() +
+  geom_histogram(aes(x = flipper_length_mm, fill = species, 
+                     position = "identity", alpha = 0.5))
+```
+
+
+
+
+# TidyTuesday
+
+## Getting started
+
+- [Intro Blog and history](https://themockup.blog/posts/2018-12-11-tidytuesday-a-weekly-social-data-project-in-r/)
+- [Intro Tweet by Tom Mock (RStudio)](https://twitter.com/thomas_mock/status/1287774575833616384?s=20)
+- [TidyTuesdays GitHub](https://github.com/rfordatascience/tidytuesday/blob/master/README.md)
+- [TidyTuesday Podcast](https://twitter.com/tidypod)
+- [TidyTuesday Sight-Unseen on YouTube](https://www.youtube.com/watch?v=ImpXawPNCfM)
+- [{tidytuesdayR} package to help you easily download the data set](https://github.com/thebioengineer/tidytuesdayR)
+
+### tidytuesdayR demo
+```{r}
+# install.packages("tidytuesdayR")
+# remotes::install_github("thebioengineer/tidytuesdayR")
+
+library(tidytuesdayR)
+
+# load the data
+tt_data <- tt_load("2020-07-27") # error message
+tt_data <- tt_load("2020-07-28")
+tt_data <- tt_load(2020, week=31)
+
+# take a peek
+readme(tt_data)
+print(tt_data)
+```
+
+## Level up
+- [Julia Silge (RStudio) teaches Tidymodels with {palmerpenguins} on YouTube](https://www.youtube.com/watch?v=z57i2GVcdww)
+
+## Examples
+
+- Specific to {palmerpenguins}:
+  - Focus on fonts and formatting: https://twitter.com/ellamkaye/status/1289157139437621250?s=20
+  - R-Ladies Ames: https://twitter.com/RLadiesAmes/status/1294425359388114944?s=20
+  
+- General to #tidytuesday:
+  - R-Ladies Chicago TidyTuesday leader Ola!: https://twitter.com/AmazingSpeciali
+  - R-Ladies Chicago TidyTuesday setup: https://twitter.com/RLadiesChicago/status/1192243170412761088?s=20
+
+# Tomorrow's TidyTuesday!
+
+- Twitter post for 8/31 or 9/1
+- screenshot of the dataset ReadMe
