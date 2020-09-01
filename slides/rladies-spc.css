@@ -51,6 +51,14 @@ a, a > code {
   color: #88398a;
 }
 
+/* penguin tour slide */
+.penguin-tour {
+  background-image: url(https://images.unsplash.com/photo-1591792111137-5b8219d5fad6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=4350&q=80);
+  background-position: 52% 5%;
+  background-size: cover;
+  background-color: #181830;
+}
+
 /* footnotes */
 .footnote {
   position: absolute;
