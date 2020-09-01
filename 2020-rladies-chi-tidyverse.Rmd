@@ -38,7 +38,7 @@ xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view"))
 class: title-slide, center, bottom
 
 ```{r, echo=FALSE, out.width=400}
-knitr::include_graphics("../slides/images/lter_penguins.png")
+knitr::include_graphics("images/lter_penguins.png")
 ```
 # `r rmarkdown::metadata$title`
 
@@ -91,7 +91,7 @@ class: left, middle
 
 ---
 class: left, top
-background-image: url(/slides/images/logo.png)
+background-image: url(/images/logo.png)
 background-position: 92% 10%
 background-size: 80px
 
@@ -100,17 +100,17 @@ background-size: 80px
 <div class="flex" style="margin: 0 0em;">
   <div class="column">
     <h3> Chinstrap </h3>
-    <img src="/slides/images/penguin_chinstrap.jpg" style="width: 100%;">
+    <img src="images/penguin_chinstrap.jpg" style="width: 100%;">
   </div>
   
   <div class="column" style="margin: 0 1em;">
     <h3> Gentoo </h3>
-    <img src="/slides/images/penguin_gentoo.jpg" style="">
+    <img src="images/penguin_gentoo.jpg" style="">
   </div>
   
   <div class="column" style="margin: 0 0em;">
     <h3> Adélie </h3>
-    <img src="/slides/images/penguin_adelie.jpg" style="">
+    <img src="images/penguin_adelie.jpg" style="">
   </div>
 </div>
 
@@ -119,7 +119,7 @@ background-size: 80px
 
 ---
 class: right, top
-background-image: url(/slides/images/pptx/tidyverse.png)
+background-image: url(/images/pptx/tidyverse.png)
 background-size: 1150px
 
 ## Collection of R packages, including <br/> these 8 core packages (and more!)
@@ -128,14 +128,14 @@ background-size: 1150px
 class: penguin-tour
 
 ```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("../slides/images/pptx/01-readr.png")
+knitr::include_graphics("images/pptx/01-readr.png")
 ```
 
 .footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 ]
 
 ---
-background-image: url(../slides/images/hex/readr.png)
+background-image: url(images/hex/readr.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -169,7 +169,7 @@ background-size: 80px
 
 .left-column[
 ```{r echo=FALSE}
-knitr::include_graphics("../slides/images/r4ds-cover.png")
+knitr::include_graphics("images/r4ds-cover.png")
 ```
 ]
 
@@ -197,7 +197,7 @@ raw_adelie_url <- read_csv("https://portal.edirepository.org/nis/dataviewer?pack
 .pull-right[
 ```{r}
 # option 2: load using filepath ----
-raw_adelie_filepath <- read_csv("../raw_adelie.csv")
+raw_adelie_filepath <- read_csv("tutorial/raw_adelie.csv")
 ```
 ]
 
@@ -229,7 +229,7 @@ head(penguins_raw)
 class: penguin-tour
 
 ```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("../slides/images/pptx/02-tibble.png")
+knitr::include_graphics("images/pptx/02-tibble.png")
 ```
 
 .footnote[
@@ -237,7 +237,7 @@ knitr::include_graphics("../slides/images/pptx/02-tibble.png")
 ]
 
 ---
-background-image: url(../slides/images/hex/tibble.png)
+background-image: url(images/hex/tibble.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -262,7 +262,7 @@ background-size: 80px
 
 .left-column[
 ```{r echo=FALSE}
-knitr::include_graphics("../slides/images/r4ds-cover.png")
+knitr::include_graphics("images/r4ds-cover.png")
 ```
 ]
 
@@ -328,18 +328,18 @@ vignette("tibble")
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
 ```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("../slides/images/pptx/03-ggplot2.png")
+knitr::include_graphics("images/pptx/03-ggplot2.png")
 ```
 
 .footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 ]
 
 ---
-background-image: url(../slides/images/hex/ggplot2.png)
+background-image: url(images/hex/ggplot2.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -362,7 +362,7 @@ background-size: 80px
 
 .left-column[
 ```{r echo=FALSE}
-knitr::include_graphics("../slides/images/r4ds-cover.png")
+knitr::include_graphics("images/r4ds-cover.png")
 ```
 ]
 
@@ -476,18 +476,18 @@ penguins %>%
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
 ```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("../slides/images/pptx/04-dplyr.png")
+knitr::include_graphics("images/pptx/04-dplyr.png")
 ```
 
 .footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 ]
 
 ---
-background-image: url(../slides/images/hex/dplyr.png)
+background-image: url(images/hex/dplyr.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -525,7 +525,7 @@ background-size: 80px
 
 .left-column[
 ```{r echo=FALSE}
-knitr::include_graphics("../slides/images/r4ds-cover.png")
+knitr::include_graphics("images/r4ds-cover.png")
 ```
 ]
 
@@ -612,18 +612,18 @@ penguins %>%
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
 ```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("../slides/images/pptx/05-forcats.png")
+knitr::include_graphics("images/pptx/05-forcats.png")
 ```
 
 .footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 ]
 
 ---
-background-image: url(../slides/images/hex/forcats.png)
+background-image: url(images/hex/forcats.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -647,7 +647,7 @@ background-size: 80px
 
 .left-column[
 ```{r echo=FALSE}
-knitr::include_graphics("../slides/images/r4ds-cover.png")
+knitr::include_graphics("images/r4ds-cover.png")
 ```
 ]
 
@@ -703,18 +703,18 @@ levels(penguins_new$year_factor)
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
 ```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("../slides/images/pptx/06-stringr.png")
+knitr::include_graphics("images/pptx/06-stringr.png")
 ```
 
 .footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 ]
 
 ---
-background-image: url(../slides/images/hex/stringr.png)
+background-image: url(images/hex/stringr.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -752,7 +752,7 @@ background-size: 80px
 
 .left-column[
 ```{r echo=FALSE}
-knitr::include_graphics("../slides/images/r4ds-cover.png")
+knitr::include_graphics("images/r4ds-cover.png")
 ```
 ]
 
@@ -791,18 +791,18 @@ penguins %>%
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
 ```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("../slides/images/pptx/07-tidyr.png")
+knitr::include_graphics("images/pptx/07-tidyr.png")
 ```
 
 .footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 ]
 
 ---
-background-image: url(../slides/images/hex/tidyr.png)
+background-image: url(images/hex/tidyr.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -831,7 +831,7 @@ background-size: 80px
 
 .left-column[
 ```{r echo=FALSE}
-knitr::include_graphics("../slides/images/r4ds-cover.png")
+knitr::include_graphics("images/r4ds-cover.png")
 ```
 ]
 
@@ -879,18 +879,18 @@ untidy_penguins %>%
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
 ```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("../slides/images/pptx/08-purrr.png")
+knitr::include_graphics("images/pptx/08-purrr.png")
 ```
 
 .footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 ]
 
 ---
-background-image: url(../slides/images/hex/purrr.png)
+background-image: url(images/hex/purrr.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -914,7 +914,7 @@ background-size: 80px
 
 .left-column[
 ```{r echo=FALSE}
-knitr::include_graphics("../slides/images/r4ds-cover.png")
+knitr::include_graphics("images/r4ds-cover.png")
 ```
 ]
 
@@ -1030,7 +1030,7 @@ library(prismatic)
 ```{r, warning=FALSE, eval=FALSE}
 prismatic::color(nord::nord_palettes$frost)
 ```
-![](../slides/images/nord_frost.png)
+![](images/nord_frost.png)
 ]
 
 .pull-right[
@@ -1040,7 +1040,7 @@ prismatic::color(nord::nord_palettes$frost)
 nord::nord_palettes %>% map(prismatic::color)
 ```
 
-![](../slides/images/nord_multiple.png)
+![](images/nord_multiple.png)
 ]
 ]
 ]
@@ -1055,7 +1055,7 @@ nord::nord_palettes %>% map(prismatic::color)
 ]
 
 .pull-right[
-![](../slides/images/wesanderson_example.png)
+![](images/wesanderson_example.png)
 ]
 ]
 

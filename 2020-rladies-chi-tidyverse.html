@@ -23,7 +23,7 @@
 
 class: title-slide, center, bottom
 
-&lt;img src="../slides/images/lter_penguins.png" width="400" /&gt;
+&lt;img src="images/lter_penguins.png" width="400" /&gt;
 # An Antarctic Tour of the Tidyverse
 
 ## R-Ladies Chicago
@@ -75,7 +75,7 @@ class: left, middle
 
 ---
 class: left, top
-background-image: url(/slides/images/logo.png)
+background-image: url(/images/logo.png)
 background-position: 92% 10%
 background-size: 80px
 
@@ -84,17 +84,17 @@ background-size: 80px
 &lt;div class="flex" style="margin: 0 0em;"&gt;
   &lt;div class="column"&gt;
     &lt;h3&gt; Chinstrap &lt;/h3&gt;
-    &lt;img src="/slides/images/penguin_chinstrap.jpg" style="width: 100%;"&gt;
+    &lt;img src="images/penguin_chinstrap.jpg" style="width: 100%;"&gt;
   &lt;/div&gt;
   
   &lt;div class="column" style="margin: 0 1em;"&gt;
     &lt;h3&gt; Gentoo &lt;/h3&gt;
-    &lt;img src="/slides/images/penguin_gentoo.jpg" style=""&gt;
+    &lt;img src="images/penguin_gentoo.jpg" style=""&gt;
   &lt;/div&gt;
   
   &lt;div class="column" style="margin: 0 0em;"&gt;
     &lt;h3&gt; Adélie &lt;/h3&gt;
-    &lt;img src="/slides/images/penguin_adelie.jpg" style=""&gt;
+    &lt;img src="images/penguin_adelie.jpg" style=""&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -103,7 +103,7 @@ background-size: 80px
 
 ---
 class: right, top
-background-image: url(/slides/images/pptx/tidyverse.png)
+background-image: url(/images/pptx/tidyverse.png)
 background-size: 1150px
 
 ## Collection of R packages, including &lt;br/&gt; these 8 core packages (and more!)
@@ -111,13 +111,13 @@ background-size: 1150px
 ---
 class: penguin-tour
 
-&lt;img src="../slides/images/pptx/01-readr.png" width="1200" /&gt;
+&lt;img src="images/pptx/01-readr.png" width="1200" /&gt;
 
 .footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
-background-image: url(../slides/images/hex/readr.png)
+background-image: url(images/hex/readr.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -150,7 +150,7 @@ background-size: 80px
 .panel[.panel-name[Reading]
 
 .left-column[
-&lt;img src="../slides/images/r4ds-cover.png" width="222" /&gt;
+&lt;img src="images/r4ds-cover.png" width="222" /&gt;
 ]
 
 .right-column[
@@ -179,7 +179,7 @@ raw_adelie_url &lt;- read_csv("https://portal.edirepository.org/nis/dataviewer?p
 
 ```r
 # option 2: load using filepath ----
-raw_adelie_filepath &lt;- read_csv("../raw_adelie.csv")
+raw_adelie_filepath &lt;- read_csv("tutorial/raw_adelie.csv")
 ```
 ]
 
@@ -232,14 +232,14 @@ head(penguins_raw)
 ---
 class: penguin-tour
 
-&lt;img src="../slides/images/pptx/02-tibble.png" width="1200" /&gt;
+&lt;img src="images/pptx/02-tibble.png" width="1200" /&gt;
 
 .footnote[
 &lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
-background-image: url(../slides/images/hex/tibble.png)
+background-image: url(images/hex/tibble.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -263,7 +263,7 @@ background-size: 80px
 .panel[.panel-name[Reading]
 
 .left-column[
-&lt;img src="../slides/images/r4ds-cover.png" width="222" /&gt;
+&lt;img src="images/r4ds-cover.png" width="222" /&gt;
 ]
 
 .right-column[
@@ -473,16 +473,16 @@ vignette("tibble")
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
-&lt;img src="../slides/images/pptx/03-ggplot2.png" width="1200" /&gt;
+&lt;img src="images/pptx/03-ggplot2.png" width="1200" /&gt;
 
 .footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
-background-image: url(../slides/images/hex/ggplot2.png)
+background-image: url(images/hex/ggplot2.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -504,7 +504,7 @@ background-size: 80px
 .panel[.panel-name[Reading]
 
 .left-column[
-&lt;img src="../slides/images/r4ds-cover.png" width="222" /&gt;
+&lt;img src="images/r4ds-cover.png" width="222" /&gt;
 ]
 
 .right-column[
@@ -561,7 +561,7 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 ]
 
 .pull-right[
-&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-19-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-19-1.png" width="504" /&gt;
 ]
 ]
 
@@ -576,7 +576,7 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 ]
 
 .pull-right[
-&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-21-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-21-1.png" width="504" /&gt;
 ]
 ]
 
@@ -593,7 +593,7 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 ]
 
 .pull-right[
-&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-23-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-23-1.png" width="504" /&gt;
 ]
 ]
 
@@ -613,22 +613,22 @@ Next stop, `dplyr`!
 ]
 
 .pull-right[
-&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-24-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-24-1.png" width="504" /&gt;
 ]
 ]
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
-&lt;img src="../slides/images/pptx/04-dplyr.png" width="1200" /&gt;
+&lt;img src="images/pptx/04-dplyr.png" width="1200" /&gt;
 
 .footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
-background-image: url(../slides/images/hex/dplyr.png)
+background-image: url(images/hex/dplyr.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -665,7 +665,7 @@ background-size: 80px
 .panel[.panel-name[Reading]
 
 .left-column[
-&lt;img src="../slides/images/r4ds-cover.png" width="222" /&gt;
+&lt;img src="images/r4ds-cover.png" width="222" /&gt;
 ]
 
 .right-column[
@@ -840,16 +840,16 @@ penguins %&gt;%
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
-&lt;img src="../slides/images/pptx/05-forcats.png" width="1200" /&gt;
+&lt;img src="images/pptx/05-forcats.png" width="1200" /&gt;
 
 .footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
-background-image: url(../slides/images/hex/forcats.png)
+background-image: url(images/hex/forcats.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -872,7 +872,7 @@ background-size: 80px
 .panel[.panel-name[Reading]
 
 .left-column[
-&lt;img src="../slides/images/r4ds-cover.png" width="222" /&gt;
+&lt;img src="images/r4ds-cover.png" width="222" /&gt;
 ]
 
 .right-column[
@@ -946,16 +946,16 @@ levels(penguins_new$year_factor)
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
-&lt;img src="../slides/images/pptx/06-stringr.png" width="1200" /&gt;
+&lt;img src="images/pptx/06-stringr.png" width="1200" /&gt;
 
 .footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
-background-image: url(../slides/images/hex/stringr.png)
+background-image: url(images/hex/stringr.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -992,7 +992,7 @@ background-size: 80px
 .panel[.panel-name[Reading]
 
 .left-column[
-&lt;img src="../slides/images/r4ds-cover.png" width="222" /&gt;
+&lt;img src="images/r4ds-cover.png" width="222" /&gt;
 ]
 
 .right-column[
@@ -1060,16 +1060,16 @@ penguins %&gt;%
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
-&lt;img src="../slides/images/pptx/07-tidyr.png" width="1200" /&gt;
+&lt;img src="images/pptx/07-tidyr.png" width="1200" /&gt;
 
 .footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
-background-image: url(../slides/images/hex/tidyr.png)
+background-image: url(images/hex/tidyr.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -1097,7 +1097,7 @@ background-size: 80px
 .panel[.panel-name[Reading]
 
 .left-column[
-&lt;img src="../slides/images/r4ds-cover.png" width="222" /&gt;
+&lt;img src="images/r4ds-cover.png" width="222" /&gt;
 ]
 
 .right-column[
@@ -1174,16 +1174,16 @@ untidy_penguins %&gt;%
 ]
 
 ---
-background-image: url(/slides/images/antarctica.jpg)
+background-image: url(/images/antarctica.jpg)
 background-size: cover
 
-&lt;img src="../slides/images/pptx/08-purrr.png" width="1200" /&gt;
+&lt;img src="images/pptx/08-purrr.png" width="1200" /&gt;
 
 .footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;James Eades&lt;/a&gt; on &lt;a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
 ]
 
 ---
-background-image: url(../slides/images/hex/purrr.png)
+background-image: url(images/hex/purrr.png)
 background-position: 92% 10%
 background-size: 80px
   
@@ -1206,7 +1206,7 @@ background-size: 80px
 .panel[.panel-name[Reading]
 
 .left-column[
-&lt;img src="../slides/images/r4ds-cover.png" width="222" /&gt;
+&lt;img src="images/r4ds-cover.png" width="222" /&gt;
 ]
 
 .right-column[
@@ -1237,12 +1237,12 @@ background-size: 80px
 
 .pull-left[
 ### Let's turn this plot
-&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-49-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-49-1.png" width="504" /&gt;
 ]
 
 .pull-right[
 ### Into this one!
-&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-50-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-50-1.png" width="504" /&gt;
 
 .panel[.panel-name[Code]
 
@@ -1296,7 +1296,7 @@ penguins %&gt;%
 ]
 
 .pull-right[
-&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-56-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-56-1.png" width="504" /&gt;
 ]
 ]
 
@@ -1314,7 +1314,7 @@ library(prismatic)
 ```r
 prismatic::color(nord::nord_palettes$frost)
 ```
-![](../slides/images/nord_frost.png)
+![](images/nord_frost.png)
 ]
 
 .pull-right[
@@ -1325,7 +1325,7 @@ prismatic::color(nord::nord_palettes$frost)
 nord::nord_palettes %&gt;% map(prismatic::color)
 ```
 
-![](../slides/images/nord_multiple.png)
+![](images/nord_multiple.png)
 ]
 ]
 ]
@@ -1340,7 +1340,7 @@ nord::nord_palettes %&gt;% map(prismatic::color)
 ]
 
 .pull-right[
-![](../slides/images/wesanderson_example.png)
+![](images/wesanderson_example.png)
 ]
 ]
 
