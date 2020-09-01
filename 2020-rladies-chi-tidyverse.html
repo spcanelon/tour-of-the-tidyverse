@@ -32,10 +32,6 @@ class: title-slide, center, bottom
 
 ### August 31, 2020
 
-???
-
-Hello! I'm excited to be here virtually with R-Ladies Chicago, thank you for having me.
-
 ---
 class: about-me, middle, center
 
@@ -54,10 +50,6 @@ class: about-me, middle, center
 
 .footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@lukehuff?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;lucas huffman&lt;/a&gt; on &lt;a href="https://unsplash.com/s/photos/antarctica?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
 
-???
-
-Hi! I'm Silvia Canelón and I'm a postdoctoral research scientist at the University of Pennsylvania. I'm also in the process of getting certified as an RStudio Instructor!
-
 ---
 class: left, middle
 
@@ -69,13 +61,13 @@ class: left, middle
 
 ### Slide inspiration from Alison Hill ([@apreshill](https://twitter.com/apreshill))'s recent education training materials "[Teaching in Production](https://rstudio-education.github.io/teaching-in-production/)"
 
-### Slides made using Yihui Xie's [xaringan](https://github.com/yihui/xaringan) 📦 and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) 📦, and adapted from the R-Ladies `xaringan` theme designed by [Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
+### Slides made using Yihui Xie's [xaringan](https://github.com/yihui/xaringan) 📦 and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) 📦, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
 
 ### Photographs from various photographers on Unsplash, and noted on the relevant slide
 
 ---
 class: left, top
-background-image: url(/images/logo.png)
+background-image: url(images/logo.png)
 background-position: 92% 10%
 background-size: 80px
 
@@ -103,7 +95,7 @@ background-size: 80px
 
 ---
 class: right, top
-background-image: url(/images/pptx/tidyverse.png)
+background-image: url(images/pptx/tidyverse.png)
 background-size: 1150px
 
 ## Collection of R packages, including &lt;br/&gt; these 8 core packages (and more!)
@@ -163,6 +155,10 @@ background-size: 80px
 ]
 
 ---
+background-image: url(images/hex/readr.png)
+background-position: 92% 10%
+background-size: 80px
+
 # readr: exercise
 
 .panelset[
@@ -276,6 +272,10 @@ background-size: 80px
 ]
 
 ---
+background-image: url(images/hex/tibble.png)
+background-position: 92% 10%
+background-size: 80px
+
 # tibble: exercise
 
 .panelset[
@@ -473,8 +473,7 @@ vignette("tibble")
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 &lt;img src="images/pptx/03-ggplot2.png" width="1200" /&gt;
 
@@ -516,6 +515,10 @@ background-size: 80px
 ]
 
 ---
+background-image: url(images/hex/ggplot2.png)
+background-position: 92% 10%
+background-size: 80px
+
 # ggplot2: exercise
 
 .panelset[
@@ -619,8 +622,7 @@ Next stop, `dplyr`!
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 &lt;img src="images/pptx/04-dplyr.png" width="1200" /&gt;
 
@@ -677,6 +679,10 @@ background-size: 80px
 ]
 
 ---
+background-image: url(images/hex/dplyr.png)
+background-position: 92% 10%
+background-size: 80px
+
 # dplyr: exercise
 
 .panelset[
@@ -840,8 +846,7 @@ penguins %&gt;%
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 &lt;img src="images/pptx/05-forcats.png" width="1200" /&gt;
 
@@ -884,6 +889,10 @@ background-size: 80px
 ]
 
 ---
+background-image: url(images/hex/forcats.png)
+background-position: 92% 10%
+background-size: 80px
+
 # forcats: exercise
 
 .panelset[
@@ -946,8 +955,7 @@ levels(penguins_new$year_factor)
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 &lt;img src="images/pptx/06-stringr.png" width="1200" /&gt;
 
@@ -1004,6 +1012,10 @@ background-size: 80px
 ]
 
 ---
+background-image: url(images/hex/stringr.png)
+background-position: 92% 10%
+background-size: 80px
+
 # stringr: exercise
 
 .panelset[
@@ -1060,8 +1072,7 @@ penguins %&gt;%
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 &lt;img src="images/pptx/07-tidyr.png" width="1200" /&gt;
 
@@ -1078,6 +1089,8 @@ background-size: 80px
 .panelset[
 
 .panel[.panel-name[Overview]
+[From R for Data Science](https://r4ds.had.co.nz/tidy-data.html):
+
 &gt; There are three interrelated rules which make a dataset tidy:
 
 &gt; - Each variable must have its own column.
@@ -1109,6 +1122,10 @@ background-size: 80px
 ]
 
 ---
+background-image: url(images/hex/tidyr.png)
+background-position: 92% 10%
+background-size: 80px
+
 # tidyr: exercise
 
 .panelset[
@@ -1116,7 +1133,9 @@ background-size: 80px
 
 ### Both penguin datasets are already tidy!
 
-We can pretend that it wasn't and that `body_mass_g` was recorded separately for `male`, `female`, and sex `NA` penguins. Like `untidy_penguins`.
+We can pretend that the `penguins` dataset wasn't tidy and that it looked instead like `untidy_penguins` below. 
+
+In `untidy_penguins`, `body_mass_g` was recorded separately for `male`, `female`, and sex `NA` penguins.
 
 
 ```r
@@ -1174,8 +1193,7 @@ untidy_penguins %&gt;%
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 &lt;img src="images/pptx/08-purrr.png" width="1200" /&gt;
 
@@ -1218,10 +1236,14 @@ background-size: 80px
 ]
 
 ---
+background-image: url(images/hex/purrr.png)
+background-position: 92% 10%
+background-size: 80px
+
 # purrr: exercise
 
 .panelset[
-.panel[.panel-name[Goal]
+.panel[.panel-name[Time for a change?]
 
 .pull-left[
 ### Ok, we love our earlier boxplot showing us `body_mass_g` by `sex` and colored by `species`... but let's change up the colors to keep with our Antarctica theme!
@@ -1233,7 +1255,7 @@ background-size: 80px
 ]
 ]
 
-.panel[.panel-name[Plot]
+.panel[.panel-name[Goal]
 
 .pull-left[
 ### Let's turn this plot
@@ -1244,26 +1266,13 @@ background-size: 80px
 ### Into this one!
 &lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-50-1.png" width="504" /&gt;
 
-.panel[.panel-name[Code]
+.panel[.panel-name[Option 1]
 
 .pull-left[
 
 ```r
 library(nord)
-```
 
-
-```r
-penguins %&gt;%
-  ggplot(aes(x = sex, y = body_mass_g)) +
-  geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = nord::nord_palettes$frost)
-```
-]
-
-.pull-right[
-
-```r
 # you can choose colors using the color hex codes
 nord::nord_palettes$frost
 ## [1] "#8FBCBB" "#88C0D0" "#81A1C1" "#5E81AC"
@@ -1271,39 +1280,53 @@ nord::nord_palettes$frost
 
 
 ```r
-# but you might prefer to use `scale_fill_manual()` 
-# or more specialized functions like `scale_fill_nord()` 
-# included in the {nord} package
+# and assign them using the `scale_fill_manual()` function
 penguins %&gt;%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = nord::nord_palettes$frost)
-  #scale_fill_nord(palette = "frost")
+  scale_fill_manual(values = c("#8FBCBB", "#88C0D0", "#81A1C1"))
 ```
+]
+
+.pull-right[
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-53-1.png" width="504" /&gt;
 ]
 ]
 
-.panel[.panel-name[Result]
+
+.panel[.panel-name[Options 2 &amp; 3]
+
 .pull-left[
+...but you might prefer to use the palette name! &lt;br/&gt;
 
 ```r
 penguins %&gt;%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  #scale_fill_manual(values = nord::nord_palettes$frost)
-  scale_fill_nord(palette = "frost")
+  scale_fill_manual(values = nord::nord_palettes$frost)
 ```
+
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-54-1.png" width="360" /&gt;
 ]
 
 .pull-right[
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-56-1.png" width="504" /&gt;
+And some color palette packages also come with their own functions like `scale_fill_nord()`
+
+```r
+penguins %&gt;%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  nord::scale_fill_nord(palette = "frost")
+```
+
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-55-1.png" width="360" /&gt;
 ]
 ]
 
 .panel[.panel-name[Purrr?]
 
 .pull-left[
-The `prismatic` 📦 help us **see** the colors that correspond to each color hex code (mostly)
+The `prismatic` 📦 helps us **see** the colors that correspond to each color hex code (mostly), with the `color()` function
 
 
 ```r
@@ -1318,7 +1341,7 @@ prismatic::color(nord::nord_palettes$frost)
 ]
 
 .pull-right[
-`purrr`'s `map()` function can help us iterate the `prismatic::color()` function over all palettes in a palette package like `nord`!
+`purrr`'s `map()` function can help us iterate `color()` over all palettes in a palette package like `nord`!
 
 
 ```r
@@ -1334,7 +1357,7 @@ nord::nord_palettes %&gt;% map(prismatic::color)
 .panel[.panel-name[More palettes!]
 
 .pull-left[
-### [r-color-palettes repo](https://github.com/EmilHvitfeldt/r-color-palettes) from Emil Hvitfeldt
+### 🎨 [r-color-palettes repo](https://github.com/EmilHvitfeldt/r-color-palettes) from Emil Hvitfeldt
 
 ### Like this Wes Anderson themed one! And many, many others. 🤩
 ]

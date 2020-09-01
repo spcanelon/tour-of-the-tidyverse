@@ -48,10 +48,6 @@ knitr::include_graphics("images/lter_penguins.png")
 
 ### August 31, 2020
 
-???
-
-Hello! I'm excited to be here virtually with R-Ladies Chicago, thank you for having me.
-
 ---
 class: about-me, middle, center
 
@@ -70,10 +66,6 @@ class: about-me, middle, center
 
 .footnote[<span>Photo by <a href="https://unsplash.com/@lukehuff?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">lucas huffman</a> on <a href="https://unsplash.com/s/photos/antarctica?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>]
 
-???
-
-Hi! I'm Silvia Canelón and I'm a postdoctoral research scientist at the University of Pennsylvania. I'm also in the process of getting certified as an RStudio Instructor!
-
 ---
 class: left, middle
 
@@ -85,13 +77,13 @@ class: left, middle
 
 ### Slide inspiration from Alison Hill ([@apreshill](https://twitter.com/apreshill))'s recent education training materials "[Teaching in Production](https://rstudio-education.github.io/teaching-in-production/)"
 
-### Slides made using Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`, and adapted from the R-Ladies `xaringan` theme designed by [Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
+### Slides made using Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
 
 ### Photographs from various photographers on Unsplash, and noted on the relevant slide
 
 ---
 class: left, top
-background-image: url(/images/logo.png)
+background-image: url(images/logo.png)
 background-position: 92% 10%
 background-size: 80px
 
@@ -119,7 +111,7 @@ background-size: 80px
 
 ---
 class: right, top
-background-image: url(/images/pptx/tidyverse.png)
+background-image: url(images/pptx/tidyverse.png)
 background-size: 1150px
 
 ## Collection of R packages, including <br/> these 8 core packages (and more!)
@@ -183,6 +175,10 @@ knitr::include_graphics("images/r4ds-cover.png")
 ]
 
 ---
+background-image: url(images/hex/readr.png)
+background-position: 92% 10%
+background-size: 80px
+
 # readr: exercise
 
 .panelset[
@@ -276,6 +272,10 @@ knitr::include_graphics("images/r4ds-cover.png")
 ]
 
 ---
+background-image: url(images/hex/tibble.png)
+background-position: 92% 10%
+background-size: 80px
+
 # tibble: exercise
 
 .panelset[
@@ -328,8 +328,7 @@ vignette("tibble")
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 ```{r, echo=FALSE, out.width=1200}
 knitr::include_graphics("images/pptx/03-ggplot2.png")
@@ -375,6 +374,10 @@ knitr::include_graphics("images/r4ds-cover.png")
 ]
 
 ---
+background-image: url(images/hex/ggplot2.png)
+background-position: 92% 10%
+background-size: 80px
+
 # ggplot2: exercise
 
 .panelset[
@@ -476,8 +479,7 @@ penguins %>%
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 ```{r, echo=FALSE, out.width=1200}
 knitr::include_graphics("images/pptx/04-dplyr.png")
@@ -538,6 +540,10 @@ knitr::include_graphics("images/r4ds-cover.png")
 ]
 
 ---
+background-image: url(images/hex/dplyr.png)
+background-position: 92% 10%
+background-size: 80px
+
 # dplyr: exercise
 
 .panelset[
@@ -612,8 +618,7 @@ penguins %>%
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 ```{r, echo=FALSE, out.width=1200}
 knitr::include_graphics("images/pptx/05-forcats.png")
@@ -660,6 +665,10 @@ knitr::include_graphics("images/r4ds-cover.png")
 ]
 
 ---
+background-image: url(images/hex/forcats.png)
+background-position: 92% 10%
+background-size: 80px
+
 # forcats: exercise
 
 .panelset[
@@ -703,8 +712,7 @@ levels(penguins_new$year_factor)
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 ```{r, echo=FALSE, out.width=1200}
 knitr::include_graphics("images/pptx/06-stringr.png")
@@ -765,6 +773,10 @@ knitr::include_graphics("images/r4ds-cover.png")
 ]
 
 ---
+background-image: url(images/hex/stringr.png)
+background-position: 92% 10%
+background-size: 80px
+
 # stringr: exercise
 
 .panelset[
@@ -791,8 +803,7 @@ penguins %>%
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 ```{r, echo=FALSE, out.width=1200}
 knitr::include_graphics("images/pptx/07-tidyr.png")
@@ -811,6 +822,8 @@ background-size: 80px
 .panelset[
 
 .panel[.panel-name[Overview]
+[From R for Data Science](https://r4ds.had.co.nz/tidy-data.html):
+
 > There are three interrelated rules which make a dataset tidy:
 
 > - Each variable must have its own column.
@@ -844,6 +857,10 @@ knitr::include_graphics("images/r4ds-cover.png")
 ]
 
 ---
+background-image: url(images/hex/tidyr.png)
+background-position: 92% 10%
+background-size: 80px
+
 # tidyr: exercise
 
 .panelset[
@@ -851,7 +868,9 @@ knitr::include_graphics("images/r4ds-cover.png")
 
 ### Both penguin datasets are already tidy!
 
-We can pretend that it wasn't and that `body_mass_g` was recorded separately for `male`, `female`, and sex `NA` penguins. Like `untidy_penguins`.
+We can pretend that the `penguins` dataset wasn't tidy and that it looked instead like `untidy_penguins` below. 
+
+In `untidy_penguins`, `body_mass_g` was recorded separately for `male`, `female`, and sex `NA` penguins.
 
 ```{r}
 untidy_penguins <-
@@ -879,8 +898,7 @@ untidy_penguins %>%
 ]
 
 ---
-background-image: url(/images/antarctica.jpg)
-background-size: cover
+class: penguin-tour
 
 ```{r, echo=FALSE, out.width=1200}
 knitr::include_graphics("images/pptx/08-purrr.png")
@@ -927,10 +945,14 @@ knitr::include_graphics("images/r4ds-cover.png")
 ]
 
 ---
+background-image: url(images/hex/purrr.png)
+background-position: 92% 10%
+background-size: 80px
+
 # purrr: exercise
 
 .panelset[
-.panel[.panel-name[Goal]
+.panel[.panel-name[Time for a change?]
 
 .pull-left[
 ### Ok, we love our earlier boxplot showing us `body_mass_g` by `sex` and colored by `species`... but let's change up the colors to keep with our Antarctica theme!
@@ -942,7 +964,7 @@ knitr::include_graphics("images/r4ds-cover.png")
 ]
 ]
 
-.panel[.panel-name[Plot]
+.panel[.panel-name[Goal]
 
 .pull-left[
 ### Let's turn this plot
@@ -962,58 +984,56 @@ penguins %>%
   scale_fill_manual(values = nord::nord_palettes$frost)
 ```
 
-.panel[.panel-name[Code]
+.panel[.panel-name[Option 1]
 
 .pull-left[
 ```{r}
 library(nord)
-```
 
-```{r eval=FALSE}
-penguins %>%
-  ggplot(aes(x = sex, y = body_mass_g)) +
-  geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = nord::nord_palettes$frost)
-```
-]
-
-.pull-right[
-```{r}
 # you can choose colors using the color hex codes
 nord::nord_palettes$frost
 ```
 
-```{r eval=FALSE, warning=FALSE, fig.height=5}
-# but you might prefer to use `scale_fill_manual()` 
-# or more specialized functions like `scale_fill_nord()` 
-# included in the {nord} package
-penguins %>%
-  ggplot(aes(x = sex, y = body_mass_g)) +
-  geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = nord::nord_palettes$frost)
-  #scale_fill_nord(palette = "frost")
-```
-]
-]
-
-.panel[.panel-name[Result]
-.pull-left[
 ```{r eval=FALSE}
+# and assign them using the `scale_fill_manual()` function
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  #scale_fill_manual(values = nord::nord_palettes$frost)
-  scale_fill_nord(palette = "frost")
+  scale_fill_manual(values = c("#8FBCBB", "#88C0D0", "#81A1C1"))
 ```
 ]
 
 .pull-right[
-```{r, echo=FALSE, warning = FALSE, fig.height=5}
+```{r echo=FALSE, fig.height=5}
+# and assign them using the `scale_fill_manual()` function
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  #scale_fill_manual(values = nord::nord_palettes$frost)
-  scale_fill_nord(palette = "frost")
+  scale_fill_manual(values = c("#8FBCBB", "#88C0D0", "#81A1C1"))
+```
+]
+]
+
+
+.panel[.panel-name[Options 2 & 3]
+
+.pull-left[
+...but you might prefer to use the palette name! <br/>
+```{r eval=TRUE, warning=FALSE, fig.height=3, fig.width=5}
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  scale_fill_manual(values = nord::nord_palettes$frost)
+```
+]
+
+.pull-right[
+And some color palette packages also come with their own functions like `scale_fill_nord()`
+```{r eval=TRUE, warning=FALSE, fig.height=3, fig.width=5}
+penguins %>%
+  ggplot(aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) +
+  nord::scale_fill_nord(palette = "frost")
 ```
 ]
 ]
@@ -1021,7 +1041,7 @@ penguins %>%
 .panel[.panel-name[Purrr?]
 
 .pull-left[
-The `prismatic` `r emo::ji("package")` help us **see** the colors that correspond to each color hex code (mostly)
+The `prismatic` `r emo::ji("package")` helps us **see** the colors that correspond to each color hex code (mostly), with the `color()` function
 
 ```{r}
 library(prismatic)
@@ -1034,7 +1054,7 @@ prismatic::color(nord::nord_palettes$frost)
 ]
 
 .pull-right[
-`purrr`'s `map()` function can help us iterate the `prismatic::color()` function over all palettes in a palette package like `nord`!
+`purrr`'s `map()` function can help us iterate `color()` over all palettes in a palette package like `nord`!
 
 ```{r, eval = FALSE}
 nord::nord_palettes %>% map(prismatic::color)
@@ -1049,7 +1069,7 @@ nord::nord_palettes %>% map(prismatic::color)
 .panel[.panel-name[More palettes!]
 
 .pull-left[
-### [r-color-palettes repo](https://github.com/EmilHvitfeldt/r-color-palettes) from Emil Hvitfeldt
+### `r emo::ji("art")` [r-color-palettes repo](https://github.com/EmilHvitfeldt/r-color-palettes) from Emil Hvitfeldt
 
 ### Like this Wes Anderson themed one! And many, many others. `r emo::ji("star_struck")`
 ]
