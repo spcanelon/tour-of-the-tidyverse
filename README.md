@@ -7,6 +7,11 @@ Learn how to explore and manipulate data in R with packages from the Tidyverse. 
 
 Credit: Penguin artwork by [@allison_horst](https://twitter.com/allison_horst)
 
+
+## `palmerpenguins::penguins` available in other languages:
+- Español (Spanish) -- [`{datos}`](https://cienciadedatos.github.io/datos/): https://twitter.com/rivaquiroga/status/1295395634934099968?s=19
+- Português (Portuguese) -- [`{dados}`](https://cienciadedatos.github.io/dados/): https://twitter.com/BeaMilz/status/1297632027416682496?s=19
+
 ## Slides
 https://spcanelon.github.io/2020-rladies-chi-tidyverse/#1
 
