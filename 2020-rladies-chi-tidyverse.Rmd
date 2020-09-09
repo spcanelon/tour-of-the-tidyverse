@@ -50,10 +50,14 @@ knitr::include_graphics("images/lter_penguins.png")
 ### `r rmarkdown::metadata$author`
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### `r rmarkdown::metadata$date`
 =======
 ### August 31, 2020
 >>>>>>> update slides
+=======
+### `r rmarkdown::metadata$date`
+>>>>>>> Logo positions and xaringanExtras
 
 ---
 class: about-me, middle, center
