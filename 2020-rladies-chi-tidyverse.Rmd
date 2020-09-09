@@ -31,7 +31,10 @@ library(palmerpenguins)
 library(nord)
 library(prismatic)
 library(xaringanExtra)
-xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view"))
+xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view", "share_again"))
+xaringanExtra::style_share_again(share_buttons = c("twitter", "linkedin", "pocket"))
+xaringanExtra::embed_xaringan(
+  url = "https://spcanelon.github.io/2020-rladies-chi-tidyverse", ratio = "16:9")
 ```
 
 
@@ -46,7 +49,7 @@ knitr::include_graphics("images/lter_penguins.png")
 
 ### `r rmarkdown::metadata$author`
 
-### August 31, 2020
+### `r rmarkdown::metadata$date`
 
 ---
 class: about-me, middle, center
