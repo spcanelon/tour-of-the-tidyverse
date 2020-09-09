@@ -77,14 +77,14 @@ class: left, middle
 
 ### Slide inspiration from Alison Hill ([@apreshill](https://twitter.com/apreshill))'s recent education training materials "[Teaching in Production](https://rstudio-education.github.io/teaching-in-production/)"
 
-### Slides made using Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
+### Slides made using Dr. Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
 
 ### Photographs from various photographers on Unsplash, and noted on the relevant slide
 
 ---
 class: left, top
 background-image: url(images/logo.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # Meet our penguin friends!
@@ -128,7 +128,7 @@ knitr::include_graphics("images/pptx/01-readr.png")
 
 ---
 background-image: url(images/hex/readr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # readr: info
@@ -176,7 +176,7 @@ knitr::include_graphics("images/r4ds-cover.png")
 
 ---
 background-image: url(images/hex/readr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # readr: exercise
@@ -234,7 +234,7 @@ knitr::include_graphics("images/pptx/02-tibble.png")
 
 ---
 background-image: url(images/hex/tibble.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # tibble: info
@@ -273,7 +273,7 @@ knitr::include_graphics("images/r4ds-cover.png")
 
 ---
 background-image: url(images/hex/tibble.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # tibble: exercise
@@ -339,7 +339,7 @@ knitr::include_graphics("images/pptx/03-ggplot2.png")
 
 ---
 background-image: url(images/hex/ggplot2.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # ggplot2: info
@@ -375,7 +375,7 @@ knitr::include_graphics("images/r4ds-cover.png")
 
 ---
 background-image: url(images/hex/ggplot2.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # ggplot2: exercise
@@ -490,7 +490,7 @@ knitr::include_graphics("images/pptx/04-dplyr.png")
 
 ---
 background-image: url(images/hex/dplyr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # dplyr: info
@@ -541,7 +541,7 @@ knitr::include_graphics("images/r4ds-cover.png")
 
 ---
 background-image: url(images/hex/dplyr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # dplyr: exercise
@@ -629,7 +629,7 @@ knitr::include_graphics("images/pptx/05-forcats.png")
 
 ---
 background-image: url(images/hex/forcats.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # forcats: info
@@ -666,7 +666,7 @@ knitr::include_graphics("images/r4ds-cover.png")
 
 ---
 background-image: url(images/hex/forcats.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # forcats: exercise
@@ -723,7 +723,7 @@ knitr::include_graphics("images/pptx/06-stringr.png")
 
 ---
 background-image: url(images/hex/stringr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # stringr: info
@@ -774,7 +774,7 @@ knitr::include_graphics("images/r4ds-cover.png")
 
 ---
 background-image: url(images/hex/stringr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # stringr: exercise
@@ -814,7 +814,7 @@ knitr::include_graphics("images/pptx/07-tidyr.png")
 
 ---
 background-image: url(images/hex/tidyr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # tidyr: info
@@ -858,7 +858,7 @@ knitr::include_graphics("images/r4ds-cover.png")
 
 ---
 background-image: url(images/hex/tidyr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # tidyr: exercise
@@ -909,7 +909,7 @@ knitr::include_graphics("images/pptx/08-purrr.png")
 
 ---
 background-image: url(images/hex/purrr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # purrr: info
@@ -946,7 +946,7 @@ knitr::include_graphics("images/r4ds-cover.png")
 
 ---
 background-image: url(images/hex/purrr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # purrr: exercise
