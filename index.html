@@ -10,6 +10,12 @@
     <script src="libs/tile-view/tile-view.js"></script>
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <script src="libs/fitvids/fitvids.min.js"></script>
     <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="rladies-spc.css" type="text/css" />
     <link rel="stylesheet" href="rladies-fonts-spc.css" type="text/css" />
@@ -61,14 +67,14 @@ class: left, middle
 
 ### Slide inspiration from Alison Hill ([@apreshill](https://twitter.com/apreshill))'s recent education training materials "[Teaching in Production](https://rstudio-education.github.io/teaching-in-production/)"
 
-### Slides made using Yihui Xie's [xaringan](https://github.com/yihui/xaringan) 📦 and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) 📦, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
+### Slides made using Dr. Yihui Xie's [xaringan](https://github.com/yihui/xaringan) 📦 and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) 📦, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
 
 ### Photographs from various photographers on Unsplash, and noted on the relevant slide
 
 ---
 class: left, top
 background-image: url(images/logo.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # Meet our penguin friends!
@@ -110,7 +116,7 @@ class: penguin-tour
 
 ---
 background-image: url(images/hex/readr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # readr: info
@@ -156,7 +162,7 @@ background-size: 80px
 
 ---
 background-image: url(images/hex/readr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # readr: exercise
@@ -239,7 +245,7 @@ class: penguin-tour
 
 ---
 background-image: url(images/hex/tibble.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # tibble: info
@@ -276,7 +282,7 @@ background-size: 80px
 
 ---
 background-image: url(images/hex/tibble.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # tibble: exercise
@@ -1048,7 +1054,7 @@ class: penguin-tour
 
 ---
 background-image: url(images/hex/ggplot2.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # ggplot2: info
@@ -1082,7 +1088,7 @@ background-size: 80px
 
 ---
 background-image: url(images/hex/ggplot2.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # ggplot2: exercise
@@ -1197,7 +1203,7 @@ class: penguin-tour
 
 ---
 background-image: url(images/hex/dplyr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # dplyr: info
@@ -1246,7 +1252,7 @@ background-size: 80px
 
 ---
 background-image: url(images/hex/dplyr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # dplyr: exercise
@@ -1421,7 +1427,7 @@ class: penguin-tour
 
 ---
 background-image: url(images/hex/forcats.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # forcats: info
@@ -1456,7 +1462,7 @@ background-size: 80px
 
 ---
 background-image: url(images/hex/forcats.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # forcats: exercise
@@ -1531,7 +1537,7 @@ class: penguin-tour
 
 ---
 background-image: url(images/hex/stringr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # stringr: info
@@ -1580,7 +1586,7 @@ background-size: 80px
 
 ---
 background-image: url(images/hex/stringr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # stringr: exercise
@@ -1648,7 +1654,7 @@ class: penguin-tour
 
 ---
 background-image: url(images/hex/tidyr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # tidyr: info
@@ -1690,7 +1696,7 @@ background-size: 80px
 
 ---
 background-image: url(images/hex/tidyr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # tidyr: exercise
@@ -1769,7 +1775,7 @@ class: penguin-tour
 
 ---
 background-image: url(images/hex/purrr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
   
 # purrr: info
@@ -1804,7 +1810,7 @@ background-size: 80px
 
 ---
 background-image: url(images/hex/purrr.png)
-background-position: 92% 10%
+background-position: 1050px 50px
 background-size: 80px
 
 # purrr: exercise
