@@ -22,7 +22,6 @@ output:
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(collapse = TRUE,
                       fig.retina = 3,
-                      ccache = TRUE,
                       warning = FALSE,
                       message = FALSE)
 
@@ -40,7 +39,7 @@ xaringanExtra::embed_xaringan(
 
 class: title-slide, center, bottom
 
-```{r, echo=FALSE, out.width=400}
+```{r title-slide, echo=FALSE, out.width=400}
 knitr::include_graphics("images/lter_penguins.png")
 ```
 # `r rmarkdown::metadata$title`
@@ -144,64 +143,12 @@ background-size: 1150px
 ## Collection of R packages, including <br/> these 8 core packages (and more!)
 
 ---
-class: penguin-tour
 
-```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("images/pptx/01-readr.png")
+```{r 01-readr, child="01-readr.Rmd"}
 ```
 
-.footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-]
-
 ---
-background-image: url(images/hex/readr.png)
-background-position: 1050px 50px
-background-size: 80px
-  
-# readr: info
-
-.panelset[
-
-.panel[.panel-name[Overview]
-
-.pull-left[
-### Importing data is the very first step! <br/> You can use `readr` to import rectangular data.
-]
-.pull-right[
-#### comma separated (CSV) files with `read_csv()`
-#### tab separated files with `read_tsv()`
-#### general delimited files with `read_delim()`
-#### fixed width files with `read_fwf()`
-#### tabular files where columns are separated by white-space with `read_table()`
-#### web log files with `read_log()` 
-
-]
-]
-
-.panel[.panel-name[Cheatsheet]
-
-`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf
-![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-import-cheatsheet-thumbs.png)
-]
-
-.panel[.panel-name[Reading]
-
-.left-column[
-```{r echo=FALSE}
-knitr::include_graphics("images/r4ds-cover.png")
-```
-]
-
-.right-column[
-### R for Data Science: [Ch 11 Data import](https://r4ds.had.co.nz/data-import.html)
-
-### Package documentation: https://readr.tidyverse.org/
-]
-]
-
-]
-
----
+<<<<<<< HEAD
 background-image: url(images/hex/readr.png)
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -231,82 +178,24 @@ raw_adelie_url <- read_csv("https://portal.edirepository.org/nis/dataviewer?pack
 raw_adelie_filepath <- read_csv("tutorial/raw_adelie.csv")
 ```
 ]
+=======
+>>>>>>> Update slides to use child docs
 
-]
-
-.panel[.panel-name[Save data]
-
-Lucky for us, the `palmerpenguins` `r emo::ji("package")` compiles data from all three species together for us!
-
-.pull-left[
-`penguins` contains a clean dataset
-```{r}
-# saves package tibble into global environment
-penguins <- palmerpenguins::penguins 
-head(penguins)
+```{r 02-tibble, child="02-tibble.Rmd"}
 ```
-]
-.pull-right[
-`penguins_raw` contains raw data
-```{r}
-penguins_raw <- palmerpenguins::penguins_raw
-head(penguins_raw)
-```
-]
-]
-]
 
 ---
-class: penguin-tour
 
-```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("images/pptx/02-tibble.png")
+```{r 03-ggplot2, child="03-ggplot2.Rmd"}
 ```
 
-.footnote[
-<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-]
-
 ---
-background-image: url(images/hex/tibble.png)
-background-position: 1050px 50px
-background-size: 80px
-  
-# tibble: info
 
-.panelset[
-
-.panel[.panel-name[Overview]
-
-.pull-left[
-### A `tibble` is much like the `dataframe` in base R, but optimized for use in the Tidyverse.  
-]
-]
-
-.panel[.panel-name[Cheatsheet]
-
-`r icon::fa("file-pdf")` PDF (tidyr): https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
-![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-import-cheatsheet-thumbs.png)
-]
-
-.panel[.panel-name[Reading]
-
-.left-column[
-```{r echo=FALSE}
-knitr::include_graphics("images/r4ds-cover.png")
+```{r 04-dplyr, child="04-dplyr.Rmd"}
 ```
-]
-
-.right-column[
-### R for Data Science: [Ch 10 Tibbles](https://r4ds.had.co.nz/tibbles.html)
-
-### Package documentation: https://tibble.tidyverse.org/
-]
-]
-
-]
 
 ---
+<<<<<<< HEAD
 background-image: url(images/hex/tibble.png)
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -359,64 +248,24 @@ Not so much a concern in an R Markdown file, but noticeable in the console.
 Print method makes it easier to work with large datasets.
 
 ]
+=======
+>>>>>>> Update slides to use child docs
 
-.panel[.panel-name[More]
-There are a couple of other main differences, namely in **subsetting** and **recycling**. Check them out in the [`vignette("tibble")`](https://tibble.tidyverse.org/articles/tibble.html)
-
-Try it out here!
-```{r eval=FALSE}
-vignette("tibble")
-```
-]
-]
-
----
-class: penguin-tour
-
-```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("images/pptx/03-ggplot2.png")
+```{r 05-forcats, child="05-forcats.Rmd"}
 ```
 
-.footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-]
-
 ---
-background-image: url(images/hex/ggplot2.png)
-background-position: 1050px 50px
-background-size: 80px
-  
-# ggplot2: info
 
-.panelset[
-.panel[.panel-name[Overview]
-### Let's start by making a simple plot of our data!
-
-### `ggplot2` uses the "Grammar of Graphics" and layers graphical components together to create a plot.
-]
-
-.panel[.panel-name[Cheatsheet]
-
-`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf
-![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-visualization-cheatsheet-thumbs.png)
-]
-
-.panel[.panel-name[Reading]
-
-.left-column[
-```{r echo=FALSE}
-knitr::include_graphics("images/r4ds-cover.png")
+```{r 06-stringr, child="06-stringr.Rmd"}
 ```
-]
-
-.right-column[
-### R for Data Science: [Ch 3 Data visualization](https://r4ds.had.co.nz/data-visualisation.html)
-
-### Package documentation: https://ggplot2.tidyverse.org/
-]
-]
-]
 
 ---
+
+```{r 07-tidyr, child="07-tidyr.Rmd"}
+```
+
+---
+<<<<<<< HEAD
 background-image: url(images/hex/ggplot2.png)
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -440,12 +289,12 @@ background-size: 80px
 View(penguins)
 ```
 ]
+=======
+>>>>>>> Update slides to use child docs
 
-.pull-right[
-### Or catch a `glimpse`:
-```{r}
-glimpse(penguins)
+```{r 08-purrr, child="08-purrr.Rmd"}
 ```
+<<<<<<< HEAD
 ]
 ]
 
@@ -1171,6 +1020,8 @@ nord::nord_palettes %>% map(prismatic::color)
 ]
 
 ]
+=======
+>>>>>>> Update slides to use child docs
 
 ---
 class: about-me, middle, center

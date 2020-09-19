@@ -1,0 +1,144 @@
+---
+title: "04-dplyr"
+author: "Silvia P. Canelón"
+date: "9/19/2020"
+output: html_document
+---
+
+class: penguin-tour
+
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("images/pptx/04-dplyr.png")
+```
+
+.footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 1050px 50px
+background-size: 80px
+  
+# dplyr: info
+
+.panelset[
+.panel[.panel-name[Overview]
+
+.pull-left[
+### Data transformation helps you get the data in exactly the right form you need. <br/> With `dplyr` you can:
+
+- create new variables
+- create summaries
+- rename variables
+- reorder observations
+- ...and more!
+]
+.pull-right[
+#### Pick observations by their values with `filter()`.
+#### Reorder the rows with `arrange()`.
+#### Pick variables by their names `select()`.
+#### Create new variables with functions of existing variables `mutate()`.
+#### Collapse many values down to a single summary `summarize()`.
+#### and `group_by()` gets the above functions to operate group-by-group rather than on the entire dataset
+]
+]
+
+.panel[.panel-name[Cheatsheet]
+
+`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-transformation-cheatsheet-thumbs.png)
+]
+
+.panel[.panel-name[Reading]
+
+.left-column[
+```{r echo=FALSE}
+knitr::include_graphics("images/r4ds-cover.png")
+```
+]
+
+.right-column[
+### R for Data Science: [Ch 11 Data transformation](https://r4ds.had.co.nz/transform.html)
+
+### Package documentation: https://dplyr.tidyverse.org/
+]
+]
+]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 1050px 50px
+background-size: 80px
+
+# dplyr: exercise
+
+.panelset[
+.panel[.panel-name[Select]
+.center[ 
+### Can you spot the difference in performing the same operation?
+]
+.pull-left[
+```{r}
+select(penguins, species, sex, body_mass_g)
+```
+]
+.pull-right[
+```{r}
+penguins %>%
+  select(species, sex, body_mass_g)
+```
+]
+]
+
+.panel[.panel-name[Arrange]
+.pull-left[
+```{r}
+glimpse(penguins)
+```
+]
+.pull-right[
+```{r}
+penguins %>%
+  select(species, sex, body_mass_g) %>%
+  arrange(desc(body_mass_g))
+```
+]
+]
+
+.panel[.panel-name[Group By & Summarize]
+#### Summarizing the data using `group_by()` and `summarize()`
+```{r}
+penguins %>% 
+  group_by(species, sex) %>%
+  summarize(count = n())
+```
+]
+
+.panel[.panel-name[Mutate]
+#### Creating new variables with `mutate()`
+```{r}
+penguins %>% 
+  group_by(species) %>%
+  mutate(count_species = n()) %>%
+  ungroup() %>%
+  group_by(species, sex, count_species) %>%
+  summarize(count = n()) %>%
+  mutate(prop = count/count_species*100)
+```
+]
+
+.panel[.panel-name[Filter]
+#### Filtering rows using `filter()`
+```{r}
+penguins %>% 
+  group_by(species) %>%
+  mutate(count_species = n()) %>%
+  ungroup() %>%
+  group_by(species, sex, count_species) %>%
+  summarize(count = n()) %>%
+  mutate(percentage = count/count_species*100) %>%
+  filter(species == "Chinstrap")
+```
+]
+
+]
