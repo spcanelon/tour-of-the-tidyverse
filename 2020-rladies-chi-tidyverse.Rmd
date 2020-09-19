@@ -149,6 +149,7 @@ background-size: 1150px
 
 ---
 <<<<<<< HEAD
+<<<<<<< HEAD
 background-image: url(images/hex/readr.png)
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -180,6 +181,8 @@ raw_adelie_filepath <- read_csv("tutorial/raw_adelie.csv")
 ]
 =======
 >>>>>>> Update slides to use child docs
+=======
+>>>>>>> Update slides to use child docs
 
 ```{r 02-tibble, child="02-tibble.Rmd"}
 ```
@@ -195,6 +198,7 @@ raw_adelie_filepath <- read_csv("tutorial/raw_adelie.csv")
 ```
 
 ---
+<<<<<<< HEAD
 <<<<<<< HEAD
 background-image: url(images/hex/tibble.png)
 <<<<<<< HEAD
@@ -250,6 +254,8 @@ Print method makes it easier to work with large datasets.
 ]
 =======
 >>>>>>> Update slides to use child docs
+=======
+>>>>>>> Update slides to use child docs
 
 ```{r 05-forcats, child="05-forcats.Rmd"}
 ```
@@ -265,6 +271,7 @@ Print method makes it easier to work with large datasets.
 ```
 
 ---
+<<<<<<< HEAD
 <<<<<<< HEAD
 background-image: url(images/hex/ggplot2.png)
 <<<<<<< HEAD
@@ -1021,6 +1028,11 @@ nord::nord_palettes %>% map(prismatic::color)
 
 ]
 =======
+>>>>>>> Update slides to use child docs
+=======
+
+```{r 08-purrr, child="08-purrr.Rmd"}
+```
 >>>>>>> Update slides to use child docs
 
 ---
