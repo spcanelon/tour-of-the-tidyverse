@@ -13,7 +13,7 @@ Credit: Penguin artwork by [@allison_horst](https://twitter.com/allison_horst)
 - Português (Portuguese) -- [`{dados}`](https://cienciadedatos.github.io/dados/): https://twitter.com/BeaMilz/status/1297632027416682496?s=19
 
 ## Slides
-https://spcanelon.github.io/2020-rladies-chi-tidyverse/#1
+https://spcanelon.github.io/2020-rladies-chi-tidyverse
 
 ## Rmd Tutorial
 https://github.com/spcanelon/2020-rladies-chi-tidyverse/blob/master/tutorial/tour-of-the-tidyverse.Rmd
