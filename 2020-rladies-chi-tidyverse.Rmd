@@ -50,6 +50,7 @@ knitr::include_graphics("images/lter_penguins.png")
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### `r rmarkdown::metadata$date`
 =======
 ### August 31, 2020
@@ -57,6 +58,9 @@ knitr::include_graphics("images/lter_penguins.png")
 =======
 ### `r rmarkdown::metadata$date`
 >>>>>>> Logo positions and xaringanExtras
+=======
+### `r rmarkdown::metadata$date`
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 
 ---
 class: about-me, middle, center
@@ -89,6 +93,7 @@ class: left, middle
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### Slides made using Dr. Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
 =======
 ### Slides made using Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
@@ -96,12 +101,16 @@ class: left, middle
 =======
 ### Slides made using Dr. Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
 >>>>>>> Fix for consistent logo positions
+=======
+### Slides made using Dr. Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 
 ### Photographs from various photographers on Unsplash, and noted on the relevant slide
 
 ---
 class: left, top
 background-image: url(images/logo.png)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 background-position: 1050px 50px
@@ -111,6 +120,9 @@ background-position: 92% 10%
 =======
 background-position: 1050px 50px
 >>>>>>> Fix for consistent logo positions
+=======
+background-position: 1050px 50px
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 background-size: 80px
 
 # Meet our penguin friends!
@@ -143,6 +155,7 @@ background-size: 1150px
 ## Collection of R packages, including <br/> these 8 core packages (and more!)
 
 ---
+<<<<<<< HEAD
 
 ```{r 01-readr, child="01-readr.Rmd"}
 ```
@@ -534,52 +547,27 @@ penguins %>%
 
 ---
 class: penguin-tour
+=======
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 
-```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("images/pptx/05-forcats.png")
+```{r 01-readr, child="01-readr.Rmd"}
 ```
 
-.footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-]
-
 ---
+<<<<<<< HEAD
 background-image: url(images/hex/forcats.png)
 background-position: 1050px 50px
 background-size: 80px
   
 # forcats: info
+=======
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 
-.panelset[
-
-.panel[.panel-name[Overview]
-### Helps us work with **categorical variables** or factors. 
-
-### These are variables that have a fixed and known set of possible values, like `species`, `island`, and `sex` in our `penguins` dataset.
-]
-
-.panel[.panel-name[Cheatsheet]
-
-`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/factors.pdf
-![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/forcats-cheatsheet-thumbs.png)
-]
-
-.panel[.panel-name[Reading]
-
-.left-column[
-```{r echo=FALSE}
-knitr::include_graphics("images/r4ds-cover.png")
+```{r 02-tibble, child="02-tibble.Rmd"}
 ```
-]
-
-.right-column[
-### R for Data Science: [Ch 15 Factors](https://r4ds.had.co.nz/factors.html)
-
-### Package documentation: https://forcats.tidyverse.org/
-]
-]
-]
 
 ---
+<<<<<<< HEAD
 background-image: url(images/hex/forcats.png)
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -624,27 +612,23 @@ penguins_new <-
 penguins_new
 ```
 ]
+=======
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 
-.pull-right[
-```{r}
-class(penguins_new$year_factor)
-levels(penguins_new$year_factor)
+```{r 03-ggplot2, child="03-ggplot2.Rmd"}
 ```
-]
-]
-]
 
 ---
+<<<<<<< HEAD
 class: penguin-tour
+=======
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 
-```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("images/pptx/06-stringr.png")
+```{r 04-dplyr, child="04-dplyr.Rmd"}
 ```
 
-.footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-]
-
 ---
+<<<<<<< HEAD
 background-image: url(images/hex/stringr.png)
 background-position: 1050px 50px
 background-size: 80px
@@ -661,41 +645,14 @@ background-size: 80px
 
 .pull-right[
 ### These functions help us
+=======
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 
--  detect matches
--  subset strings
--  manage string lengths
--  mutate strings
--  join and split strings
--  order strings
--  ...and more!
-]
-
-]
-
-.panel[.panel-name[Cheatsheet]
-
-`r icon::fa("file-pdf")` PDF: https://github.com/rstudio/cheatsheets/raw/master/strings.pdf
-![](https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/strings-cheatsheet-thumbs.png)
-]
-
-.panel[.panel-name[Reading]
-
-.left-column[
-```{r echo=FALSE}
-knitr::include_graphics("images/r4ds-cover.png")
+```{r 05-forcats, child="05-forcats.Rmd"}
 ```
-]
-
-.right-column[
-### R for Data Science: [Ch 14 Strings](https://r4ds.had.co.nz/strings.html)
-
-### Package documentation: https://stringr.tidyverse.org/
-]
-]
-]
 
 ---
+<<<<<<< HEAD
 background-image: url(images/hex/stringr.png)
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -712,38 +669,23 @@ background-size: 80px
 
 .panelset[
 .panel[.panel-name[Mutate]
+=======
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 
-### What does this chunk do?
-```{r}
-penguins %>%
-  select(species, island) %>%
-  mutate(ISLAND = str_to_upper(island))
+```{r 06-stringr, child="06-stringr.Rmd"}
 ```
-]
-
-.panel[.panel-name[Join]
-
-### How about this one?
-```{r}
-penguins %>%
-  select(species, island) %>%
-  mutate(ISLAND = str_to_upper(island)) %>%
-  mutate(species_island = str_c(species, ISLAND, sep = "_"))
-```
-]
-]
 
 ---
+<<<<<<< HEAD
 class: penguin-tour
+=======
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 
-```{r, echo=FALSE, out.width=1200}
-knitr::include_graphics("images/pptx/07-tidyr.png")
+```{r 07-tidyr, child="07-tidyr.Rmd"}
 ```
 
-.footnote[<span>Photo by <a href="https://unsplash.com/@eadesstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Eades</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-]
-
 ---
+<<<<<<< HEAD
 background-image: url(images/hex/tidyr.png)
 background-position: 1050px 50px
 background-size: 80px
@@ -1034,6 +976,11 @@ nord::nord_palettes %>% map(prismatic::color)
 ```{r 08-purrr, child="08-purrr.Rmd"}
 ```
 >>>>>>> Update slides to use child docs
+=======
+
+```{r 08-purrr, child="08-purrr.Rmd"}
+```
+>>>>>>> 2ea5a6fbd01fd3dc30e2e87b242db72519cbb36e
 
 ---
 class: about-me, middle, center
