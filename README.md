@@ -9,14 +9,14 @@ Credit: Penguin artwork by [@allison_horst](https://twitter.com/allison_horst)
 
 
 ## `palmerpenguins::penguins` available in other languages:
-- Español (Spanish) -- [`{datos}`](https://cienciadedatos.github.io/datos/): https://twitter.com/rivaquiroga/status/1295395634934099968?s=19
-- Português (Portuguese) -- [`{dados}`](https://cienciadedatos.github.io/dados/): https://twitter.com/BeaMilz/status/1297632027416682496?s=19
+### Español (Spanish) -- [`{datos}`](https://cienciadedatos.github.io/datos/): [Tweet from Riva Quiroga](https://twitter.com/rivaquiroga/status/1295395634934099968?s=19)
+### Português (Portuguese) -- [`{dados}`](https://cienciadedatos.github.io/dados/): [Tweet from Beatriz Milz](https://twitter.com/BeaMilz/status/1297632027416682496?s=19)
 
 ## Slides
-https://spcanelon.github.io/2020-rladies-chi-tidyverse
+### [spcanelon.github.io/2020-rladies-chi-tidyverse](https://spcanelon.github.io/2020-rladies-chi-tidyverse)
 
 ## Rmd Tutorial
-https://github.com/spcanelon/2020-rladies-chi-tidyverse/blob/master/tutorial/tour-of-the-tidyverse.Rmd
+### [tour-of-the-tidyverse.Rmd](https://github.com/spcanelon/2020-rladies-chi-tidyverse/blob/master/tutorial/tour-of-the-tidyverse.Rmd)
 
 ## Event page
-https://www.meetup.com/rladies-chicago/events/272755101/
+### [meetup.com/rladies-chicago/events/272755101](https://www.meetup.com/rladies-chicago/events/272755101/)
