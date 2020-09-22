@@ -1,33 +1,39 @@
 ---
-title: "An Arctic Tour of the Tidyverse"
+title: "An Antarctic Tour of the Tidyverse"
 author: "Silvia P. Canelón, PhD (@spcanelon)"
-institute: University of Pennsylvania
+date: 'First created on Aug 31, 2020 (updated on Sept 22, 2020)'
+institute: "University of Pennsylvania"
 output:
   html_notebook:
+    fig_width: 7.2
+    highlight: pygments
+    number_sections: no
+    theme: lumen
     toc: yes
     toc_float: yes
-  html_document:
-    toc: yes
-    df_print: paged
 ---
 
+```{r}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, collapse = TRUE, include = TRUE)
+```
+
 
 ---
 
+# About {palmerpenguins}
 - [{palmerpenguins} Documentation](https://allisonhorst.github.io/palmerpenguins/)
 - [Allison Horst's GitHub repo for Palmer Penguins dataset](https://github.com/allisonhorst/palmerpenguins)
-
 
 ```{r, eval = FALSE}
 # install.packages("remotes")
 # remotes::install_github("allisonhorst/palmerpenguins")
 ```
 
+# Loading packages
 ```{r}
 # loading packages
 library(tidyverse)
 library(palmerpenguins)
-library(here) # << explain
 
 # viewing data sets in package "palmerpenguins"
 data(package = "palmerpenguins")
@@ -45,7 +51,7 @@ raw_adelie_url <- read_csv("https://portal.edirepository.org/nis/dataviewer?pack
 raw_adelie_filepath <- read_csv("raw_adelie.csv")
 ```
 
-Lucky for us, Allison Horst compiled data from all three species together for us in the {palmerpenguins} package!
+Lucky for us, Allison Horst compiled data from all three species together for us in the `{palmerpenguins}` package!
 
 - `penguins` contains a clean dataset, and
 - `penguins_raw` contains raw data
@@ -63,7 +69,7 @@ head(penguins_raw)
 
 A `tibble` is much like the `data frame` in base R, but optimized for use in the Tidyverse. Let's take a look at the differences.
 
-```{r}
+```{r tibble}
 # try each of these commands in the console and see if you can spot the differences!
 
 as_tibble(penguins)
@@ -72,6 +78,7 @@ as.data.frame(penguins)
 
 # What differences do you see?
 You might see a tibble prints:
+
 - variable classes
 - only 10 rows
 - only as many columns as can fit on the screen
@@ -82,7 +89,7 @@ Not so much a concern in an R Markdown file, but noticeable in the console. Prin
 There are a couple of other main differences, namely in **subsetting** and **recycling**. Check them out in the [`vignette("tibble")](https://tibble.tidyverse.org/articles/tibble.html)
 
 Try it out here!
-```{r}
+```{r tibble-vignette}
 vignette("tibble")
 ```
 
@@ -90,12 +97,12 @@ vignette("tibble")
 ## Taking a closer look at `penguins`
 
 Get a full view of the dataset:
-```{r}
+```{r penguins-view}
 View(penguins)
 ```
 
 Or catch a `glimpse`:
-```{r}
+```{r penguins-glimpse}
 glimpse(penguins)
 ```
 
@@ -107,7 +114,7 @@ Let's start by making a simple plot of our data!
 
 ## Let's see if body mass varies by penguin sex
 
-```{r}
+```{r ggplot2}
 penguins %>%
   ggplot()
 
@@ -134,8 +141,9 @@ penguins %>%
 
 # What do you notice?
 ```
-# What observations can you make from the plot?
+## What observations can you make from the plot?
 You might see:
+
 - Gentoo penguins have higher body mass than Adelie and Chinstrap penguins
 - Higher body mass among male Gentoo penguins compared to female penguins
 - Pattern not as discernable when comparing Adelie and Chinstrap penguins
@@ -151,12 +159,14 @@ Next stop, `dplyr`!
 glimpse(penguins)
 ```
 
+## select()
 Selecting dataset columns with `select()`
 ```{r select}
 penguins %>%
   select(species, sex, body_mass_g)
 ```
 
+## arrange()
 Reordering the data set with `arrange()`
 ```{r arrange}
 penguins %>%
@@ -164,15 +174,16 @@ penguins %>%
   arrange(desc(body_mass_g))
 ```
 
+## Option 1: group_by() and summarize()
 Summarizing the data using `group_by()` and `summarize()`
 ```{r group-by-summarize}
 penguins %>% 
   group_by(species, sex) %>%
   summarize(count = n())
 ```
-
+## mutate()
 Creating new variables with `mutate()`
-```{r mutate}
+```{r group-by-summarize-mutate}
 penguins %>% 
   group_by(species) %>%
   mutate(count_species = n()) %>%
@@ -182,18 +193,34 @@ penguins %>%
   mutate(prop = count/count_species*100)
 ```
 
-Filtering rows using `filter()`
-```{r filter}
-penguins %>% 
-  group_by(species) %>%
-  mutate(count_species = n()) %>%
-  ungroup() %>%
-  group_by(species, sex, count_species) %>%
-  summarize(count = n()) %>%
-  mutate(percentage = count/count_species*100) %>%
-  filter(species == "Chinstrap")
+## Option 2: count() 
+Because we're just _counting_ observations in this example, we also have the option to use `count()` which simplifies our code a little.
+
+> Thank you to Alison Hill for [these suggestions](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)!
+
+```{r count}
+penguins %>%
+  count(species, sex)
 ```
 
+Likewise, we can use related function `add_count()` along with `mutate()` to add up the counts per species group to use as a denominator ("count_species") when we calculate the proportion by sex.
+
+```{r count-mutate}
+penguins %>% 
+  count(species, sex) %>%
+  add_count(species, wt = n, name = "count_species") %>%
+  mutate(prop = n/count_species*100)
+```
+
+## filter()
+Regardless of which approach we take to summarize our data, we can proceed to filtering rows by adding on a filtering step to our pipeline using `filter()`
+```{r filter}
+penguins %>% 
+  count(species, sex) %>%
+  add_count(species, wt = n, name = "count_species") %>%
+  mutate(prop = n/count_species*100) %>%
+  filter(species == "Chinstrap")
+```
 
 # forcats 
 
@@ -333,7 +360,9 @@ prismatic::color(nord::nord_palettes$frost)
 nord::nord_palettes %>% map(prismatic::color)
 ```
 
-# Extra material below! ##########################################################################
+---
+
+# Extra material below! #########################################################################
 
 ## Recreating a {palmerpenguins} plot
 
@@ -414,7 +443,7 @@ penguins %>%
 - [{tidytuesdayR} package to help you easily download the data set](https://github.com/thebioengineer/tidytuesdayR)
 
 ### tidytuesdayR demo
-```{r}
+```{r eval=FALSE}
 # install.packages("tidytuesdayR")
 # remotes::install_github("thebioengineer/tidytuesdayR")
 
