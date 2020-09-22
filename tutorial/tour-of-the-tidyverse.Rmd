@@ -1,7 +1,7 @@
 ---
 title: "An Antarctic Tour of the Tidyverse"
 author: "Silvia P. Canelón, PhD (@spcanelon)"
-date: 'First created on Aug 31, 2020 (updated on Sept 22, 2020)'
+date: "First created on Aug 31, 2020 (updated on Sept 22, 2020)"
 institute: "University of Pennsylvania"
 output:
   html_notebook:
@@ -11,14 +11,14 @@ output:
     theme: lumen
     toc: yes
     toc_float: yes
+  html_document:
+    toc: yes
+    df_print: paged
 ---
 
 ```{r}
-knitr::opts_chunk$set(message = FALSE, warning = FALSE, collapse = TRUE, include = TRUE)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, collapse = TRUE)
 ```
-
-
----
 
 # About {palmerpenguins}
 - [{palmerpenguins} Documentation](https://allisonhorst.github.io/palmerpenguins/)
@@ -309,7 +309,7 @@ penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species))
 ```
-]
+
 
 Into this one!
 
@@ -329,7 +329,7 @@ library(nord)
 # you can choose colors using the color hex codes
 nord::nord_palettes$frost
 ```
-]
+
 
 
 ```{r}
@@ -354,15 +354,13 @@ prismatic::color(nord::nord_palettes$frost)
 
 `purrr`'s `map()` function can help us iterate the `prismatic::color()` function over all palettes in a palette package like `nord`!
 
-> Note: Not all colors will show well, like `polarnight` below. `prismatic::color()` relies on a package that kinda has limited functionality in this sense (`crayon`). It's doing it's best :)
+> Note: Not all colors will show well, like `polarnight` below. `prismatic::color()` relies on a package that kinda has limited functionality in this sense (`crayon`). It's doing its best :)
 
 ```{r, eval = FALSE}
 nord::nord_palettes %>% map(prismatic::color)
 ```
 
----
-
-# Extra material below! #########################################################################
+# Extra material below!
 
 ## Recreating a {palmerpenguins} plot
 
@@ -442,7 +440,7 @@ penguins %>%
 - [TidyTuesday Sight-Unseen on YouTube](https://www.youtube.com/watch?v=ImpXawPNCfM)
 - [{tidytuesdayR} package to help you easily download the data set](https://github.com/thebioengineer/tidytuesdayR)
 
-### tidytuesdayR demo
+## tidytuesdayR
 ```{r eval=FALSE}
 # install.packages("tidytuesdayR")
 # remotes::install_github("thebioengineer/tidytuesdayR")
