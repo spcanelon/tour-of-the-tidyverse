@@ -172,8 +172,8 @@ penguins %>%
   mutate(n_species = n()) %>%
   ungroup() %>%
   group_by(species, sex, n_species) %>%
-  summarize(count = n()) %>%
-  mutate(prop = count/n_species*100) #<<
+  summarize(n = n()) %>%
+  mutate(prop = n/n_species*100) #<<
 ```
 
 ]
@@ -201,8 +201,8 @@ penguins %>%
   mutate(n_species = n()) %>%
   ungroup() %>%
   group_by(species, sex, n_species) %>%
-  summarize(count = n()) %>%
-  mutate(prop = count/n_species*100) %>%
+  summarize(n = n()) %>%
+  mutate(prop = n/n_species*100) %>%
   filter(species == "Chinstrap") #<<
 ```
 
