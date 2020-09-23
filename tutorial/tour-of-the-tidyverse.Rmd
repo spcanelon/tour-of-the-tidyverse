@@ -174,26 +174,15 @@ penguins %>%
   arrange(desc(body_mass_g))
 ```
 
-## Option 1: group_by() and summarize()
+## group_by() and summarize()
 Summarizing the data using `group_by()` and `summarize()`
 ```{r group-by-summarize}
 penguins %>% 
   group_by(species, sex) %>%
-  summarize(count = n())
-```
-## mutate()
-Creating new variables with `mutate()`
-```{r group-by-summarize-mutate}
-penguins %>% 
-  group_by(species) %>%
-  mutate(count_species = n()) %>%
-  ungroup() %>%
-  group_by(species, sex, count_species) %>%
-  summarize(count = n()) %>%
-  mutate(prop = count/count_species*100)
+  summarize(n = n())
 ```
 
-## Option 2: count() 
+## count() and add_count()
 Because we're just _counting_ observations in this example, we also have the option to use `count()` which simplifies our code a little.
 
 > Thank you to Alison Hill for [these suggestions](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)!
@@ -203,13 +192,27 @@ penguins %>%
   count(species, sex)
 ```
 
-Likewise, we can use related function `add_count()` along with `mutate()` to add up the counts per species group to use as a denominator ("count_species") when we calculate the proportion by sex.
+## mutate()
 
+### Option 1
+Creating new variables with `mutate()`
+```{r group-by-summarize-mutate}
+penguins %>% 
+  group_by(species) %>%
+  mutate(n_species = n()) %>%
+  ungroup() %>%
+  group_by(species, sex, n_species) %>%
+  summarize(n = n()) %>%
+  mutate(prop = n/n_species*100)
+```
+
+### Option 2
+We can also use `mutate()` along with `add_count()` to add up the counts per species group to use as a denominator ("n_species") when we calculate the proportion by sex.
 ```{r count-mutate}
 penguins %>% 
   count(species, sex) %>%
-  add_count(species, wt = n, name = "count_species") %>%
-  mutate(prop = n/count_species*100)
+  add_count(species, wt = n, name = "n_species") %>%
+  mutate(prop = n/n_species*100)
 ```
 
 ## filter()
@@ -217,8 +220,8 @@ Regardless of which approach we take to summarize our data, we can proceed to fi
 ```{r filter}
 penguins %>% 
   count(species, sex) %>%
-  add_count(species, wt = n, name = "count_species") %>%
-  mutate(prop = n/count_species*100) %>%
+  add_count(species, wt = n, name = "n_species") %>%
+  mutate(prop = n/n_species*100) %>%
   filter(species == "Chinstrap")
 ```
 

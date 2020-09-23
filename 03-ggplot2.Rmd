@@ -81,14 +81,16 @@ Let's see if body mass varies by penguin sex
 
 .pull-left[
 ```{r eval=FALSE}
-ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, 
+       aes(x = sex, y = body_mass_g)) + #<<
   geom_point()
 ```
 ]
 
 .pull-right[
 ```{r, echo=FALSE, warning=FALSE, fig.height=5}
-ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, 
+       aes(x = sex, y = body_mass_g)) +
   geom_point()
 ```
 ]
@@ -98,14 +100,16 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 
 .pull-left[
 ```{r eval=FALSE}
-ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
-  geom_boxplot()
+ggplot(data = penguins, 
+       aes(x = sex, y = body_mass_g)) +
+  geom_boxplot() #<<
 ```
 ]
 
 .pull-right[
 ```{r echo=FALSE, warning=FALSE, fig.height=5}
-ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, 
+       aes(x = sex, y = body_mass_g)) +
   geom_boxplot()
 ```
 ]
@@ -115,8 +119,9 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 
 .pull-left[
 ```{r eval=FALSE}
-ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
-  geom_boxplot(aes(fill = species))
+ggplot(data = penguins, 
+       aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species)) #<<
 ```
 
 ### <br/> What do you notice?
@@ -124,8 +129,9 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 
 .pull-right[
 ```{r echo=FALSE, warning=FALSE, fig.height=5}
-ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
-  geom_boxplot(aes(fill = species)) #<<
+ggplot(data = penguins, 
+       aes(x = sex, y = body_mass_g)) +
+  geom_boxplot(aes(fill = species))
 ```
 ]
 ]
@@ -149,7 +155,7 @@ Next stop, `dplyr`!
 ```{r echo=FALSE, warning=FALSE, fig.height=5}
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
-  geom_boxplot(aes(fill = species)) #<<
+  geom_boxplot(aes(fill = species))
 ```
 ]
 ]

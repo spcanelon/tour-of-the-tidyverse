@@ -79,7 +79,7 @@ background-size: 80px
 ```{r}
 penguins %>%
   select(species, island) %>%
-  mutate(ISLAND = str_to_upper(island))
+  mutate(ISLAND = str_to_upper(island)) #<<
 ```
 ]
 
@@ -90,7 +90,7 @@ penguins %>%
 penguins %>%
   select(species, island) %>%
   mutate(ISLAND = str_to_upper(island)) %>%
-  mutate(species_island = str_c(species, ISLAND, sep = "_"))
+  mutate(species_island = str_c(species, ISLAND, sep = "_")) #<<
 ```
 ]
 ]

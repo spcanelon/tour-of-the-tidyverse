@@ -91,9 +91,9 @@ untidy_penguins
 
 ```{r}
 untidy_penguins %>%
-  pivot_longer(cols = male:`NA`, 
-               names_to = "sex",
-               values_to = "body_mass_g")
+  pivot_longer(cols = male:`NA`,           #<<
+               names_to = "sex",           #<<
+               values_to = "body_mass_g")  #<<
 ```
 ]
 ]

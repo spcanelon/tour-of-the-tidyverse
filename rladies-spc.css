@@ -68,6 +68,10 @@ a, a > code {
   font-size: 80%;
 }
 
+.small-text {
+  font-size: 80%;
+}
+
 /* 3-column split */
 /* https://rstudio-education.github.io/teaching-in-production/ */
 
@@ -85,7 +89,12 @@ a, a > code {
 
 
 /*-------*/
-
+.left-column {
+  color: #2E3440;
+  width: 20%;
+  height: 92%;
+  float: left;
+}
 
 .columns {
   display: flex;

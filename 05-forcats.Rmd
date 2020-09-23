@@ -71,7 +71,9 @@ background-size: 80px
 ### The `factor()` function is perfect for this.
 ```{r eval=FALSE}
 penguins %>%
-  mutate(year_factor = factor(year, levels = unique(year)))
+  mutate(year_factor = 
+           factor(year,                   #<<
+                  levels = unique(year))) #<<
 ```
 ]
 
@@ -84,7 +86,9 @@ penguins %>%
 ```{r}
 penguins_new <-
   penguins %>%
-  mutate(year_factor = factor(year, levels = unique(year)))
+  mutate(year_factor = 
+           factor(year,                   #<<
+                  levels = unique(year))) #<<
 penguins_new
 ```
 ]
@@ -92,6 +96,7 @@ penguins_new
 .pull-right[
 ```{r}
 class(penguins_new$year_factor)
+
 levels(penguins_new$year_factor)
 ```
 ]

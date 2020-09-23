@@ -71,20 +71,20 @@ background-size: 80px
 
 .panelset[
 .panel[.panel-name[Read data in]
-.center[Both options will get you the same dataset!]
-.pull-left[
+.center[
+### Both options below will get you the same dataset!]
+
+Option 1
 ```{r}
 # option 1: load using URL ----
 raw_adelie_url <- read_csv("https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.219.3&entityid=002f3893385f710df69eeebe893144ff")
 ```
-]
-.pull-right[
+
+Option 2
 ```{r}
 # option 2: load using filepath ----
 raw_adelie_filepath <- read_csv("tutorial/raw_adelie.csv")
 ```
-]
-
 ]
 
 .panel[.panel-name[Save data]

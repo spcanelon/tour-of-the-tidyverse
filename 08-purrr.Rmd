@@ -24,9 +24,21 @@ background-size: 80px
 .panelset[
 
 .panel[.panel-name[Overview]
+.pull-left[
 ### Provides tools for working with functions and vectors 
 
-### The `map()` family of functions helps us replace for loops, <br/> making our code easier to read and more succint.
+### The `purrr` family of functions helps us replace for loops, making our code easier to read and more succint.
+]
+
+.pull-right[
+### With `purrr` you can
+
+- Iterate over a single input with `map()`
+- Iterate over two inputs in parallel with `map2()`
+- Iterate with multiple arguments with `pmap()`
+- Iterate with multiple arguments and functions with `invoke_map()`
+- Call a function for its side-effects with `walk()`, `walk2()`, and `pwalk()`
+]
 ]
 
 .panel[.panel-name[Cheatsheet]
@@ -62,7 +74,7 @@ background-size: 80px
 .panel[.panel-name[Time for a change?]
 
 .pull-left[
-### Ok, we love our earlier boxplot showing us `body_mass_g` by `sex` and colored by `species`... but let's change up the colors to keep with our Antarctica theme!
+### Ok, we love our earlier boxplot showing us **body_mass_g** by **sex** and colored by **species**... but let's change up the colors to keep with our Antarctica theme!
 
 ### I'm a big fan of the color palettes in the `nord` `r emo::ji("package")`
 ]
@@ -97,16 +109,18 @@ penguins %>%
 ```{r}
 library(nord)
 
-# you can choose colors using the color hex codes
+# you can choose colors using 
+# the color hex codes
 nord::nord_palettes$frost
 ```
 
 ```{r eval=FALSE}
-# and assign them using the `scale_fill_manual()` function
+# and assign them using the 
+# `scale_fill_manual()` function
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = c("#8FBCBB", "#88C0D0", "#81A1C1"))
+  scale_fill_manual(values = c("#8FBCBB", "#88C0D0", "#81A1C1")) #<<
 ```
 ]
 
@@ -130,7 +144,7 @@ penguins %>%
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = nord::nord_palettes$frost)
+  scale_fill_manual(values = nord::nord_palettes$frost) #<<
 ```
 ]
 
@@ -140,7 +154,7 @@ And some color palette packages also come with their own functions like `scale_f
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  nord::scale_fill_nord(palette = "frost")
+  nord::scale_fill_nord(palette = "frost") #<<
 ```
 ]
 ]

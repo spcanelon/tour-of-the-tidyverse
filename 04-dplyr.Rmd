@@ -34,12 +34,13 @@ background-size: 80px
 - ...and more!
 ]
 .pull-right[
-#### Pick observations by their values with `filter()`.
-#### Reorder the rows with `arrange()`.
-#### Pick variables by their names `select()`.
-#### Create new variables with functions of existing variables `mutate()`.
-#### Collapse many values down to a single summary `summarize()`.
-#### and `group_by()` gets the above functions to operate group-by-group rather than on the entire dataset
+- Pick observations by their values with `filter()`.
+- Reorder the rows with `arrange()`.
+- Pick variables by their names `select()`.
+- Create new variables with functions of existing variables with `mutate()`.
+- Collapse many values down to a single summary with `summarize()`.
+- `group_by()` gets the above functions to operate group-by-group rather than on the entire dataset. 
+- and `count()` + `add_count()` simplify `group_by()` + `summarize()` when you just want to count
 ]
 ]
 
@@ -73,6 +74,7 @@ background-size: 80px
 # dplyr: exercise
 
 .panelset[
+
 .panel[.panel-name[Select]
 .center[ 
 ### Can you spot the difference in performing the same operation?
@@ -82,6 +84,7 @@ background-size: 80px
 select(penguins, species, sex, body_mass_g)
 ```
 ]
+
 .pull-right[
 ```{r}
 penguins %>%
@@ -91,6 +94,9 @@ penguins %>%
 ]
 
 .panel[.panel-name[Arrange]
+
+We can use `arrange()` to arrange our data in descending order by **body_mass_g**
+
 .pull-left[
 ```{r}
 glimpse(penguins)
@@ -100,45 +106,117 @@ glimpse(penguins)
 ```{r}
 penguins %>%
   select(species, sex, body_mass_g) %>%
-  arrange(desc(body_mass_g))
+  arrange(desc(body_mass_g)) #<<
 ```
 ]
 ]
 
 .panel[.panel-name[Group By & Summarize]
-#### Summarizing the data using `group_by()` and `summarize()`
+
+.pull-left[
+We can summarize the data using `group_by()` and `summarize()` to obtain counts by **species** and **sex**
 ```{r}
 penguins %>% 
-  group_by(species, sex) %>%
-  summarize(count = n())
+  group_by(species, sex) %>% #<<
+  summarize(n = n())         #<<
 ```
 ]
 
-.panel[.panel-name[Mutate]
-#### Creating new variables with `mutate()`
+.pull-right[
+And because we're just _counting_, we also have the option to use `count()` which simplifies our code!
+
+.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
+
+```{r}
+penguins %>%
+  count(species, sex) #<<
+```
+]
+]
+
+.panel[.panel-name[Mutate: Ex. 1]
+
+.pull-left[
+We can use `mutate()` to create a new variable **n_species** that adds up all observations per **species**
 ```{r}
 penguins %>% 
   group_by(species) %>%
-  mutate(count_species = n()) %>%
+  mutate(n_species = n()) %>% #<<
   ungroup() %>%
-  group_by(species, sex, count_species) %>%
-  summarize(count = n()) %>%
-  mutate(prop = count/count_species*100)
+  group_by(species, sex, n_species) %>%
+  summarize(n = n()) 
 ```
+]
+
+.pull-right[
+**OR** we can use `count()`'s friend `add_count()` to create **n_species**, again because we're just _counting_
+
+.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
+```{r}
+penguins %>% 
+  count(species, sex) %>%
+  add_count(species, wt = n,    #<<
+            name = "n_species") #<<
+```
+]
+]
+
+.panel[.panel-name[Mutate: Ex. 2]
+
+With either approach, we can use `mutate()` to create a new variable **prop**, which represents the proportion of penguins of each **sex**, grouped by **species**
+
+.pull-left[
+```{r}
+penguins %>% 
+  group_by(species) %>%
+  mutate(n_species = n()) %>%
+  ungroup() %>%
+  group_by(species, sex, n_species) %>%
+  summarize(count = n()) %>%
+  mutate(prop = count/n_species*100) #<<
+```
+
+]
+.pull-right[
+.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
+
+```{r}
+penguins %>% 
+  count(species, sex) %>%
+  add_count(species, wt = n, 
+            name = "n_species") %>%
+  mutate(prop = n/n_species*100) #<<
+```
+]
 ]
 
 .panel[.panel-name[Filter]
-#### Filtering rows using `filter()`
+
+Finally, we can filter rows to only show us **Chinstrap** penguin summaries by adding `filter()` to our pipeline
+
+.pull-left[
 ```{r}
 penguins %>% 
   group_by(species) %>%
-  mutate(count_species = n()) %>%
+  mutate(n_species = n()) %>%
   ungroup() %>%
-  group_by(species, sex, count_species) %>%
+  group_by(species, sex, n_species) %>%
   summarize(count = n()) %>%
-  mutate(percentage = count/count_species*100) %>%
-  filter(species == "Chinstrap")
+  mutate(prop = count/n_species*100) %>%
+  filter(species == "Chinstrap") #<<
 ```
+
+]
+.pull-right[
+```{r}
+penguins %>% 
+  count(species, sex) %>%
+  add_count(species, wt = n, 
+            name = "n_species") %>%
+  mutate(prop = n/n_species*100) %>%
+  filter(species == "Chinstrap") #<<
+```
+]
 ]
 
 ]

@@ -3011,6 +3011,9 @@ div.tocify {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua25pdHI6Om9wdHNfY2h1bmskc2V0KG1lc3NhZ2UgPSBGQUxTRSwgd2FybmluZyA9IEZBTFNFLCBjb2xsYXBzZSA9IFRSVUUpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">message =</span> <span class="ot">FALSE</span>, <span class="dt">warning =</span> <span class="ot">FALSE</span>, <span class="dt">collapse =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="about-palmerpenguins" class="section level1">
@@ -3022,8 +3025,8 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjpbIiMgaW5zdGFsbC5wYWNrYWdlcyhcInJlbW90ZXNcIikiLCIjIHJlbW90ZXM6Omluc3RhbGxfZ2l0aHViKFwiYWxsaXNvbmhvcnN0L3BhbG1lcnBlbmd1aW5zXCIpIl19 -->
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install.packages(&quot;remotes&quot;)</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># remotes::install_github(&quot;allisonhorst/palmerpenguins&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install.packages(&quot;remotes&quot;)</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># remotes::install_github(&quot;allisonhorst/palmerpenguins&quot;)</span></span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3032,6 +3035,14 @@ div.tocify {
 <h1>Loading packages</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBsb2FkaW5nIHBhY2thZ2VzXG5saWJyYXJ5KHRpZHl2ZXJzZSlcbmxpYnJhcnkocGFsbWVycGVuZ3VpbnMpXG5cbiMgdmlld2luZyBkYXRhIHNldHMgaW4gcGFja2FnZSBcInBhbG1lcnBlbmd1aW5zXCJcbmRhdGEocGFja2FnZSA9IFwicGFsbWVycGVuZ3VpbnNcIilcbmBgYCJ9 -->
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># loading packages</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">library</span>(palmerpenguins)</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co"># viewing data sets in package &quot;palmerpenguins&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="kw">data</span>(<span class="dt">package =</span> <span class="st">&quot;palmerpenguins&quot;</span>)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3040,6 +3051,13 @@ div.tocify {
 <p>Let’s get data into R!</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBvcHRpb24gMTogbG9hZCB1c2luZyBVUkwgLS0tLVxucmF3X2FkZWxpZV91cmwgPC0gcmVhZF9jc3YoXCJodHRwczovL3BvcnRhbC5lZGlyZXBvc2l0b3J5Lm9yZy9uaXMvZGF0YXZpZXdlcj9wYWNrYWdlaWQ9a25iLWx0ZXItcGFsLjIxOS4zJmVudGl0eWlkPTAwMmYzODkzMzg1ZjcxMGRmNjllZWViZTg5MzE0NGZmXCIpXG5cbiMgb3B0aW9uIDI6IGxvYWQgdXNpbmcgZmlsZXBhdGggLS0tLVxucmF3X2FkZWxpZV9maWxlcGF0aCA8LSByZWFkX2NzdihcInJhd19hZGVsaWUuY3N2XCIpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># option 1: load using URL ----</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>raw_adelie_url &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.219.3&amp;entityid=002f3893385f710df69eeebe893144ff&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># option 2: load using filepath ----</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>raw_adelie_filepath &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;raw_adelie.csv&quot;</span>)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Lucky for us, Allison Horst compiled data from all three species together for us in the <code>{palmerpenguins}</code> package!</p>
@@ -3049,6 +3067,14 @@ div.tocify {
 </ul>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBzYXZlcyBwYWNrYWdlIHRpYmJsZSBpbnRvIGdsb2JhbCBlbnZpcm9ubWVudFxucGVuZ3VpbnMgPC0gcGFsbWVycGVuZ3VpbnM6OnBlbmd1aW5zIFxuaGVhZChwZW5ndWlucylcblxucGVuZ3VpbnNfcmF3IDwtIHBhbG1lcnBlbmd1aW5zOjpwZW5ndWluc19yYXdcbmhlYWQocGVuZ3VpbnNfcmF3KVxuYGBgIn0= -->
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># saves package tibble into global environment</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>penguins &lt;-<span class="st"> </span>palmerpenguins<span class="op">::</span>penguins </span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">head</span>(penguins)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>penguins_raw &lt;-<span class="st"> </span>palmerpenguins<span class="op">::</span>penguins_raw</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="kw">head</span>(penguins_raw)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3057,6 +3083,12 @@ div.tocify {
 <p>A <code>tibble</code> is much like the <code>data frame</code> in base R, but optimized for use in the Tidyverse. Let’s take a look at the differences.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB0cnkgZWFjaCBvZiB0aGVzZSBjb21tYW5kcyBpbiB0aGUgY29uc29sZSBhbmQgc2VlIGlmIHlvdSBjYW4gc3BvdCB0aGUgZGlmZmVyZW5jZXMhXG5cbmFzX3RpYmJsZShwZW5ndWlucylcbmFzLmRhdGEuZnJhbWUocGVuZ3VpbnMpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># try each of these commands in the console and see if you can spot the differences!</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">as_tibble</span>(penguins)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="kw">as.data.frame</span>(penguins)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3074,6 +3106,9 @@ div.tocify {
 <p>Try it out here!</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmlnbmV0dGUoXCJ0aWJibGVcIilcbmBgYCJ9 -->
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">vignette</span>(<span class="st">&quot;tibble&quot;</span>)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="taking-a-closer-look-at-penguins" class="section level2">
@@ -3081,11 +3116,17 @@ div.tocify {
 <p>Get a full view of the dataset:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmlldyhwZW5ndWlucylcbmBgYCJ9 -->
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">View</span>(penguins)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Or catch a <code>glimpse</code>:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xpbXBzZShwZW5ndWlucylcbmBgYCJ9 -->
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">glimpse</span>(penguins)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3098,6 +3139,33 @@ div.tocify {
 <h2>Let’s see if body mass varies by penguin sex</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIGdncGxvdCgpXG5cbnBlbmd1aW5zICU+JVxuICBnZ3Bsb3QoYWVzKHggPSBzZXgsIHkgPSBib2R5X21hc3NfZykpXG5cbnBlbmd1aW5zICU+JVxuICBnZ3Bsb3QoYWVzKHggPSBzZXgsIHkgPSBib2R5X21hc3NfZykpICtcbiAgZ2VvbV9wb2ludCgpXG5cbiMgQSBzY2F0dGVyIHBsb3QgZG9lc24ndCByZWFsbHkgdGVsbCB1cyBtdWNoLlxuIyBMZXQncyB0cnkgYSBkaWZmZXJlbnQgZ2VvbWV0cnlcblxucGVuZ3VpbnMgJT4lXG4gIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkgK1xuICBnZW9tX2JveHBsb3QoKVxuXG4jIFRoYXQncyBtb3JlIGluZm9ybWF0aXZlIVxuIyBMZXQncyBzZWUgaWYgdGhlcmUgYXJlIGRpZmZlcmVuY2VzIGJ5IHBlbmd1aW4gc3BlY2llc1xuXG5wZW5ndWlucyAlPiVcbiAgZ2dwbG90KGFlcyh4ID0gc2V4LCB5ID0gYm9keV9tYXNzX2cpKSArXG4gIGdlb21fYm94cGxvdChhZXMoZmlsbCA9IHNwZWNpZXMpKVxuXG4jIFdoYXQgZG8geW91IG5vdGljZT9cbmBgYCJ9 -->
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="st">  </span><span class="kw">ggplot</span>()</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> sex, <span class="dt">y =</span> body_mass_g))</span>
+<span id="cb10-6"><a href="#cb10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> sex, <span class="dt">y =</span> body_mass_g)) <span class="op">+</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="st">  </span><span class="kw">geom_point</span>()</span>
+<span id="cb10-10"><a href="#cb10-10"></a></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co"># A scatter plot doesn&#39;t really tell us much.</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co"># Let&#39;s try a different geometry</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a></span>
+<span id="cb10-14"><a href="#cb10-14"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> sex, <span class="dt">y =</span> body_mass_g)) <span class="op">+</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span>
+<span id="cb10-17"><a href="#cb10-17"></a></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="co"># That&#39;s more informative!</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="co"># Let&#39;s see if there are differences by penguin species</span></span>
+<span id="cb10-20"><a href="#cb10-20"></a></span>
+<span id="cb10-21"><a href="#cb10-21"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> sex, <span class="dt">y =</span> body_mass_g)) <span class="op">+</span></span>
+<span id="cb10-23"><a href="#cb10-23"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> species))</span>
+<span id="cb10-24"><a href="#cb10-24"></a></span>
+<span id="cb10-25"><a href="#cb10-25"></a><span class="co"># What do you notice?</span></span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3118,6 +3186,9 @@ div.tocify {
 <h1>dplyr</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xpbXBzZShwZW5ndWlucylcbmBgYCJ9 -->
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">glimpse</span>(penguins)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="select" class="section level2">
@@ -3125,6 +3196,10 @@ div.tocify {
 <p>Selecting dataset columns with <code>select()</code></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIHNlbGVjdChzcGVjaWVzLCBzZXgsIGJvZHlfbWFzc19nKVxuYGBgIn0= -->
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="st">  </span><span class="kw">select</span>(species, sex, body_mass_g)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3133,46 +3208,88 @@ div.tocify {
 <p>Reordering the data set with <code>arrange()</code></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIHNlbGVjdChzcGVjaWVzLCBzZXgsIGJvZHlfbWFzc19nKSAlPiVcbiAgYXJyYW5nZShkZXNjKGJvZHlfbWFzc19nKSlcbmBgYCJ9 -->
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="st">  </span><span class="kw">select</span>(species, sex, body_mass_g) <span class="op">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(body_mass_g))</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="option-1-group_by-and-summarize" class="section level2">
-<h2>Option 1: group_by() and summarize()</h2>
+<div id="group_by-and-summarize" class="section level2">
+<h2>group_by() and summarize()</h2>
 <p>Summarizing the data using <code>group_by()</code> and <code>summarize()</code></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lIFxuICBncm91cF9ieShzcGVjaWVzLCBzZXgpICU+JVxuICBzdW1tYXJpemUobiA9IG4oKSlcbmBgYCJ9 -->
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>penguins <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="st">  </span><span class="kw">group_by</span>(species, sex) <span class="op">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="mutate" class="section level2">
-<h2>mutate()</h2>
-<p>Creating new variables with <code>mutate()</code></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="option-2-count" class="section level2">
-<h2>Option 2: count()</h2>
+<div id="count-and-add_count" class="section level2">
+<h2>count() and add_count()</h2>
 <p>Because we’re just <em>counting</em> observations in this example, we also have the option to use <code>count()</code> which simplifies our code a little.</p>
 <blockquote>
 <p>Thank you to Alison Hill for <a href="https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2">these suggestions</a>!</p>
 </blockquote>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIGNvdW50KHNwZWNpZXMsIHNleClcbmBgYCJ9 -->
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="st">  </span><span class="kw">count</span>(species, sex)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Likewise, we can use related function <code>add_count()</code> along with <code>mutate()</code> to add up the counts per species group to use as a denominator (“count_species”) when we calculate the proportion by sex.</p>
+</div>
+<div id="mutate" class="section level2">
+<h2>mutate()</h2>
+<div id="option-1" class="section level3">
+<h3>Option 1</h3>
+<p>Creating new variables with <code>mutate()</code></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lIFxuICBncm91cF9ieShzcGVjaWVzKSAlPiVcbiAgbXV0YXRlKG5fc3BlY2llcyA9IG4oKSkgJT4lXG4gIHVuZ3JvdXAoKSAlPiVcbiAgZ3JvdXBfYnkoc3BlY2llcywgc2V4LCBuX3NwZWNpZXMpICU+JVxuICBzdW1tYXJpemUobiA9IG4oKSkgJT4lXG4gIG11dGF0ZShwcm9wID0gbi9uX3NwZWNpZXMqMTAwKVxuYGBgIn0= -->
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>penguins <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">n_species =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="st">  </span><span class="kw">group_by</span>(species, sex, n_species) <span class="op">%&gt;%</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop =</span> n<span class="op">/</span>n_species<span class="op">*</span><span class="dv">100</span>)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="option-2" class="section level3">
+<h3>Option 2</h3>
+<p>We can also use <code>mutate()</code> along with <code>add_count()</code> to add up the counts per species group to use as a denominator (“n_species”) when we calculate the proportion by sex.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lIFxuICBjb3VudChzcGVjaWVzLCBzZXgpICU+JVxuICBhZGRfY291bnQoc3BlY2llcywgd3QgPSBuLCBuYW1lID0gXCJuX3NwZWNpZXNcIikgJT4lXG4gIG11dGF0ZShwcm9wID0gbi9uX3NwZWNpZXMqMTAwKVxuYGBgIn0= -->
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>penguins <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="st">  </span><span class="kw">count</span>(species, sex) <span class="op">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="st">  </span><span class="kw">add_count</span>(species, <span class="dt">wt =</span> n, <span class="dt">name =</span> <span class="st">&quot;n_species&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop =</span> n<span class="op">/</span>n_species<span class="op">*</span><span class="dv">100</span>)</span></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
 </div>
 <div id="filter" class="section level2">
 <h2>filter()</h2>
 <p>Regardless of which approach we take to summarize our data, we can proceed to filtering rows by adding on a filtering step to our pipeline using <code>filter()</code></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lIFxuICBjb3VudChzcGVjaWVzLCBzZXgpICU+JVxuICBhZGRfY291bnQoc3BlY2llcywgd3QgPSBuLCBuYW1lID0gXCJuX3NwZWNpZXNcIikgJT4lXG4gIG11dGF0ZShwcm9wID0gbi9uX3NwZWNpZXMqMTAwKSAlPiVcbiAgZmlsdGVyKHNwZWNpZXMgPT0gXCJDaGluc3RyYXBcIilcbmBgYCJ9 -->
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>penguins <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="st">  </span><span class="kw">count</span>(species, sex) <span class="op">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="st">  </span><span class="kw">add_count</span>(species, <span class="dt">wt =</span> n, <span class="dt">name =</span> <span class="st">&quot;n_species&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop =</span> n<span class="op">/</span>n_species<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="st">  </span><span class="kw">filter</span>(species <span class="op">==</span><span class="st"> &quot;Chinstrap&quot;</span>)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3184,16 +3301,30 @@ div.tocify {
 <p>The <code>factor()</code> function is perfect for this.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIG11dGF0ZSh5ZWFyX2ZhY3RvciA9IGZhY3Rvcih5ZWFyLCBsZXZlbHMgPSB1bmlxdWUoeWVhcikpKVxuYGBgIn0= -->
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year_factor =</span> <span class="kw">factor</span>(year, <span class="dt">levels =</span> <span class="kw">unique</span>(year)))</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>The result is a new factor <code>year_factor</code> with levels <code>2007</code>, <code>2008</code> and <code>2009</code>!</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnNfbmV3IDwtXG4gIHBlbmd1aW5zICU+JVxuICBtdXRhdGUoeWVhcl9mYWN0b3IgPSBmYWN0b3IoeWVhciwgbGV2ZWxzID0gdW5pcXVlKHllYXIpKSlcbnBlbmd1aW5zX25ld1xuYGBgIn0= -->
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>penguins_new &lt;-</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="st">  </span>penguins <span class="op">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year_factor =</span> <span class="kw">factor</span>(year, <span class="dt">levels =</span> <span class="kw">unique</span>(year)))</span>
+<span id="cb20-4"><a href="#cb20-4"></a>penguins_new</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Double check the variable class and factor levels below:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3MocGVuZ3VpbnNfbmV3JHllYXJfZmFjdG9yKVxubGV2ZWxzKHBlbmd1aW5zX25ldyR5ZWFyX2ZhY3RvcilcbmBgYCJ9 -->
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">class</span>(penguins_new<span class="op">$</span>year_factor)</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="kw">levels</span>(penguins_new<span class="op">$</span>year_factor)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3203,11 +3334,22 @@ div.tocify {
 <p>From what we’ve learned so far, take a guess at what this code chunk will do before running it.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIHNlbGVjdChzcGVjaWVzLCBpc2xhbmQpICU+JVxuICBtdXRhdGUoSVNMQU5EID0gc3RyX3RvX3VwcGVyKGlzbGFuZCkpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="st">  </span><span class="kw">select</span>(species, island) <span class="op">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ISLAND =</span> <span class="kw">str_to_upper</span>(island))</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>How about this one? How is it different from the previous code chunk?</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIHNlbGVjdChzcGVjaWVzLCBpc2xhbmQpICU+JVxuICBtdXRhdGUoSVNMQU5EID0gc3RyX3RvX3VwcGVyKGlzbGFuZCkpICU+JVxuICBtdXRhdGUoc3BlY2llc19pc2xhbmQgPSBzdHJfYyhzcGVjaWVzLCBJU0xBTkQsIHNlcCA9IFwiX1wiKSlcbmBgYCJ9 -->
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="st">  </span><span class="kw">select</span>(species, island) <span class="op">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ISLAND =</span> <span class="kw">str_to_upper</span>(island)) <span class="op">%&gt;%</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">species_island =</span> <span class="kw">str_c</span>(species, ISLAND, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>))</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3217,11 +3359,24 @@ div.tocify {
 <p>We can pretend that it wasn’t and that <code>body_mass_g</code> was recorded separately for <code>male</code>, <code>female</code>, and sex <code>NA</code> penguins. Like <code>untidy_penguins</code> below:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW50aWR5X3Blbmd1aW5zIDwtXG4gIHBlbmd1aW5zICU+JVxuICAgIHBpdm90X3dpZGVyKG5hbWVzX2Zyb20gPSBzZXgsXG4gICAgICAgICAgICAgICAgdmFsdWVzX2Zyb20gPSBib2R5X21hc3NfZylcbnVudGlkeV9wZW5ndWluc1xuYGBgIn0= -->
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>untidy_penguins &lt;-</span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="st">  </span>penguins <span class="op">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="st">    </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> sex,</span>
+<span id="cb24-4"><a href="#cb24-4"></a>                <span class="dt">values_from =</span> body_mass_g)</span>
+<span id="cb24-5"><a href="#cb24-5"></a>untidy_penguins</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Now let’s make it tidy again with the help of the <code>pivot_longer()</code> function! <code>pivot_wider()</code>is another very popular tidying function. Have you seen it before? Hint: see the code chunk above!</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW50aWR5X3Blbmd1aW5zICU+JVxuICBwaXZvdF9sb25nZXIoY29scyA9IG1hbGU6YE5BYCwgXG4gICAgICAgICAgICAgICBuYW1lc190byA9IFwic2V4XCIsXG4gICAgICAgICAgICAgICB2YWx1ZXNfdG8gPSBcImJvZHlfbWFzc19nXCIpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>untidy_penguins <span class="op">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> male<span class="op">:</span><span class="st">`</span><span class="dt">NA</span><span class="st">`</span>, </span>
+<span id="cb25-3"><a href="#cb25-3"></a>               <span class="dt">names_to =</span> <span class="st">&quot;sex&quot;</span>,</span>
+<span id="cb25-4"><a href="#cb25-4"></a>               <span class="dt">values_to =</span> <span class="st">&quot;body_mass_g&quot;</span>)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3233,25 +3388,59 @@ div.tocify {
 <p>Let’s turn this plot:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkgK1xuICBnZW9tX2JveHBsb3QoYWVzKGZpbGwgPSBzcGVjaWVzKSlcbmBgYCJ9 -->
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> sex, <span class="dt">y =</span> body_mass_g)) <span class="op">+</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> species))</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Into this one!</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkgK1xuICBnZW9tX2JveHBsb3QoYWVzKGZpbGwgPSBzcGVjaWVzKSkgK1xuICBzY2FsZV9maWxsX21hbnVhbCh2YWx1ZXMgPSBub3JkOjpub3JkX3BhbGV0dGVzJGZyb3N0KVxuYGBgIn0= -->
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> sex, <span class="dt">y =</span> body_mass_g)) <span class="op">+</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> species)) <span class="op">+</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> nord<span class="op">::</span>nord_palettes<span class="op">$</span>frost)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Let’s try out the <code>frost</code> palette.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB3ZSdsbCBuZWVkIHRvIGxvYWQgdGhlIHtub3JkfSBwYWNrYWdlXG5saWJyYXJ5KG5vcmQpXG5cbiMgeW91IGNhbiBjaG9vc2UgY29sb3JzIHVzaW5nIHRoZSBjb2xvciBoZXggY29kZXNcbm5vcmQ6Om5vcmRfcGFsZXR0ZXMkZnJvc3RcbmBgYCJ9 -->
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># we&#39;ll need to load the {nord} package</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="kw">library</span>(nord)</span>
+<span id="cb28-3"><a href="#cb28-3"></a></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="co"># you can choose colors using the color hex codes</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>nord<span class="op">::</span>nord_palettes<span class="op">$</span>frost</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBidXQgeW91IG1pZ2h0IHByZWZlciB0byB1c2UgYHNjYWxlX2ZpbGxfbWFudWFsKClgIFxuIyBvciBtb3JlIHNwZWNpYWxpemVkIGZ1bmN0aW9ucyBsaWtlIGBzY2FsZV9maWxsX25vcmQoKWAgXG4jIGluY2x1ZGVkIGluIHRoZSB7bm9yZH0gcGFja2FnZVxucGVuZ3VpbnMgJT4lXG4gIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkgK1xuICBnZW9tX2JveHBsb3QoYWVzKGZpbGwgPSBzcGVjaWVzKSkgK1xuICBzY2FsZV9maWxsX21hbnVhbCh2YWx1ZXMgPSBub3JkOjpub3JkX3BhbGV0dGVzJGZyb3N0KVxuICAjc2NhbGVfZmlsbF9ub3JkKHBhbGV0dGUgPSBcImZyb3N0XCIpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># but you might prefer to use `scale_fill_manual()` </span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="co"># or more specialized functions like `scale_fill_nord()` </span></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="co"># included in the {nord} package</span></span>
+<span id="cb29-4"><a href="#cb29-4"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb29-5"><a href="#cb29-5"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> sex, <span class="dt">y =</span> body_mass_g)) <span class="op">+</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> species)) <span class="op">+</span></span>
+<span id="cb29-7"><a href="#cb29-7"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> nord<span class="op">::</span>nord_palettes<span class="op">$</span>frost)</span>
+<span id="cb29-8"><a href="#cb29-8"></a>  <span class="co">#scale_fill_nord(palette = &quot;frost&quot;)</span></span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Ok now for a handy package/function trio!</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB3ZSdsbCBoYXZlIHRvIGxvYWQgdGhlIHtwcmlzbWF0aWN9IHBhY2thZ2VcbmxpYnJhcnkocHJpc21hdGljKVxuXG5wcmlzbWF0aWM6OmNvbG9yKG5vcmQ6Om5vcmRfcGFsZXR0ZXMkZnJvc3QpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># we&#39;ll have to load the {prismatic} package</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="kw">library</span>(prismatic)</span>
+<span id="cb30-3"><a href="#cb30-3"></a></span>
+<span id="cb30-4"><a href="#cb30-4"></a>prismatic<span class="op">::</span><span class="kw">color</span>(nord<span class="op">::</span>nord_palettes<span class="op">$</span>frost)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p><code>purrr</code>’s <code>map()</code> function can help us iterate the <code>prismatic::color()</code> function over all palettes in a palette package like <code>nord</code>!</p>
@@ -3261,7 +3450,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoibm9yZDo6bm9yZF9wYWxldHRlcyAlPiUgbWFwKHByaXNtYXRpYzo6Y29sb3IpIn0= -->
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>nord<span class="op">::</span>nord_palettes <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map</span>(prismatic<span class="op">::</span>color)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>nord<span class="op">::</span>nord_palettes <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map</span>(prismatic<span class="op">::</span>color)</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3277,14 +3466,71 @@ div.tocify {
 </div>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBzY2F0dGVycGxvdCBzZXF1ZW5jZSAtLS0tXG5wZW5ndWlucyAlPiVcbiAgZ2dwbG90KCkgKyBcbiAgZ2VvbV9wb2ludChhZXMoeCA9IGZsaXBwZXJfbGVuZ3RoX21tLCB5ID0gYmlsbF9sZW5ndGhfbW0pKSAjIGFkZCBhZXN0aGV0aWNzXG5cbnBlbmd1aW5zICU+JVxuICBnZ3Bsb3QoKSArXG4gIGdlb21fcG9pbnQoYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgeSA9IGJpbGxfbGVuZ3RoX21tLCBcbiAgICAgICAgICAgICAgICAgY29sb3IgPSBzcGVjaWVzKSkgIyBhZGQgY29sb3IgcGVyIHNwZWNpZXNcblxucGVuZ3VpbnMgJT4lXG4gIGdncGxvdCgpICtcbiAgZ2VvbV9wb2ludChhZXMoeCA9IGZsaXBwZXJfbGVuZ3RoX21tLCB5ID0gYmlsbF9sZW5ndGhfbW0sIFxuICAgICAgICAgICAgICAgICBjb2xvciA9IHNwZWNpZXMsIHNoYXBlID0gc3BlY2llcykpICMgYWRkIHNoYXBlIHBlciBzcGVjaWVzXG5cbnBlbmd1aW5zICU+JVxuICBnZ3Bsb3QoKSArXG4gIGdlb21fcG9pbnQoYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgeSA9IGJpbGxfbGVuZ3RoX21tLCBcbiAgICAgICAgICAgICAgICAgY29sb3IgPSBzcGVjaWVzLCBzaGFwZSA9IHNwZWNpZXMpKSAjIGFkZCBzaGFwZSBwZXIgc3BlY2llc1xuXG5wZW5ndWlucyAlPiVcbiAgZ2dwbG90KCkgK1xuICBnZW9tX3BvaW50KGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIHkgPSBiaWxsX2xlbmd0aF9tbSwgXG4gICAgICAgICAgICAgICAgIGNvbG9yID0gc3BlY2llcywgc2hhcGUgPSBzcGVjaWVzKSkgK1xuICBnZW9tX3Ntb290aChhZXMoeCA9IGZsaXBwZXJfbGVuZ3RoX21tLCB5ID0gYmlsbF9sZW5ndGhfbW0sIFxuICAgICAgICAgICAgICAgICAgY29sb3IgPSBzcGVjaWVzKSlcblxucGVuZ3VpbnMgJT4lXG4gIGdncGxvdChhZXMoeCA9IGZsaXBwZXJfbGVuZ3RoX21tLCB5ID0gYmlsbF9sZW5ndGhfbW0pKSArIFxuICBnZW9tX3BvaW50KGFlcyhjb2xvciA9IHNwZWNpZXMsIHNoYXBlID0gc3BlY2llcykpICtcbiAgZ2VvbV9zbW9vdGgoYWVzKGNvbG9yID0gc3BlY2llcyksIHNlID0gRkFMU0UsIG1ldGhvZCA9IFwibG1cIilcbmBgYCJ9 -->
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># scatterplot sequence ----</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">y =</span> bill_length_mm)) <span class="co"># add aesthetics</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a></span>
+<span id="cb32-6"><a href="#cb32-6"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb32-7"><a href="#cb32-7"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb32-8"><a href="#cb32-8"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">y =</span> bill_length_mm, </span>
+<span id="cb32-9"><a href="#cb32-9"></a>                 <span class="dt">color =</span> species)) <span class="co"># add color per species</span></span>
+<span id="cb32-10"><a href="#cb32-10"></a></span>
+<span id="cb32-11"><a href="#cb32-11"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb32-12"><a href="#cb32-12"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb32-13"><a href="#cb32-13"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">y =</span> bill_length_mm, </span>
+<span id="cb32-14"><a href="#cb32-14"></a>                 <span class="dt">color =</span> species, <span class="dt">shape =</span> species)) <span class="co"># add shape per species</span></span>
+<span id="cb32-15"><a href="#cb32-15"></a></span>
+<span id="cb32-16"><a href="#cb32-16"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb32-17"><a href="#cb32-17"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb32-18"><a href="#cb32-18"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">y =</span> bill_length_mm, </span>
+<span id="cb32-19"><a href="#cb32-19"></a>                 <span class="dt">color =</span> species, <span class="dt">shape =</span> species)) <span class="co"># add shape per species</span></span>
+<span id="cb32-20"><a href="#cb32-20"></a></span>
+<span id="cb32-21"><a href="#cb32-21"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb32-22"><a href="#cb32-22"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb32-23"><a href="#cb32-23"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">y =</span> bill_length_mm, </span>
+<span id="cb32-24"><a href="#cb32-24"></a>                 <span class="dt">color =</span> species, <span class="dt">shape =</span> species)) <span class="op">+</span></span>
+<span id="cb32-25"><a href="#cb32-25"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">y =</span> bill_length_mm, </span>
+<span id="cb32-26"><a href="#cb32-26"></a>                  <span class="dt">color =</span> species))</span>
+<span id="cb32-27"><a href="#cb32-27"></a></span>
+<span id="cb32-28"><a href="#cb32-28"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb32-29"><a href="#cb32-29"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">y =</span> bill_length_mm)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb32-30"><a href="#cb32-30"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species, <span class="dt">shape =</span> species)) <span class="op">+</span></span>
+<span id="cb32-31"><a href="#cb32-31"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIGdncGxvdCgpICtcbiAgZ2VvbV9wb2ludChhZXMoeCA9IGZsaXBwZXJfbGVuZ3RoX21tLCB5ID0gYm9keV9tYXNzX2csIFxuICAgICAgICAgICAgICAgICBjb2xvciA9IHNwZWNpZXMsIHNoYXBlID0gc3BlY2llcykpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">y =</span> body_mass_g, </span>
+<span id="cb33-4"><a href="#cb33-4"></a>                 <span class="dt">color =</span> species, <span class="dt">shape =</span> species))</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVuZ3VpbnMgJT4lXG4gIGdncGxvdCgpICtcbiAgZ2VvbV9oaXN0b2dyYW0oYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSkpXG5cbnBlbmd1aW5zICU+JVxuICBnZ3Bsb3QoKSArXG4gIGdlb21faGlzdG9ncmFtKGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIGNvbG9yID0gc3BlY2llcykpXG5cbnBlbmd1aW5zICU+JVxuICBnZ3Bsb3QoKSArXG4gIGdlb21faGlzdG9ncmFtKGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIGZpbGwgPSBzcGVjaWVzKSlcblxucGVuZ3VpbnMgJT4lXG4gIGdncGxvdCgpICtcbiAgZ2VvbV9oaXN0b2dyYW0oYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgZmlsbCA9IHNwZWNpZXMsIFxuICAgICAgICAgICAgICAgICAgICAgcG9zaXRpb24gPSBcImlkZW50aXR5XCIsIGFscGhhID0gMC41KSlcbmBgYCJ9 -->
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm))</span>
+<span id="cb34-4"><a href="#cb34-4"></a></span>
+<span id="cb34-5"><a href="#cb34-5"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb34-7"><a href="#cb34-7"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">color =</span> species))</span>
+<span id="cb34-8"><a href="#cb34-8"></a></span>
+<span id="cb34-9"><a href="#cb34-9"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb34-10"><a href="#cb34-10"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb34-11"><a href="#cb34-11"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">fill =</span> species))</span>
+<span id="cb34-12"><a href="#cb34-12"></a></span>
+<span id="cb34-13"><a href="#cb34-13"></a>penguins <span class="op">%&gt;%</span></span>
+<span id="cb34-14"><a href="#cb34-14"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb34-15"><a href="#cb34-15"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> flipper_length_mm, <span class="dt">fill =</span> species, </span>
+<span id="cb34-16"><a href="#cb34-16"></a>                     <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3307,19 +3553,19 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjpbIiMgaW5zdGFsbC5wYWNrYWdlcyhcInRpZHl0dWVzZGF5UlwiKSIsIiMgcmVtb3Rlczo6aW5zdGFsbF9naXRodWIoXCJ0aGViaW9lbmdpbmVlci90aWR5dHVlc2RheVJcIikiLCIiLCJsaWJyYXJ5KHRpZHl0dWVzZGF5UikiLCIiLCIjIGxvYWQgdGhlIGRhdGEiLCJ0dF9kYXRhIDwtIHR0X2xvYWQoXCIyMDIwLTA3LTI3XCIpICMgZXJyb3IgbWVzc2FnZSIsInR0X2RhdGEgPC0gdHRfbG9hZChcIjIwMjAtMDctMjhcIikiLCJ0dF9kYXRhIDwtIHR0X2xvYWQoMjAyMCwgd2Vlaz0zMSkiLCIiLCIjIHRha2UgYSBwZWVrIiwicmVhZG1lKHR0X2RhdGEpIiwicHJpbnQodHRfZGF0YSkiXX0= -->
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># install.packages(&quot;tidytuesdayR&quot;)</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co"># remotes::install_github(&quot;thebioengineer/tidytuesdayR&quot;)</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="kw">library</span>(tidytuesdayR)</span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co"># load the data</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a>tt_data &lt;-<span class="st"> </span><span class="kw">tt_load</span>(<span class="st">&quot;2020-07-27&quot;</span>) <span class="co"># error message</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>tt_data &lt;-<span class="st"> </span><span class="kw">tt_load</span>(<span class="st">&quot;2020-07-28&quot;</span>)</span>
-<span id="cb3-9"><a href="#cb3-9"></a>tt_data &lt;-<span class="st"> </span><span class="kw">tt_load</span>(<span class="dv">2020</span>, <span class="dt">week=</span><span class="dv">31</span>)</span>
-<span id="cb3-10"><a href="#cb3-10"></a></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co"># take a peek</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="kw">readme</span>(tt_data)</span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="kw">print</span>(tt_data)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># install.packages(&quot;tidytuesdayR&quot;)</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="co"># remotes::install_github(&quot;thebioengineer/tidytuesdayR&quot;)</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a></span>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="kw">library</span>(tidytuesdayR)</span>
+<span id="cb35-5"><a href="#cb35-5"></a></span>
+<span id="cb35-6"><a href="#cb35-6"></a><span class="co"># load the data</span></span>
+<span id="cb35-7"><a href="#cb35-7"></a>tt_data &lt;-<span class="st"> </span><span class="kw">tt_load</span>(<span class="st">&quot;2020-07-27&quot;</span>) <span class="co"># error message</span></span>
+<span id="cb35-8"><a href="#cb35-8"></a>tt_data &lt;-<span class="st"> </span><span class="kw">tt_load</span>(<span class="st">&quot;2020-07-28&quot;</span>)</span>
+<span id="cb35-9"><a href="#cb35-9"></a>tt_data &lt;-<span class="st"> </span><span class="kw">tt_load</span>(<span class="dv">2020</span>, <span class="dt">week=</span><span class="dv">31</span>)</span>
+<span id="cb35-10"><a href="#cb35-10"></a></span>
+<span id="cb35-11"><a href="#cb35-11"></a><span class="co"># take a peek</span></span>
+<span id="cb35-12"><a href="#cb35-12"></a><span class="kw">readme</span>(tt_data)</span>
+<span id="cb35-13"><a href="#cb35-13"></a><span class="kw">print</span>(tt_data)</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3348,7 +3594,7 @@ div.tocify {
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQW4gQW50YXJjdGljIFRvdXIgb2YgdGhlIFRpZHl2ZXJzZSIKYXV0aG9yOiAiU2lsdmlhIFAuIENhbmVsw7NuLCBQaEQgKEBzcGNhbmVsb24pIgpkYXRlOiAiRmlyc3QgY3JlYXRlZCBvbiBBdWcgMzEsIDIwMjAgKHVwZGF0ZWQgb24gU2VwdCAyMiwgMjAyMCkiCmluc3RpdHV0ZTogIlVuaXZlcnNpdHkgb2YgUGVubnN5bHZhbmlhIgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIGZpZ193aWR0aDogNy4yCiAgICBoaWdobGlnaHQ6IHB5Z21lbnRzCiAgICBudW1iZXJfc2VjdGlvbnM6IG5vCiAgICB0aGVtZTogbHVtZW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogIGh0bWxfZG9jdW1lbnQ6CiAgICB0b2M6IHllcwogICAgZGZfcHJpbnQ6IHBhZ2VkCi0tLQoKYGBge3J9CmtuaXRyOjpvcHRzX2NodW5rJHNldChtZXNzYWdlID0gRkFMU0UsIHdhcm5pbmcgPSBGQUxTRSwgY29sbGFwc2UgPSBUUlVFKQpgYGAKCiMgQWJvdXQge3BhbG1lcnBlbmd1aW5zfQotIFt7cGFsbWVycGVuZ3VpbnN9IERvY3VtZW50YXRpb25dKGh0dHBzOi8vYWxsaXNvbmhvcnN0LmdpdGh1Yi5pby9wYWxtZXJwZW5ndWlucy8pCi0gW0FsbGlzb24gSG9yc3QncyBHaXRIdWIgcmVwbyBmb3IgUGFsbWVyIFBlbmd1aW5zIGRhdGFzZXRdKGh0dHBzOi8vZ2l0aHViLmNvbS9hbGxpc29uaG9yc3QvcGFsbWVycGVuZ3VpbnMpCgpgYGB7ciwgZXZhbCA9IEZBTFNFfQojIGluc3RhbGwucGFja2FnZXMoInJlbW90ZXMiKQojIHJlbW90ZXM6Omluc3RhbGxfZ2l0aHViKCJhbGxpc29uaG9yc3QvcGFsbWVycGVuZ3VpbnMiKQpgYGAKCiMgTG9hZGluZyBwYWNrYWdlcwpgYGB7cn0KIyBsb2FkaW5nIHBhY2thZ2VzCmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KHBhbG1lcnBlbmd1aW5zKQoKIyB2aWV3aW5nIGRhdGEgc2V0cyBpbiBwYWNrYWdlICJwYWxtZXJwZW5ndWlucyIKZGF0YShwYWNrYWdlID0gInBhbG1lcnBlbmd1aW5zIikKYGBgCgojIHJlYWRyIAoKTGV0J3MgZ2V0IGRhdGEgaW50byBSIQoKYGBge3J9CiMgb3B0aW9uIDE6IGxvYWQgdXNpbmcgVVJMIC0tLS0KcmF3X2FkZWxpZV91cmwgPC0gcmVhZF9jc3YoImh0dHBzOi8vcG9ydGFsLmVkaXJlcG9zaXRvcnkub3JnL25pcy9kYXRhdmlld2VyP3BhY2thZ2VpZD1rbmItbHRlci1wYWwuMjE5LjMmZW50aXR5aWQ9MDAyZjM4OTMzODVmNzEwZGY2OWVlZWJlODkzMTQ0ZmYiKQoKIyBvcHRpb24gMjogbG9hZCB1c2luZyBmaWxlcGF0aCAtLS0tCnJhd19hZGVsaWVfZmlsZXBhdGggPC0gcmVhZF9jc3YoInJhd19hZGVsaWUuY3N2IikKYGBgCgpMdWNreSBmb3IgdXMsIEFsbGlzb24gSG9yc3QgY29tcGlsZWQgZGF0YSBmcm9tIGFsbCB0aHJlZSBzcGVjaWVzIHRvZ2V0aGVyIGZvciB1cyBpbiB0aGUgYHtwYWxtZXJwZW5ndWluc31gIHBhY2thZ2UhCgotIGBwZW5ndWluc2AgY29udGFpbnMgYSBjbGVhbiBkYXRhc2V0LCBhbmQKLSBgcGVuZ3VpbnNfcmF3YCBjb250YWlucyByYXcgZGF0YQoKYGBge3J9CiMgc2F2ZXMgcGFja2FnZSB0aWJibGUgaW50byBnbG9iYWwgZW52aXJvbm1lbnQKcGVuZ3VpbnMgPC0gcGFsbWVycGVuZ3VpbnM6OnBlbmd1aW5zIApoZWFkKHBlbmd1aW5zKQoKcGVuZ3VpbnNfcmF3IDwtIHBhbG1lcnBlbmd1aW5zOjpwZW5ndWluc19yYXcKaGVhZChwZW5ndWluc19yYXcpCmBgYAoKIyB0aWJibGUgCgpBIGB0aWJibGVgIGlzIG11Y2ggbGlrZSB0aGUgYGRhdGEgZnJhbWVgIGluIGJhc2UgUiwgYnV0IG9wdGltaXplZCBmb3IgdXNlIGluIHRoZSBUaWR5dmVyc2UuIExldCdzIHRha2UgYSBsb29rIGF0IHRoZSBkaWZmZXJlbmNlcy4KCmBgYHtyIHRpYmJsZX0KIyB0cnkgZWFjaCBvZiB0aGVzZSBjb21tYW5kcyBpbiB0aGUgY29uc29sZSBhbmQgc2VlIGlmIHlvdSBjYW4gc3BvdCB0aGUgZGlmZmVyZW5jZXMhCgphc190aWJibGUocGVuZ3VpbnMpCmFzLmRhdGEuZnJhbWUocGVuZ3VpbnMpCmBgYAoKIyBXaGF0IGRpZmZlcmVuY2VzIGRvIHlvdSBzZWU/CllvdSBtaWdodCBzZWUgYSB0aWJibGUgcHJpbnRzOgoKLSB2YXJpYWJsZSBjbGFzc2VzCi0gb25seSAxMCByb3dzCi0gb25seSBhcyBtYW55IGNvbHVtbnMgYXMgY2FuIGZpdCBvbiB0aGUgc2NyZWVuCi0gTkFzIGFyZSBoaWdobGlnaHRlZCBpbiBjb25zb2xlIHNvIHRoZXkncmUgZWFzeSB0byBzcG90IChmb250IGhpZ2hsaWdodGluZyBhbmQgc3R5bGluZyBpbiBgdGliYmxlYCkKCk5vdCBzbyBtdWNoIGEgY29uY2VybiBpbiBhbiBSIE1hcmtkb3duIGZpbGUsIGJ1dCBub3RpY2VhYmxlIGluIHRoZSBjb25zb2xlLiBQcmludCBtZXRob2QgbWFrZXMgaXQgZWFzaWVyIHRvIHdvcmsgd2l0aCBsYXJnZSBkYXRhc2V0cy4KClRoZXJlIGFyZSBhIGNvdXBsZSBvZiBvdGhlciBtYWluIGRpZmZlcmVuY2VzLCBuYW1lbHkgaW4gKipzdWJzZXR0aW5nKiogYW5kICoqcmVjeWNsaW5nKiouIENoZWNrIHRoZW0gb3V0IGluIHRoZSBbYHZpZ25ldHRlKCJ0aWJibGUiKV0oaHR0cHM6Ly90aWJibGUudGlkeXZlcnNlLm9yZy9hcnRpY2xlcy90aWJibGUuaHRtbCkKClRyeSBpdCBvdXQgaGVyZSEKYGBge3IgdGliYmxlLXZpZ25ldHRlfQp2aWduZXR0ZSgidGliYmxlIikKYGBgCgoKIyMgVGFraW5nIGEgY2xvc2VyIGxvb2sgYXQgYHBlbmd1aW5zYAoKR2V0IGEgZnVsbCB2aWV3IG9mIHRoZSBkYXRhc2V0OgpgYGB7ciBwZW5ndWlucy12aWV3fQpWaWV3KHBlbmd1aW5zKQpgYGAKCk9yIGNhdGNoIGEgYGdsaW1wc2VgOgpgYGB7ciBwZW5ndWlucy1nbGltcHNlfQpnbGltcHNlKHBlbmd1aW5zKQpgYGAKCiMgZ2dwbG90MiAKCkxldCdzIHN0YXJ0IGJ5IG1ha2luZyBhIHNpbXBsZSBwbG90IG9mIG91ciBkYXRhIQoKYGdncGxvdDJgIHVzZXMgdGhlICJHcmFtbWFyIG9mIEdyYXBoaWNzIiBhbmQgbGF5ZXJzIGdyYXBoaWNhbCBjb21wb25lbnRzIHRvZ2V0aGVyIHRvIGNyZWF0ZSBhIHBsb3QuCgojIyBMZXQncyBzZWUgaWYgYm9keSBtYXNzIHZhcmllcyBieSBwZW5ndWluIHNleAoKYGBge3IgZ2dwbG90Mn0KcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KCkKCnBlbmd1aW5zICU+JQogIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkKCnBlbmd1aW5zICU+JQogIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkgKwogIGdlb21fcG9pbnQoKQoKIyBBIHNjYXR0ZXIgcGxvdCBkb2Vzbid0IHJlYWxseSB0ZWxsIHVzIG11Y2guCiMgTGV0J3MgdHJ5IGEgZGlmZmVyZW50IGdlb21ldHJ5CgpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoYWVzKHggPSBzZXgsIHkgPSBib2R5X21hc3NfZykpICsKICBnZW9tX2JveHBsb3QoKQoKIyBUaGF0J3MgbW9yZSBpbmZvcm1hdGl2ZSEKIyBMZXQncyBzZWUgaWYgdGhlcmUgYXJlIGRpZmZlcmVuY2VzIGJ5IHBlbmd1aW4gc3BlY2llcwoKcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KGFlcyh4ID0gc2V4LCB5ID0gYm9keV9tYXNzX2cpKSArCiAgZ2VvbV9ib3hwbG90KGFlcyhmaWxsID0gc3BlY2llcykpCgojIFdoYXQgZG8geW91IG5vdGljZT8KYGBgCiMjIFdoYXQgb2JzZXJ2YXRpb25zIGNhbiB5b3UgbWFrZSBmcm9tIHRoZSBwbG90PwpZb3UgbWlnaHQgc2VlOgoKLSBHZW50b28gcGVuZ3VpbnMgaGF2ZSBoaWdoZXIgYm9keSBtYXNzIHRoYW4gQWRlbGllIGFuZCBDaGluc3RyYXAgcGVuZ3VpbnMKLSBIaWdoZXIgYm9keSBtYXNzIGFtb25nIG1hbGUgR2VudG9vIHBlbmd1aW5zIGNvbXBhcmVkIHRvIGZlbWFsZSBwZW5ndWlucwotIFBhdHRlcm4gbm90IGFzIGRpc2Nlcm5hYmxlIHdoZW4gY29tcGFyaW5nIEFkZWxpZSBhbmQgQ2hpbnN0cmFwIHBlbmd1aW5zCi0gTm8gYE5BYHMgYW1vbmcgQ2hpbnN0cmFwIHBlbmd1aW4gZGF0YSBwb2ludHMhIGBzZXhgIHdhcyBhdmFpbGFibGUgZm9yIGVhY2ggb2JzZXJ2YXRpb24KCkkgd29uZGVyIHdoYXQgcGVyY2VudGFnZSBvZiBvYnNlcnZhdGlvbnMgYXJlIGBOQWAgZm9yIGVhY2ggc3BlY2llcz8gTGV0J3MgZ2V0IHRoZSB0aWR5dmVyc2UgdG8gaGVscCB1cyB3aXRoIHRoaXMhCgpOZXh0IHN0b3AsIGBkcGx5cmAhCgojIGRwbHlyIAoKYGBge3J9CmdsaW1wc2UocGVuZ3VpbnMpCmBgYAoKIyMgc2VsZWN0KCkKU2VsZWN0aW5nIGRhdGFzZXQgY29sdW1ucyB3aXRoIGBzZWxlY3QoKWAKYGBge3Igc2VsZWN0fQpwZW5ndWlucyAlPiUKICBzZWxlY3Qoc3BlY2llcywgc2V4LCBib2R5X21hc3NfZykKYGBgCgojIyBhcnJhbmdlKCkKUmVvcmRlcmluZyB0aGUgZGF0YSBzZXQgd2l0aCBgYXJyYW5nZSgpYApgYGB7ciBhcnJhbmdlfQpwZW5ndWlucyAlPiUKICBzZWxlY3Qoc3BlY2llcywgc2V4LCBib2R5X21hc3NfZykgJT4lCiAgYXJyYW5nZShkZXNjKGJvZHlfbWFzc19nKSkKYGBgCgojIyBPcHRpb24gMTogZ3JvdXBfYnkoKSBhbmQgc3VtbWFyaXplKCkKU3VtbWFyaXppbmcgdGhlIGRhdGEgdXNpbmcgYGdyb3VwX2J5KClgIGFuZCBgc3VtbWFyaXplKClgCmBgYHtyIGdyb3VwLWJ5LXN1bW1hcml6ZX0KcGVuZ3VpbnMgJT4lIAogIGdyb3VwX2J5KHNwZWNpZXMsIHNleCkgJT4lCiAgc3VtbWFyaXplKGNvdW50ID0gbigpKQpgYGAKIyMgbXV0YXRlKCkKQ3JlYXRpbmcgbmV3IHZhcmlhYmxlcyB3aXRoIGBtdXRhdGUoKWAKYGBge3IgZ3JvdXAtYnktc3VtbWFyaXplLW11dGF0ZX0KcGVuZ3VpbnMgJT4lIAogIGdyb3VwX2J5KHNwZWNpZXMpICU+JQogIG11dGF0ZShjb3VudF9zcGVjaWVzID0gbigpKSAlPiUKICB1bmdyb3VwKCkgJT4lCiAgZ3JvdXBfYnkoc3BlY2llcywgc2V4LCBjb3VudF9zcGVjaWVzKSAlPiUKICBzdW1tYXJpemUoY291bnQgPSBuKCkpICU+JQogIG11dGF0ZShwcm9wID0gY291bnQvY291bnRfc3BlY2llcyoxMDApCmBgYAoKIyMgT3B0aW9uIDI6IGNvdW50KCkgCkJlY2F1c2Ugd2UncmUganVzdCBfY291bnRpbmdfIG9ic2VydmF0aW9ucyBpbiB0aGlzIGV4YW1wbGUsIHdlIGFsc28gaGF2ZSB0aGUgb3B0aW9uIHRvIHVzZSBgY291bnQoKWAgd2hpY2ggc2ltcGxpZmllcyBvdXIgY29kZSBhIGxpdHRsZS4KCj4gVGhhbmsgeW91IHRvIEFsaXNvbiBIaWxsIGZvciBbdGhlc2Ugc3VnZ2VzdGlvbnNdKGh0dHBzOi8vZ2l0aHViLmNvbS9zcGNhbmVsb24vMjAyMC1ybGFkaWVzLWNoaS10aWR5dmVyc2UvaXNzdWVzLzIpIQoKYGBge3IgY291bnR9CnBlbmd1aW5zICU+JQogIGNvdW50KHNwZWNpZXMsIHNleCkKYGBgCgpMaWtld2lzZSwgd2UgY2FuIHVzZSByZWxhdGVkIGZ1bmN0aW9uIGBhZGRfY291bnQoKWAgYWxvbmcgd2l0aCBgbXV0YXRlKClgIHRvIGFkZCB1cCB0aGUgY291bnRzIHBlciBzcGVjaWVzIGdyb3VwIHRvIHVzZSBhcyBhIGRlbm9taW5hdG9yICgiY291bnRfc3BlY2llcyIpIHdoZW4gd2UgY2FsY3VsYXRlIHRoZSBwcm9wb3J0aW9uIGJ5IHNleC4KCmBgYHtyIGNvdW50LW11dGF0ZX0KcGVuZ3VpbnMgJT4lIAogIGNvdW50KHNwZWNpZXMsIHNleCkgJT4lCiAgYWRkX2NvdW50KHNwZWNpZXMsIHd0ID0gbiwgbmFtZSA9ICJjb3VudF9zcGVjaWVzIikgJT4lCiAgbXV0YXRlKHByb3AgPSBuL2NvdW50X3NwZWNpZXMqMTAwKQpgYGAKCiMjIGZpbHRlcigpClJlZ2FyZGxlc3Mgb2Ygd2hpY2ggYXBwcm9hY2ggd2UgdGFrZSB0byBzdW1tYXJpemUgb3VyIGRhdGEsIHdlIGNhbiBwcm9jZWVkIHRvIGZpbHRlcmluZyByb3dzIGJ5IGFkZGluZyBvbiBhIGZpbHRlcmluZyBzdGVwIHRvIG91ciBwaXBlbGluZSB1c2luZyBgZmlsdGVyKClgCmBgYHtyIGZpbHRlcn0KcGVuZ3VpbnMgJT4lIAogIGNvdW50KHNwZWNpZXMsIHNleCkgJT4lCiAgYWRkX2NvdW50KHNwZWNpZXMsIHd0ID0gbiwgbmFtZSA9ICJjb3VudF9zcGVjaWVzIikgJT4lCiAgbXV0YXRlKHByb3AgPSBuL2NvdW50X3NwZWNpZXMqMTAwKSAlPiUKICBmaWx0ZXIoc3BlY2llcyA9PSAiQ2hpbnN0cmFwIikKYGBgCgojIGZvcmNhdHMgCgpDdXJyZW50bHkgdGhlIGB5ZWFyYCB2YXJpYWJsZSBpbiBgcGVuZ3VpbnNgIGlzIGNvbnRpbnVvdXMgZnJvbSAyMDA3IHRvIDIwMDkuCgpUaGVyZSBtYXkgYmUgc2l0dWF0aW9ucyB3aGVyZSB0aGlzIGlzbid0IHdoYXQgd2Ugd2FudCBhbmQgd2UgbWlnaHQgd2FudCB0byB0dXJuIGl0IGludG8gYSBjYXRlZ29yaWNhbCB2YXJpYWJsZSBpbnN0ZWFkLgoKVGhlIGBmYWN0b3IoKWAgZnVuY3Rpb24gaXMgcGVyZmVjdCBmb3IgdGhpcy4KYGBge3J9CnBlbmd1aW5zICU+JQogIG11dGF0ZSh5ZWFyX2ZhY3RvciA9IGZhY3Rvcih5ZWFyLCBsZXZlbHMgPSB1bmlxdWUoeWVhcikpKQpgYGAKClRoZSByZXN1bHQgaXMgYSBuZXcgZmFjdG9yIGB5ZWFyX2ZhY3RvcmAgd2l0aCBsZXZlbHMgYDIwMDdgLCBgMjAwOGAgYW5kIGAyMDA5YCEKCmBgYHtyfQpwZW5ndWluc19uZXcgPC0KICBwZW5ndWlucyAlPiUKICBtdXRhdGUoeWVhcl9mYWN0b3IgPSBmYWN0b3IoeWVhciwgbGV2ZWxzID0gdW5pcXVlKHllYXIpKSkKcGVuZ3VpbnNfbmV3CmBgYAoKRG91YmxlIGNoZWNrIHRoZSB2YXJpYWJsZSBjbGFzcyBhbmQgZmFjdG9yIGxldmVscyBiZWxvdzoKCmBgYHtyfQpjbGFzcyhwZW5ndWluc19uZXckeWVhcl9mYWN0b3IpCmxldmVscyhwZW5ndWluc19uZXckeWVhcl9mYWN0b3IpCmBgYAoKIyBzdHJpbmdyIAoKTGV0J3MgcGxheSBhcm91bmQgd2l0aCBzdHJpbmdzIGEgbGl0dGxlIGJpdCEKCkZyb20gd2hhdCB3ZSd2ZSBsZWFybmVkIHNvIGZhciwgdGFrZSBhIGd1ZXNzIGF0IHdoYXQgdGhpcyBjb2RlIGNodW5rIHdpbGwgZG8gYmVmb3JlIHJ1bm5pbmcgaXQuIAoKYGBge3J9CnBlbmd1aW5zICU+JQogIHNlbGVjdChzcGVjaWVzLCBpc2xhbmQpICU+JQogIG11dGF0ZShJU0xBTkQgPSBzdHJfdG9fdXBwZXIoaXNsYW5kKSkKYGBgCgpIb3cgYWJvdXQgdGhpcyBvbmU/IEhvdyBpcyBpdCBkaWZmZXJlbnQgZnJvbSB0aGUgcHJldmlvdXMgY29kZSBjaHVuaz8KCmBgYHtyfQpwZW5ndWlucyAlPiUKICBzZWxlY3Qoc3BlY2llcywgaXNsYW5kKSAlPiUKICBtdXRhdGUoSVNMQU5EID0gc3RyX3RvX3VwcGVyKGlzbGFuZCkpICU+JQogIG11dGF0ZShzcGVjaWVzX2lzbGFuZCA9IHN0cl9jKHNwZWNpZXMsIElTTEFORCwgc2VwID0gIl8iKSkKYGBgCgojIHRpZHlyIAoKQm90aCBwZW5ndWluIGRhdGFzZXRzIGFyZSBhbHJlYWR5IHRpZHkhCgpXZSBjYW4gcHJldGVuZCB0aGF0IGl0IHdhc24ndCBhbmQgdGhhdCBgYm9keV9tYXNzX2dgIHdhcyByZWNvcmRlZCBzZXBhcmF0ZWx5IGZvciBgbWFsZWAsIGBmZW1hbGVgLCBhbmQgc2V4IGBOQWAgcGVuZ3VpbnMuIExpa2UgYHVudGlkeV9wZW5ndWluc2AgYmVsb3c6CmBgYHtyfQp1bnRpZHlfcGVuZ3VpbnMgPC0KICBwZW5ndWlucyAlPiUKICAgIHBpdm90X3dpZGVyKG5hbWVzX2Zyb20gPSBzZXgsCiAgICAgICAgICAgICAgICB2YWx1ZXNfZnJvbSA9IGJvZHlfbWFzc19nKQp1bnRpZHlfcGVuZ3VpbnMKYGBgCgpOb3cgbGV0J3MgbWFrZSBpdCB0aWR5IGFnYWluIHdpdGggdGhlIGhlbHAgb2YgdGhlIGBwaXZvdF9sb25nZXIoKWAgZnVuY3Rpb24hCmBwaXZvdF93aWRlcigpYGlzIGFub3RoZXIgdmVyeSBwb3B1bGFyIHRpZHlpbmcgZnVuY3Rpb24uIEhhdmUgeW91IHNlZW4gaXQgYmVmb3JlPyBIaW50OiBzZWUgdGhlIGNvZGUgY2h1bmsgYWJvdmUhCgpgYGB7cn0KdW50aWR5X3Blbmd1aW5zICU+JQogIHBpdm90X2xvbmdlcihjb2xzID0gbWFsZTpgTkFgLCAKICAgICAgICAgICAgICAgbmFtZXNfdG8gPSAic2V4IiwKICAgICAgICAgICAgICAgdmFsdWVzX3RvID0gImJvZHlfbWFzc19nIikKYGBgCgojIHB1cnJyIAoKT2ssIHdlIGxvdmUgb3VyIGVhcmxpZXIgYm94cGxvdCBzaG93aW5nIHVzIGBib2R5X21hc3NfZ2AgYnkgYHNleGAgYW5kIGNvbG9yZWQgYnkgYHNwZWNpZXNgLi4uIGJ1dCBsZXQncyBjaGFuZ2UgdXAgdGhlIGNvbG9ycyB0byBrZWVwIHdpdGggb3VyIEFudGFyY3RpY2EgdGhlbWUhCgpJJ20gYSBiaWcgZmFuIG9mIHRoZSBjb2xvciBwYWxldHRlcyBpbiB0aGUgYG5vcmRgIGByIGVtbzo6amkoInBhY2thZ2UiKWAKCiFbXShodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vamthdXBwL25vcmQvbWFzdGVyL21hbi9maWd1cmVzL1JFQURNRS1wYWxldHRlcy0xLnBuZykKCkxldCdzIHR1cm4gdGhpcyBwbG90OgoKYGBge3J9CnBlbmd1aW5zICU+JQogIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkgKwogIGdlb21fYm94cGxvdChhZXMoZmlsbCA9IHNwZWNpZXMpKQpgYGAKCgpJbnRvIHRoaXMgb25lIQoKYGBge3J9CnBlbmd1aW5zICU+JQogIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkgKwogIGdlb21fYm94cGxvdChhZXMoZmlsbCA9IHNwZWNpZXMpKSArCiAgc2NhbGVfZmlsbF9tYW51YWwodmFsdWVzID0gbm9yZDo6bm9yZF9wYWxldHRlcyRmcm9zdCkKYGBgCgpMZXQncyB0cnkgb3V0IHRoZSBgZnJvc3RgIHBhbGV0dGUuCgpgYGB7cn0KIyB3ZSdsbCBuZWVkIHRvIGxvYWQgdGhlIHtub3JkfSBwYWNrYWdlCmxpYnJhcnkobm9yZCkKCiMgeW91IGNhbiBjaG9vc2UgY29sb3JzIHVzaW5nIHRoZSBjb2xvciBoZXggY29kZXMKbm9yZDo6bm9yZF9wYWxldHRlcyRmcm9zdApgYGAKCgoKYGBge3J9CiMgYnV0IHlvdSBtaWdodCBwcmVmZXIgdG8gdXNlIGBzY2FsZV9maWxsX21hbnVhbCgpYCAKIyBvciBtb3JlIHNwZWNpYWxpemVkIGZ1bmN0aW9ucyBsaWtlIGBzY2FsZV9maWxsX25vcmQoKWAgCiMgaW5jbHVkZWQgaW4gdGhlIHtub3JkfSBwYWNrYWdlCnBlbmd1aW5zICU+JQogIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkgKwogIGdlb21fYm94cGxvdChhZXMoZmlsbCA9IHNwZWNpZXMpKSArCiAgc2NhbGVfZmlsbF9tYW51YWwodmFsdWVzID0gbm9yZDo6bm9yZF9wYWxldHRlcyRmcm9zdCkKICAjc2NhbGVfZmlsbF9ub3JkKHBhbGV0dGUgPSAiZnJvc3QiKQpgYGAKCk9rIG5vdyBmb3IgYSBoYW5keSBwYWNrYWdlL2Z1bmN0aW9uIHRyaW8hCgpgYGB7cn0KIyB3ZSdsbCBoYXZlIHRvIGxvYWQgdGhlIHtwcmlzbWF0aWN9IHBhY2thZ2UKbGlicmFyeShwcmlzbWF0aWMpCgpwcmlzbWF0aWM6OmNvbG9yKG5vcmQ6Om5vcmRfcGFsZXR0ZXMkZnJvc3QpCmBgYAoKYHB1cnJyYCdzIGBtYXAoKWAgZnVuY3Rpb24gY2FuIGhlbHAgdXMgaXRlcmF0ZSB0aGUgYHByaXNtYXRpYzo6Y29sb3IoKWAgZnVuY3Rpb24gb3ZlciBhbGwgcGFsZXR0ZXMgaW4gYSBwYWxldHRlIHBhY2thZ2UgbGlrZSBgbm9yZGAhCgo+IE5vdGU6IE5vdCBhbGwgY29sb3JzIHdpbGwgc2hvdyB3ZWxsLCBsaWtlIGBwb2xhcm5pZ2h0YCBiZWxvdy4gYHByaXNtYXRpYzo6Y29sb3IoKWAgcmVsaWVzIG9uIGEgcGFja2FnZSB0aGF0IGtpbmRhIGhhcyBsaW1pdGVkIGZ1bmN0aW9uYWxpdHkgaW4gdGhpcyBzZW5zZSAoYGNyYXlvbmApLiBJdCdzIGRvaW5nIGl0cyBiZXN0IDopCgpgYGB7ciwgZXZhbCA9IEZBTFNFfQpub3JkOjpub3JkX3BhbGV0dGVzICU+JSBtYXAocHJpc21hdGljOjpjb2xvcikKYGBgCgojIEV4dHJhIG1hdGVyaWFsIGJlbG93IQoKIyMgUmVjcmVhdGluZyBhIHtwYWxtZXJwZW5ndWluc30gcGxvdAoKTGV0J3MgcHJhY3RpY2UgaW4gcmVhbCB0aW1lIQoKIVtodHRwczovL2dpdGh1Yi5jb20vYWxsaXNvbmhvcnN0L3BhbG1lcnBlbmd1aW5zXShodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vYWxsaXNvbmhvcnN0L3BhbG1lcnBlbmd1aW5zL21hc3Rlci9tYW4vZmlndXJlcy9SRUFETUUtZmxpcHBlci1iaWxsLTEucG5nKQoKYGBge3Igc2NhdHRlcnBsb3QtYmlsbC1sZW5ndGh9CiMgc2NhdHRlcnBsb3Qgc2VxdWVuY2UgLS0tLQpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoKSArIAogIGdlb21fcG9pbnQoYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgeSA9IGJpbGxfbGVuZ3RoX21tKSkgIyBhZGQgYWVzdGhldGljcwoKcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KCkgKwogIGdlb21fcG9pbnQoYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgeSA9IGJpbGxfbGVuZ3RoX21tLCAKICAgICAgICAgICAgICAgICBjb2xvciA9IHNwZWNpZXMpKSAjIGFkZCBjb2xvciBwZXIgc3BlY2llcwoKcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KCkgKwogIGdlb21fcG9pbnQoYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgeSA9IGJpbGxfbGVuZ3RoX21tLCAKICAgICAgICAgICAgICAgICBjb2xvciA9IHNwZWNpZXMsIHNoYXBlID0gc3BlY2llcykpICMgYWRkIHNoYXBlIHBlciBzcGVjaWVzCgpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoKSArCiAgZ2VvbV9wb2ludChhZXMoeCA9IGZsaXBwZXJfbGVuZ3RoX21tLCB5ID0gYmlsbF9sZW5ndGhfbW0sIAogICAgICAgICAgICAgICAgIGNvbG9yID0gc3BlY2llcywgc2hhcGUgPSBzcGVjaWVzKSkgIyBhZGQgc2hhcGUgcGVyIHNwZWNpZXMKCnBlbmd1aW5zICU+JQogIGdncGxvdCgpICsKICBnZW9tX3BvaW50KGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIHkgPSBiaWxsX2xlbmd0aF9tbSwgCiAgICAgICAgICAgICAgICAgY29sb3IgPSBzcGVjaWVzLCBzaGFwZSA9IHNwZWNpZXMpKSArCiAgZ2VvbV9zbW9vdGgoYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgeSA9IGJpbGxfbGVuZ3RoX21tLCAKICAgICAgICAgICAgICAgICAgY29sb3IgPSBzcGVjaWVzKSkKCnBlbmd1aW5zICU+JQogIGdncGxvdChhZXMoeCA9IGZsaXBwZXJfbGVuZ3RoX21tLCB5ID0gYmlsbF9sZW5ndGhfbW0pKSArIAogIGdlb21fcG9pbnQoYWVzKGNvbG9yID0gc3BlY2llcywgc2hhcGUgPSBzcGVjaWVzKSkgKwogIGdlb21fc21vb3RoKGFlcyhjb2xvciA9IHNwZWNpZXMpLCBzZSA9IEZBTFNFLCBtZXRob2QgPSAibG0iKQpgYGAKCmBgYHtyIHNjYXR0ZXJwbG90LWJvZHktbWFzc30KcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KCkgKwogIGdlb21fcG9pbnQoYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgeSA9IGJvZHlfbWFzc19nLCAKICAgICAgICAgICAgICAgICBjb2xvciA9IHNwZWNpZXMsIHNoYXBlID0gc3BlY2llcykpCmBgYAoKYGBge3IgaGlzdG9ncmFtfQpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoKSArCiAgZ2VvbV9oaXN0b2dyYW0oYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSkpCgpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoKSArCiAgZ2VvbV9oaXN0b2dyYW0oYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgY29sb3IgPSBzcGVjaWVzKSkKCnBlbmd1aW5zICU+JQogIGdncGxvdCgpICsKICBnZW9tX2hpc3RvZ3JhbShhZXMoeCA9IGZsaXBwZXJfbGVuZ3RoX21tLCBmaWxsID0gc3BlY2llcykpCgpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoKSArCiAgZ2VvbV9oaXN0b2dyYW0oYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgZmlsbCA9IHNwZWNpZXMsIAogICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbiA9ICJpZGVudGl0eSIsIGFscGhhID0gMC41KSkKYGBgCgoKIyBUaWR5VHVlc2RheQoKIyMgR2V0dGluZyBzdGFydGVkCgotIFtJbnRybyBCbG9nIGFuZCBoaXN0b3J5XShodHRwczovL3RoZW1vY2t1cC5ibG9nL3Bvc3RzLzIwMTgtMTItMTEtdGlkeXR1ZXNkYXktYS13ZWVrbHktc29jaWFsLWRhdGEtcHJvamVjdC1pbi1yLykKLSBbSW50cm8gVHdlZXQgYnkgVG9tIE1vY2sgKFJTdHVkaW8pXShodHRwczovL3R3aXR0ZXIuY29tL3Rob21hc19tb2NrL3N0YXR1cy8xMjg3Nzc0NTc1ODMzNjE2Mzg0P3M9MjApCi0gW1RpZHlUdWVzZGF5cyBHaXRIdWJdKGh0dHBzOi8vZ2l0aHViLmNvbS9yZm9yZGF0YXNjaWVuY2UvdGlkeXR1ZXNkYXkvYmxvYi9tYXN0ZXIvUkVBRE1FLm1kKQotIFtUaWR5VHVlc2RheSBQb2RjYXN0XShodHRwczovL3R3aXR0ZXIuY29tL3RpZHlwb2QpCi0gW1RpZHlUdWVzZGF5IFNpZ2h0LVVuc2VlbiBvbiBZb3VUdWJlXShodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PUltcFhhd1BOQ2ZNKQotIFt7dGlkeXR1ZXNkYXlSfSBwYWNrYWdlIHRvIGhlbHAgeW91IGVhc2lseSBkb3dubG9hZCB0aGUgZGF0YSBzZXRdKGh0dHBzOi8vZ2l0aHViLmNvbS90aGViaW9lbmdpbmVlci90aWR5dHVlc2RheVIpCgojIyB0aWR5dHVlc2RheVIKYGBge3IgZXZhbD1GQUxTRX0KIyBpbnN0YWxsLnBhY2thZ2VzKCJ0aWR5dHVlc2RheVIiKQojIHJlbW90ZXM6Omluc3RhbGxfZ2l0aHViKCJ0aGViaW9lbmdpbmVlci90aWR5dHVlc2RheVIiKQoKbGlicmFyeSh0aWR5dHVlc2RheVIpCgojIGxvYWQgdGhlIGRhdGEKdHRfZGF0YSA8LSB0dF9sb2FkKCIyMDIwLTA3LTI3IikgIyBlcnJvciBtZXNzYWdlCnR0X2RhdGEgPC0gdHRfbG9hZCgiMjAyMC0wNy0yOCIpCnR0X2RhdGEgPC0gdHRfbG9hZCgyMDIwLCB3ZWVrPTMxKQoKIyB0YWtlIGEgcGVlawpyZWFkbWUodHRfZGF0YSkKcHJpbnQodHRfZGF0YSkKYGBgCgojIyBMZXZlbCB1cCB3aXRoIG1vZGVsaW5nCi0gW0p1bGlhIFNpbGdlIChSU3R1ZGlvKSB0ZWFjaGVzIFRpZHltb2RlbHMgd2l0aCB7cGFsbWVycGVuZ3VpbnN9IG9uIFlvdVR1YmVdKGh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9ejU3aTJHVmNkd3cpCgojIyBFeGFtcGxlcwoKLSBTcGVjaWZpYyB0byB7cGFsbWVycGVuZ3VpbnN9OgogIC0gRm9jdXMgb24gZm9udHMgYW5kIGZvcm1hdHRpbmc6IGh0dHBzOi8vdHdpdHRlci5jb20vZWxsYW1rYXllL3N0YXR1cy8xMjg5MTU3MTM5NDM3NjIxMjUwP3M9MjAKICAtIFItTGFkaWVzIEFtZXM6IGh0dHBzOi8vdHdpdHRlci5jb20vUkxhZGllc0FtZXMvc3RhdHVzLzEyOTQ0MjUzNTkzODgxMTQ5NDQ/cz0yMAogIAotIEdlbmVyYWwgdG8gI3RpZHl0dWVzZGF5OgogIC0gUi1MYWRpZXMgQ2hpY2FnbyBUaWR5VHVlc2RheSBsZWFkZXIgT2xhITogaHR0cHM6Ly90d2l0dGVyLmNvbS9BbWF6aW5nU3BlY2lhbGkKICAtIFItTGFkaWVzIENoaWNhZ28gVGlkeVR1ZXNkYXkgc2V0dXA6IGh0dHBzOi8vdHdpdHRlci5jb20vUkxhZGllc0NoaWNhZ28vc3RhdHVzLzExOTIyNDMxNzA0MTI3NjEwODg/cz0yMA==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQW4gQW50YXJjdGljIFRvdXIgb2YgdGhlIFRpZHl2ZXJzZSIKYXV0aG9yOiAiU2lsdmlhIFAuIENhbmVsw7NuLCBQaEQgKEBzcGNhbmVsb24pIgpkYXRlOiAiRmlyc3QgY3JlYXRlZCBvbiBBdWcgMzEsIDIwMjAgKHVwZGF0ZWQgb24gU2VwdCAyMiwgMjAyMCkiCmluc3RpdHV0ZTogIlVuaXZlcnNpdHkgb2YgUGVubnN5bHZhbmlhIgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIGZpZ193aWR0aDogNy4yCiAgICBoaWdobGlnaHQ6IHB5Z21lbnRzCiAgICBudW1iZXJfc2VjdGlvbnM6IG5vCiAgICB0aGVtZTogbHVtZW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogIGh0bWxfZG9jdW1lbnQ6CiAgICB0b2M6IHllcwogICAgZGZfcHJpbnQ6IHBhZ2VkCi0tLQoKYGBge3J9CmtuaXRyOjpvcHRzX2NodW5rJHNldChtZXNzYWdlID0gRkFMU0UsIHdhcm5pbmcgPSBGQUxTRSwgY29sbGFwc2UgPSBUUlVFKQpgYGAKCiMgQWJvdXQge3BhbG1lcnBlbmd1aW5zfQotIFt7cGFsbWVycGVuZ3VpbnN9IERvY3VtZW50YXRpb25dKGh0dHBzOi8vYWxsaXNvbmhvcnN0LmdpdGh1Yi5pby9wYWxtZXJwZW5ndWlucy8pCi0gW0FsbGlzb24gSG9yc3QncyBHaXRIdWIgcmVwbyBmb3IgUGFsbWVyIFBlbmd1aW5zIGRhdGFzZXRdKGh0dHBzOi8vZ2l0aHViLmNvbS9hbGxpc29uaG9yc3QvcGFsbWVycGVuZ3VpbnMpCgpgYGB7ciwgZXZhbCA9IEZBTFNFfQojIGluc3RhbGwucGFja2FnZXMoInJlbW90ZXMiKQojIHJlbW90ZXM6Omluc3RhbGxfZ2l0aHViKCJhbGxpc29uaG9yc3QvcGFsbWVycGVuZ3VpbnMiKQpgYGAKCiMgTG9hZGluZyBwYWNrYWdlcwpgYGB7cn0KIyBsb2FkaW5nIHBhY2thZ2VzCmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KHBhbG1lcnBlbmd1aW5zKQoKIyB2aWV3aW5nIGRhdGEgc2V0cyBpbiBwYWNrYWdlICJwYWxtZXJwZW5ndWlucyIKZGF0YShwYWNrYWdlID0gInBhbG1lcnBlbmd1aW5zIikKYGBgCgojIHJlYWRyIAoKTGV0J3MgZ2V0IGRhdGEgaW50byBSIQoKYGBge3J9CiMgb3B0aW9uIDE6IGxvYWQgdXNpbmcgVVJMIC0tLS0KcmF3X2FkZWxpZV91cmwgPC0gcmVhZF9jc3YoImh0dHBzOi8vcG9ydGFsLmVkaXJlcG9zaXRvcnkub3JnL25pcy9kYXRhdmlld2VyP3BhY2thZ2VpZD1rbmItbHRlci1wYWwuMjE5LjMmZW50aXR5aWQ9MDAyZjM4OTMzODVmNzEwZGY2OWVlZWJlODkzMTQ0ZmYiKQoKIyBvcHRpb24gMjogbG9hZCB1c2luZyBmaWxlcGF0aCAtLS0tCnJhd19hZGVsaWVfZmlsZXBhdGggPC0gcmVhZF9jc3YoInJhd19hZGVsaWUuY3N2IikKYGBgCgpMdWNreSBmb3IgdXMsIEFsbGlzb24gSG9yc3QgY29tcGlsZWQgZGF0YSBmcm9tIGFsbCB0aHJlZSBzcGVjaWVzIHRvZ2V0aGVyIGZvciB1cyBpbiB0aGUgYHtwYWxtZXJwZW5ndWluc31gIHBhY2thZ2UhCgotIGBwZW5ndWluc2AgY29udGFpbnMgYSBjbGVhbiBkYXRhc2V0LCBhbmQKLSBgcGVuZ3VpbnNfcmF3YCBjb250YWlucyByYXcgZGF0YQoKYGBge3J9CiMgc2F2ZXMgcGFja2FnZSB0aWJibGUgaW50byBnbG9iYWwgZW52aXJvbm1lbnQKcGVuZ3VpbnMgPC0gcGFsbWVycGVuZ3VpbnM6OnBlbmd1aW5zIApoZWFkKHBlbmd1aW5zKQoKcGVuZ3VpbnNfcmF3IDwtIHBhbG1lcnBlbmd1aW5zOjpwZW5ndWluc19yYXcKaGVhZChwZW5ndWluc19yYXcpCmBgYAoKIyB0aWJibGUgCgpBIGB0aWJibGVgIGlzIG11Y2ggbGlrZSB0aGUgYGRhdGEgZnJhbWVgIGluIGJhc2UgUiwgYnV0IG9wdGltaXplZCBmb3IgdXNlIGluIHRoZSBUaWR5dmVyc2UuIExldCdzIHRha2UgYSBsb29rIGF0IHRoZSBkaWZmZXJlbmNlcy4KCmBgYHtyIHRpYmJsZX0KIyB0cnkgZWFjaCBvZiB0aGVzZSBjb21tYW5kcyBpbiB0aGUgY29uc29sZSBhbmQgc2VlIGlmIHlvdSBjYW4gc3BvdCB0aGUgZGlmZmVyZW5jZXMhCgphc190aWJibGUocGVuZ3VpbnMpCmFzLmRhdGEuZnJhbWUocGVuZ3VpbnMpCmBgYAoKIyBXaGF0IGRpZmZlcmVuY2VzIGRvIHlvdSBzZWU/CllvdSBtaWdodCBzZWUgYSB0aWJibGUgcHJpbnRzOgoKLSB2YXJpYWJsZSBjbGFzc2VzCi0gb25seSAxMCByb3dzCi0gb25seSBhcyBtYW55IGNvbHVtbnMgYXMgY2FuIGZpdCBvbiB0aGUgc2NyZWVuCi0gTkFzIGFyZSBoaWdobGlnaHRlZCBpbiBjb25zb2xlIHNvIHRoZXkncmUgZWFzeSB0byBzcG90IChmb250IGhpZ2hsaWdodGluZyBhbmQgc3R5bGluZyBpbiBgdGliYmxlYCkKCk5vdCBzbyBtdWNoIGEgY29uY2VybiBpbiBhbiBSIE1hcmtkb3duIGZpbGUsIGJ1dCBub3RpY2VhYmxlIGluIHRoZSBjb25zb2xlLiBQcmludCBtZXRob2QgbWFrZXMgaXQgZWFzaWVyIHRvIHdvcmsgd2l0aCBsYXJnZSBkYXRhc2V0cy4KClRoZXJlIGFyZSBhIGNvdXBsZSBvZiBvdGhlciBtYWluIGRpZmZlcmVuY2VzLCBuYW1lbHkgaW4gKipzdWJzZXR0aW5nKiogYW5kICoqcmVjeWNsaW5nKiouIENoZWNrIHRoZW0gb3V0IGluIHRoZSBbYHZpZ25ldHRlKCJ0aWJibGUiKV0oaHR0cHM6Ly90aWJibGUudGlkeXZlcnNlLm9yZy9hcnRpY2xlcy90aWJibGUuaHRtbCkKClRyeSBpdCBvdXQgaGVyZSEKYGBge3IgdGliYmxlLXZpZ25ldHRlfQp2aWduZXR0ZSgidGliYmxlIikKYGBgCgoKIyMgVGFraW5nIGEgY2xvc2VyIGxvb2sgYXQgYHBlbmd1aW5zYAoKR2V0IGEgZnVsbCB2aWV3IG9mIHRoZSBkYXRhc2V0OgpgYGB7ciBwZW5ndWlucy12aWV3fQpWaWV3KHBlbmd1aW5zKQpgYGAKCk9yIGNhdGNoIGEgYGdsaW1wc2VgOgpgYGB7ciBwZW5ndWlucy1nbGltcHNlfQpnbGltcHNlKHBlbmd1aW5zKQpgYGAKCiMgZ2dwbG90MiAKCkxldCdzIHN0YXJ0IGJ5IG1ha2luZyBhIHNpbXBsZSBwbG90IG9mIG91ciBkYXRhIQoKYGdncGxvdDJgIHVzZXMgdGhlICJHcmFtbWFyIG9mIEdyYXBoaWNzIiBhbmQgbGF5ZXJzIGdyYXBoaWNhbCBjb21wb25lbnRzIHRvZ2V0aGVyIHRvIGNyZWF0ZSBhIHBsb3QuCgojIyBMZXQncyBzZWUgaWYgYm9keSBtYXNzIHZhcmllcyBieSBwZW5ndWluIHNleAoKYGBge3IgZ2dwbG90Mn0KcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KCkKCnBlbmd1aW5zICU+JQogIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkKCnBlbmd1aW5zICU+JQogIGdncGxvdChhZXMoeCA9IHNleCwgeSA9IGJvZHlfbWFzc19nKSkgKwogIGdlb21fcG9pbnQoKQoKIyBBIHNjYXR0ZXIgcGxvdCBkb2Vzbid0IHJlYWxseSB0ZWxsIHVzIG11Y2guCiMgTGV0J3MgdHJ5IGEgZGlmZmVyZW50IGdlb21ldHJ5CgpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoYWVzKHggPSBzZXgsIHkgPSBib2R5X21hc3NfZykpICsKICBnZW9tX2JveHBsb3QoKQoKIyBUaGF0J3MgbW9yZSBpbmZvcm1hdGl2ZSEKIyBMZXQncyBzZWUgaWYgdGhlcmUgYXJlIGRpZmZlcmVuY2VzIGJ5IHBlbmd1aW4gc3BlY2llcwoKcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KGFlcyh4ID0gc2V4LCB5ID0gYm9keV9tYXNzX2cpKSArCiAgZ2VvbV9ib3hwbG90KGFlcyhmaWxsID0gc3BlY2llcykpCgojIFdoYXQgZG8geW91IG5vdGljZT8KYGBgCiMjIFdoYXQgb2JzZXJ2YXRpb25zIGNhbiB5b3UgbWFrZSBmcm9tIHRoZSBwbG90PwpZb3UgbWlnaHQgc2VlOgoKLSBHZW50b28gcGVuZ3VpbnMgaGF2ZSBoaWdoZXIgYm9keSBtYXNzIHRoYW4gQWRlbGllIGFuZCBDaGluc3RyYXAgcGVuZ3VpbnMKLSBIaWdoZXIgYm9keSBtYXNzIGFtb25nIG1hbGUgR2VudG9vIHBlbmd1aW5zIGNvbXBhcmVkIHRvIGZlbWFsZSBwZW5ndWlucwotIFBhdHRlcm4gbm90IGFzIGRpc2Nlcm5hYmxlIHdoZW4gY29tcGFyaW5nIEFkZWxpZSBhbmQgQ2hpbnN0cmFwIHBlbmd1aW5zCi0gTm8gYE5BYHMgYW1vbmcgQ2hpbnN0cmFwIHBlbmd1aW4gZGF0YSBwb2ludHMhIGBzZXhgIHdhcyBhdmFpbGFibGUgZm9yIGVhY2ggb2JzZXJ2YXRpb24KCkkgd29uZGVyIHdoYXQgcGVyY2VudGFnZSBvZiBvYnNlcnZhdGlvbnMgYXJlIGBOQWAgZm9yIGVhY2ggc3BlY2llcz8gTGV0J3MgZ2V0IHRoZSB0aWR5dmVyc2UgdG8gaGVscCB1cyB3aXRoIHRoaXMhCgpOZXh0IHN0b3AsIGBkcGx5cmAhCgojIGRwbHlyIAoKYGBge3J9CmdsaW1wc2UocGVuZ3VpbnMpCmBgYAoKIyMgc2VsZWN0KCkKU2VsZWN0aW5nIGRhdGFzZXQgY29sdW1ucyB3aXRoIGBzZWxlY3QoKWAKYGBge3Igc2VsZWN0fQpwZW5ndWlucyAlPiUKICBzZWxlY3Qoc3BlY2llcywgc2V4LCBib2R5X21hc3NfZykKYGBgCgojIyBhcnJhbmdlKCkKUmVvcmRlcmluZyB0aGUgZGF0YSBzZXQgd2l0aCBgYXJyYW5nZSgpYApgYGB7ciBhcnJhbmdlfQpwZW5ndWlucyAlPiUKICBzZWxlY3Qoc3BlY2llcywgc2V4LCBib2R5X21hc3NfZykgJT4lCiAgYXJyYW5nZShkZXNjKGJvZHlfbWFzc19nKSkKYGBgCgojIyBncm91cF9ieSgpIGFuZCBzdW1tYXJpemUoKQpTdW1tYXJpemluZyB0aGUgZGF0YSB1c2luZyBgZ3JvdXBfYnkoKWAgYW5kIGBzdW1tYXJpemUoKWAKYGBge3IgZ3JvdXAtYnktc3VtbWFyaXplfQpwZW5ndWlucyAlPiUgCiAgZ3JvdXBfYnkoc3BlY2llcywgc2V4KSAlPiUKICBzdW1tYXJpemUobiA9IG4oKSkKYGBgCgojIyBjb3VudCgpIGFuZCBhZGRfY291bnQoKQpCZWNhdXNlIHdlJ3JlIGp1c3QgX2NvdW50aW5nXyBvYnNlcnZhdGlvbnMgaW4gdGhpcyBleGFtcGxlLCB3ZSBhbHNvIGhhdmUgdGhlIG9wdGlvbiB0byB1c2UgYGNvdW50KClgIHdoaWNoIHNpbXBsaWZpZXMgb3VyIGNvZGUgYSBsaXR0bGUuCgo+IFRoYW5rIHlvdSB0byBBbGlzb24gSGlsbCBmb3IgW3RoZXNlIHN1Z2dlc3Rpb25zXShodHRwczovL2dpdGh1Yi5jb20vc3BjYW5lbG9uLzIwMjAtcmxhZGllcy1jaGktdGlkeXZlcnNlL2lzc3Vlcy8yKSEKCmBgYHtyIGNvdW50fQpwZW5ndWlucyAlPiUKICBjb3VudChzcGVjaWVzLCBzZXgpCmBgYAoKIyMgbXV0YXRlKCkKCiMjIyBPcHRpb24gMQpDcmVhdGluZyBuZXcgdmFyaWFibGVzIHdpdGggYG11dGF0ZSgpYApgYGB7ciBncm91cC1ieS1zdW1tYXJpemUtbXV0YXRlfQpwZW5ndWlucyAlPiUgCiAgZ3JvdXBfYnkoc3BlY2llcykgJT4lCiAgbXV0YXRlKG5fc3BlY2llcyA9IG4oKSkgJT4lCiAgdW5ncm91cCgpICU+JQogIGdyb3VwX2J5KHNwZWNpZXMsIHNleCwgbl9zcGVjaWVzKSAlPiUKICBzdW1tYXJpemUobiA9IG4oKSkgJT4lCiAgbXV0YXRlKHByb3AgPSBuL25fc3BlY2llcyoxMDApCmBgYAoKIyMjIE9wdGlvbiAyCldlIGNhbiBhbHNvIHVzZSBgbXV0YXRlKClgIGFsb25nIHdpdGggYGFkZF9jb3VudCgpYCB0byBhZGQgdXAgdGhlIGNvdW50cyBwZXIgc3BlY2llcyBncm91cCB0byB1c2UgYXMgYSBkZW5vbWluYXRvciAoIm5fc3BlY2llcyIpIHdoZW4gd2UgY2FsY3VsYXRlIHRoZSBwcm9wb3J0aW9uIGJ5IHNleC4KYGBge3IgY291bnQtbXV0YXRlfQpwZW5ndWlucyAlPiUgCiAgY291bnQoc3BlY2llcywgc2V4KSAlPiUKICBhZGRfY291bnQoc3BlY2llcywgd3QgPSBuLCBuYW1lID0gIm5fc3BlY2llcyIpICU+JQogIG11dGF0ZShwcm9wID0gbi9uX3NwZWNpZXMqMTAwKQpgYGAKCiMjIGZpbHRlcigpClJlZ2FyZGxlc3Mgb2Ygd2hpY2ggYXBwcm9hY2ggd2UgdGFrZSB0byBzdW1tYXJpemUgb3VyIGRhdGEsIHdlIGNhbiBwcm9jZWVkIHRvIGZpbHRlcmluZyByb3dzIGJ5IGFkZGluZyBvbiBhIGZpbHRlcmluZyBzdGVwIHRvIG91ciBwaXBlbGluZSB1c2luZyBgZmlsdGVyKClgCmBgYHtyIGZpbHRlcn0KcGVuZ3VpbnMgJT4lIAogIGNvdW50KHNwZWNpZXMsIHNleCkgJT4lCiAgYWRkX2NvdW50KHNwZWNpZXMsIHd0ID0gbiwgbmFtZSA9ICJuX3NwZWNpZXMiKSAlPiUKICBtdXRhdGUocHJvcCA9IG4vbl9zcGVjaWVzKjEwMCkgJT4lCiAgZmlsdGVyKHNwZWNpZXMgPT0gIkNoaW5zdHJhcCIpCmBgYAoKIyBmb3JjYXRzIAoKQ3VycmVudGx5IHRoZSBgeWVhcmAgdmFyaWFibGUgaW4gYHBlbmd1aW5zYCBpcyBjb250aW51b3VzIGZyb20gMjAwNyB0byAyMDA5LgoKVGhlcmUgbWF5IGJlIHNpdHVhdGlvbnMgd2hlcmUgdGhpcyBpc24ndCB3aGF0IHdlIHdhbnQgYW5kIHdlIG1pZ2h0IHdhbnQgdG8gdHVybiBpdCBpbnRvIGEgY2F0ZWdvcmljYWwgdmFyaWFibGUgaW5zdGVhZC4KClRoZSBgZmFjdG9yKClgIGZ1bmN0aW9uIGlzIHBlcmZlY3QgZm9yIHRoaXMuCmBgYHtyfQpwZW5ndWlucyAlPiUKICBtdXRhdGUoeWVhcl9mYWN0b3IgPSBmYWN0b3IoeWVhciwgbGV2ZWxzID0gdW5pcXVlKHllYXIpKSkKYGBgCgpUaGUgcmVzdWx0IGlzIGEgbmV3IGZhY3RvciBgeWVhcl9mYWN0b3JgIHdpdGggbGV2ZWxzIGAyMDA3YCwgYDIwMDhgIGFuZCBgMjAwOWAhCgpgYGB7cn0KcGVuZ3VpbnNfbmV3IDwtCiAgcGVuZ3VpbnMgJT4lCiAgbXV0YXRlKHllYXJfZmFjdG9yID0gZmFjdG9yKHllYXIsIGxldmVscyA9IHVuaXF1ZSh5ZWFyKSkpCnBlbmd1aW5zX25ldwpgYGAKCkRvdWJsZSBjaGVjayB0aGUgdmFyaWFibGUgY2xhc3MgYW5kIGZhY3RvciBsZXZlbHMgYmVsb3c6CgpgYGB7cn0KY2xhc3MocGVuZ3VpbnNfbmV3JHllYXJfZmFjdG9yKQpsZXZlbHMocGVuZ3VpbnNfbmV3JHllYXJfZmFjdG9yKQpgYGAKCiMgc3RyaW5nciAKCkxldCdzIHBsYXkgYXJvdW5kIHdpdGggc3RyaW5ncyBhIGxpdHRsZSBiaXQhCgpGcm9tIHdoYXQgd2UndmUgbGVhcm5lZCBzbyBmYXIsIHRha2UgYSBndWVzcyBhdCB3aGF0IHRoaXMgY29kZSBjaHVuayB3aWxsIGRvIGJlZm9yZSBydW5uaW5nIGl0LiAKCmBgYHtyfQpwZW5ndWlucyAlPiUKICBzZWxlY3Qoc3BlY2llcywgaXNsYW5kKSAlPiUKICBtdXRhdGUoSVNMQU5EID0gc3RyX3RvX3VwcGVyKGlzbGFuZCkpCmBgYAoKSG93IGFib3V0IHRoaXMgb25lPyBIb3cgaXMgaXQgZGlmZmVyZW50IGZyb20gdGhlIHByZXZpb3VzIGNvZGUgY2h1bms/CgpgYGB7cn0KcGVuZ3VpbnMgJT4lCiAgc2VsZWN0KHNwZWNpZXMsIGlzbGFuZCkgJT4lCiAgbXV0YXRlKElTTEFORCA9IHN0cl90b191cHBlcihpc2xhbmQpKSAlPiUKICBtdXRhdGUoc3BlY2llc19pc2xhbmQgPSBzdHJfYyhzcGVjaWVzLCBJU0xBTkQsIHNlcCA9ICJfIikpCmBgYAoKIyB0aWR5ciAKCkJvdGggcGVuZ3VpbiBkYXRhc2V0cyBhcmUgYWxyZWFkeSB0aWR5IQoKV2UgY2FuIHByZXRlbmQgdGhhdCBpdCB3YXNuJ3QgYW5kIHRoYXQgYGJvZHlfbWFzc19nYCB3YXMgcmVjb3JkZWQgc2VwYXJhdGVseSBmb3IgYG1hbGVgLCBgZmVtYWxlYCwgYW5kIHNleCBgTkFgIHBlbmd1aW5zLiBMaWtlIGB1bnRpZHlfcGVuZ3VpbnNgIGJlbG93OgpgYGB7cn0KdW50aWR5X3Blbmd1aW5zIDwtCiAgcGVuZ3VpbnMgJT4lCiAgICBwaXZvdF93aWRlcihuYW1lc19mcm9tID0gc2V4LAogICAgICAgICAgICAgICAgdmFsdWVzX2Zyb20gPSBib2R5X21hc3NfZykKdW50aWR5X3Blbmd1aW5zCmBgYAoKTm93IGxldCdzIG1ha2UgaXQgdGlkeSBhZ2FpbiB3aXRoIHRoZSBoZWxwIG9mIHRoZSBgcGl2b3RfbG9uZ2VyKClgIGZ1bmN0aW9uIQpgcGl2b3Rfd2lkZXIoKWBpcyBhbm90aGVyIHZlcnkgcG9wdWxhciB0aWR5aW5nIGZ1bmN0aW9uLiBIYXZlIHlvdSBzZWVuIGl0IGJlZm9yZT8gSGludDogc2VlIHRoZSBjb2RlIGNodW5rIGFib3ZlIQoKYGBge3J9CnVudGlkeV9wZW5ndWlucyAlPiUKICBwaXZvdF9sb25nZXIoY29scyA9IG1hbGU6YE5BYCwgCiAgICAgICAgICAgICAgIG5hbWVzX3RvID0gInNleCIsCiAgICAgICAgICAgICAgIHZhbHVlc190byA9ICJib2R5X21hc3NfZyIpCmBgYAoKIyBwdXJyciAKCk9rLCB3ZSBsb3ZlIG91ciBlYXJsaWVyIGJveHBsb3Qgc2hvd2luZyB1cyBgYm9keV9tYXNzX2dgIGJ5IGBzZXhgIGFuZCBjb2xvcmVkIGJ5IGBzcGVjaWVzYC4uLiBidXQgbGV0J3MgY2hhbmdlIHVwIHRoZSBjb2xvcnMgdG8ga2VlcCB3aXRoIG91ciBBbnRhcmN0aWNhIHRoZW1lIQoKSSdtIGEgYmlnIGZhbiBvZiB0aGUgY29sb3IgcGFsZXR0ZXMgaW4gdGhlIGBub3JkYCBgciBlbW86OmppKCJwYWNrYWdlIilgCgohW10oaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2prYXVwcC9ub3JkL21hc3Rlci9tYW4vZmlndXJlcy9SRUFETUUtcGFsZXR0ZXMtMS5wbmcpCgpMZXQncyB0dXJuIHRoaXMgcGxvdDoKCmBgYHtyfQpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoYWVzKHggPSBzZXgsIHkgPSBib2R5X21hc3NfZykpICsKICBnZW9tX2JveHBsb3QoYWVzKGZpbGwgPSBzcGVjaWVzKSkKYGBgCgoKSW50byB0aGlzIG9uZSEKCmBgYHtyfQpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoYWVzKHggPSBzZXgsIHkgPSBib2R5X21hc3NfZykpICsKICBnZW9tX2JveHBsb3QoYWVzKGZpbGwgPSBzcGVjaWVzKSkgKwogIHNjYWxlX2ZpbGxfbWFudWFsKHZhbHVlcyA9IG5vcmQ6Om5vcmRfcGFsZXR0ZXMkZnJvc3QpCmBgYAoKTGV0J3MgdHJ5IG91dCB0aGUgYGZyb3N0YCBwYWxldHRlLgoKYGBge3J9CiMgd2UnbGwgbmVlZCB0byBsb2FkIHRoZSB7bm9yZH0gcGFja2FnZQpsaWJyYXJ5KG5vcmQpCgojIHlvdSBjYW4gY2hvb3NlIGNvbG9ycyB1c2luZyB0aGUgY29sb3IgaGV4IGNvZGVzCm5vcmQ6Om5vcmRfcGFsZXR0ZXMkZnJvc3QKYGBgCgoKCmBgYHtyfQojIGJ1dCB5b3UgbWlnaHQgcHJlZmVyIHRvIHVzZSBgc2NhbGVfZmlsbF9tYW51YWwoKWAgCiMgb3IgbW9yZSBzcGVjaWFsaXplZCBmdW5jdGlvbnMgbGlrZSBgc2NhbGVfZmlsbF9ub3JkKClgIAojIGluY2x1ZGVkIGluIHRoZSB7bm9yZH0gcGFja2FnZQpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoYWVzKHggPSBzZXgsIHkgPSBib2R5X21hc3NfZykpICsKICBnZW9tX2JveHBsb3QoYWVzKGZpbGwgPSBzcGVjaWVzKSkgKwogIHNjYWxlX2ZpbGxfbWFudWFsKHZhbHVlcyA9IG5vcmQ6Om5vcmRfcGFsZXR0ZXMkZnJvc3QpCiAgI3NjYWxlX2ZpbGxfbm9yZChwYWxldHRlID0gImZyb3N0IikKYGBgCgpPayBub3cgZm9yIGEgaGFuZHkgcGFja2FnZS9mdW5jdGlvbiB0cmlvIQoKYGBge3J9CiMgd2UnbGwgaGF2ZSB0byBsb2FkIHRoZSB7cHJpc21hdGljfSBwYWNrYWdlCmxpYnJhcnkocHJpc21hdGljKQoKcHJpc21hdGljOjpjb2xvcihub3JkOjpub3JkX3BhbGV0dGVzJGZyb3N0KQpgYGAKCmBwdXJycmAncyBgbWFwKClgIGZ1bmN0aW9uIGNhbiBoZWxwIHVzIGl0ZXJhdGUgdGhlIGBwcmlzbWF0aWM6OmNvbG9yKClgIGZ1bmN0aW9uIG92ZXIgYWxsIHBhbGV0dGVzIGluIGEgcGFsZXR0ZSBwYWNrYWdlIGxpa2UgYG5vcmRgIQoKPiBOb3RlOiBOb3QgYWxsIGNvbG9ycyB3aWxsIHNob3cgd2VsbCwgbGlrZSBgcG9sYXJuaWdodGAgYmVsb3cuIGBwcmlzbWF0aWM6OmNvbG9yKClgIHJlbGllcyBvbiBhIHBhY2thZ2UgdGhhdCBraW5kYSBoYXMgbGltaXRlZCBmdW5jdGlvbmFsaXR5IGluIHRoaXMgc2Vuc2UgKGBjcmF5b25gKS4gSXQncyBkb2luZyBpdHMgYmVzdCA6KQoKYGBge3IsIGV2YWwgPSBGQUxTRX0Kbm9yZDo6bm9yZF9wYWxldHRlcyAlPiUgbWFwKHByaXNtYXRpYzo6Y29sb3IpCmBgYAoKIyBFeHRyYSBtYXRlcmlhbCBiZWxvdyEKCiMjIFJlY3JlYXRpbmcgYSB7cGFsbWVycGVuZ3VpbnN9IHBsb3QKCkxldCdzIHByYWN0aWNlIGluIHJlYWwgdGltZSEKCiFbaHR0cHM6Ly9naXRodWIuY29tL2FsbGlzb25ob3JzdC9wYWxtZXJwZW5ndWluc10oaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2FsbGlzb25ob3JzdC9wYWxtZXJwZW5ndWlucy9tYXN0ZXIvbWFuL2ZpZ3VyZXMvUkVBRE1FLWZsaXBwZXItYmlsbC0xLnBuZykKCmBgYHtyIHNjYXR0ZXJwbG90LWJpbGwtbGVuZ3RofQojIHNjYXR0ZXJwbG90IHNlcXVlbmNlIC0tLS0KcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KCkgKyAKICBnZW9tX3BvaW50KGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIHkgPSBiaWxsX2xlbmd0aF9tbSkpICMgYWRkIGFlc3RoZXRpY3MKCnBlbmd1aW5zICU+JQogIGdncGxvdCgpICsKICBnZW9tX3BvaW50KGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIHkgPSBiaWxsX2xlbmd0aF9tbSwgCiAgICAgICAgICAgICAgICAgY29sb3IgPSBzcGVjaWVzKSkgIyBhZGQgY29sb3IgcGVyIHNwZWNpZXMKCnBlbmd1aW5zICU+JQogIGdncGxvdCgpICsKICBnZW9tX3BvaW50KGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIHkgPSBiaWxsX2xlbmd0aF9tbSwgCiAgICAgICAgICAgICAgICAgY29sb3IgPSBzcGVjaWVzLCBzaGFwZSA9IHNwZWNpZXMpKSAjIGFkZCBzaGFwZSBwZXIgc3BlY2llcwoKcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KCkgKwogIGdlb21fcG9pbnQoYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgeSA9IGJpbGxfbGVuZ3RoX21tLCAKICAgICAgICAgICAgICAgICBjb2xvciA9IHNwZWNpZXMsIHNoYXBlID0gc3BlY2llcykpICMgYWRkIHNoYXBlIHBlciBzcGVjaWVzCgpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoKSArCiAgZ2VvbV9wb2ludChhZXMoeCA9IGZsaXBwZXJfbGVuZ3RoX21tLCB5ID0gYmlsbF9sZW5ndGhfbW0sIAogICAgICAgICAgICAgICAgIGNvbG9yID0gc3BlY2llcywgc2hhcGUgPSBzcGVjaWVzKSkgKwogIGdlb21fc21vb3RoKGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIHkgPSBiaWxsX2xlbmd0aF9tbSwgCiAgICAgICAgICAgICAgICAgIGNvbG9yID0gc3BlY2llcykpCgpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgeSA9IGJpbGxfbGVuZ3RoX21tKSkgKyAKICBnZW9tX3BvaW50KGFlcyhjb2xvciA9IHNwZWNpZXMsIHNoYXBlID0gc3BlY2llcykpICsKICBnZW9tX3Ntb290aChhZXMoY29sb3IgPSBzcGVjaWVzKSwgc2UgPSBGQUxTRSwgbWV0aG9kID0gImxtIikKYGBgCgpgYGB7ciBzY2F0dGVycGxvdC1ib2R5LW1hc3N9CnBlbmd1aW5zICU+JQogIGdncGxvdCgpICsKICBnZW9tX3BvaW50KGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIHkgPSBib2R5X21hc3NfZywgCiAgICAgICAgICAgICAgICAgY29sb3IgPSBzcGVjaWVzLCBzaGFwZSA9IHNwZWNpZXMpKQpgYGAKCmBgYHtyIGhpc3RvZ3JhbX0KcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KCkgKwogIGdlb21faGlzdG9ncmFtKGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0pKQoKcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KCkgKwogIGdlb21faGlzdG9ncmFtKGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIGNvbG9yID0gc3BlY2llcykpCgpwZW5ndWlucyAlPiUKICBnZ3Bsb3QoKSArCiAgZ2VvbV9oaXN0b2dyYW0oYWVzKHggPSBmbGlwcGVyX2xlbmd0aF9tbSwgZmlsbCA9IHNwZWNpZXMpKQoKcGVuZ3VpbnMgJT4lCiAgZ2dwbG90KCkgKwogIGdlb21faGlzdG9ncmFtKGFlcyh4ID0gZmxpcHBlcl9sZW5ndGhfbW0sIGZpbGwgPSBzcGVjaWVzLCAKICAgICAgICAgICAgICAgICAgICAgcG9zaXRpb24gPSAiaWRlbnRpdHkiLCBhbHBoYSA9IDAuNSkpCmBgYAoKCiMgVGlkeVR1ZXNkYXkKCiMjIEdldHRpbmcgc3RhcnRlZAoKLSBbSW50cm8gQmxvZyBhbmQgaGlzdG9yeV0oaHR0cHM6Ly90aGVtb2NrdXAuYmxvZy9wb3N0cy8yMDE4LTEyLTExLXRpZHl0dWVzZGF5LWEtd2Vla2x5LXNvY2lhbC1kYXRhLXByb2plY3QtaW4tci8pCi0gW0ludHJvIFR3ZWV0IGJ5IFRvbSBNb2NrIChSU3R1ZGlvKV0oaHR0cHM6Ly90d2l0dGVyLmNvbS90aG9tYXNfbW9jay9zdGF0dXMvMTI4Nzc3NDU3NTgzMzYxNjM4ND9zPTIwKQotIFtUaWR5VHVlc2RheXMgR2l0SHViXShodHRwczovL2dpdGh1Yi5jb20vcmZvcmRhdGFzY2llbmNlL3RpZHl0dWVzZGF5L2Jsb2IvbWFzdGVyL1JFQURNRS5tZCkKLSBbVGlkeVR1ZXNkYXkgUG9kY2FzdF0oaHR0cHM6Ly90d2l0dGVyLmNvbS90aWR5cG9kKQotIFtUaWR5VHVlc2RheSBTaWdodC1VbnNlZW4gb24gWW91VHViZV0oaHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1JbXBYYXdQTkNmTSkKLSBbe3RpZHl0dWVzZGF5Un0gcGFja2FnZSB0byBoZWxwIHlvdSBlYXNpbHkgZG93bmxvYWQgdGhlIGRhdGEgc2V0XShodHRwczovL2dpdGh1Yi5jb20vdGhlYmlvZW5naW5lZXIvdGlkeXR1ZXNkYXlSKQoKIyMgdGlkeXR1ZXNkYXlSCmBgYHtyIGV2YWw9RkFMU0V9CiMgaW5zdGFsbC5wYWNrYWdlcygidGlkeXR1ZXNkYXlSIikKIyByZW1vdGVzOjppbnN0YWxsX2dpdGh1YigidGhlYmlvZW5naW5lZXIvdGlkeXR1ZXNkYXlSIikKCmxpYnJhcnkodGlkeXR1ZXNkYXlSKQoKIyBsb2FkIHRoZSBkYXRhCnR0X2RhdGEgPC0gdHRfbG9hZCgiMjAyMC0wNy0yNyIpICMgZXJyb3IgbWVzc2FnZQp0dF9kYXRhIDwtIHR0X2xvYWQoIjIwMjAtMDctMjgiKQp0dF9kYXRhIDwtIHR0X2xvYWQoMjAyMCwgd2Vlaz0zMSkKCiMgdGFrZSBhIHBlZWsKcmVhZG1lKHR0X2RhdGEpCnByaW50KHR0X2RhdGEpCmBgYAoKIyMgTGV2ZWwgdXAgd2l0aCBtb2RlbGluZwotIFtKdWxpYSBTaWxnZSAoUlN0dWRpbykgdGVhY2hlcyBUaWR5bW9kZWxzIHdpdGgge3BhbG1lcnBlbmd1aW5zfSBvbiBZb3VUdWJlXShodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PXo1N2kyR1ZjZHd3KQoKIyMgRXhhbXBsZXMKCi0gU3BlY2lmaWMgdG8ge3BhbG1lcnBlbmd1aW5zfToKICAtIEZvY3VzIG9uIGZvbnRzIGFuZCBmb3JtYXR0aW5nOiBodHRwczovL3R3aXR0ZXIuY29tL2VsbGFta2F5ZS9zdGF0dXMvMTI4OTE1NzEzOTQzNzYyMTI1MD9zPTIwCiAgLSBSLUxhZGllcyBBbWVzOiBodHRwczovL3R3aXR0ZXIuY29tL1JMYWRpZXNBbWVzL3N0YXR1cy8xMjk0NDI1MzU5Mzg4MTE0OTQ0P3M9MjAKICAKLSBHZW5lcmFsIHRvICN0aWR5dHVlc2RheToKICAtIFItTGFkaWVzIENoaWNhZ28gVGlkeVR1ZXNkYXkgbGVhZGVyIE9sYSE6IGh0dHBzOi8vdHdpdHRlci5jb20vQW1hemluZ1NwZWNpYWxpCiAgLSBSLUxhZGllcyBDaGljYWdvIFRpZHlUdWVzZGF5IHNldHVwOiBodHRwczovL3R3aXR0ZXIuY29tL1JMYWRpZXNDaGljYWdvL3N0YXR1cy8xMTkyMjQzMTcwNDEyNzYxMDg4P3M9MjA=</div>
 
 
 </div>
