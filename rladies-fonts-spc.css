@@ -10,6 +10,12 @@ body {
   font-family:'Fira Sans', sans-serif;
   font-weight: 400;
   color: #2E3440;
+
+}
+
+.remark-slide-content {
+    font-size: 22px;
+    padding: 1em 4em 1em 4em;
 }
 
 h1 {

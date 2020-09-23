@@ -119,14 +119,27 @@ a, a > code {
 
 .remark-code-line-highlighted { 
   /*background-color: rgba(136, 57, 138, 0.3); */
-  /*background-color: rgba(86, 36, 87, 0.25);*/
   background-color: rgba(204, 189, 204, 0.6);
 }
 
 .remark-inline-code{
   /* background: #F5F5F5; /* lighter */
-  /*background: #e7e8e2; /* darker */
   background: rgba(204, 189, 204, 0.4);
   border-radius: 0px;
   padding: 0.5 0 0.5 0px;
+}
+
+/* code chunk background layer */
+pre {
+  /*border: 2px solid rgba(204, 189, 204, 0.8); /* code chunk border*/
+  border: none;
+  box-shadow: 2px 2px 2px 2px #eee;
+  padding: 0.1em;                     /* padding between code chunk and border */
+  background: none !important;
+  overflow-x: auto;
+  border-radius: 1px;                 /* modify rounding of corners*/
+}
+pre code {
+  background: none;
+  font-size: 1.3rem !important;
 }
