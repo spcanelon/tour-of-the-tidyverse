@@ -620,17 +620,13 @@ ggplot(data = penguins,
 
 .panel[.panel-name[Chat]
 
-### You might see
+### You might see...
 
 .pull-left[
 - Gentoo penguins have higher body mass than Adélie and Chinstrap penguins
 - Higher body mass among male Gentoo penguins compared to female penguins
 - Pattern not as discernible when comparing Adélie and Chinstrap penguins
-- No _NA_s among Chinstrap penguin data points! **sex** was available for each observation
-
-I wonder what percentage of observations are _NA_ for each species? Let's get the tidyverse to help us with this!
-
-Next stop, `dplyr`!
+- No *NA*s among Chinstrap penguin data points! **sex** was available for each observation
 ]
 
 .pull-right[
@@ -1258,16 +1254,12 @@ background-size: 80px
 
 ### Both penguin datasets are already tidy!
 
-We can pretend that the `penguins` dataset wasn't tidy and that it looked instead like `untidy_penguins` below. 
-
-In `untidy_penguins`, **body_mass_g** was recorded separately for *male*, *female*, and **sex** *NA* penguins.
+We can pretend that `penguins` wasn't tidy and that it looked instead like `untidy_penguins` below, where **body_mass_g** was recorded separately for *male*, *female*, and *NA* **sex** penguins.
 
 
 ```r
-untidy_penguins &lt;-
-  penguins %&gt;%
-    pivot_wider(names_from = sex,
-                values_from = body_mass_g)
+untidy_penguins &lt;- 
+  penguins %&gt;% pivot_wider(names_from = sex, values_from = body_mass_g)
 untidy_penguins
 ## # A tibble: 344 x 9
 ##    species island    bill_length_mm bill_depth_mm flipper_length_mm  year  male female  `NA`

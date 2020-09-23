@@ -69,15 +69,11 @@ background-size: 80px
 
 ### Both penguin datasets are already tidy!
 
-We can pretend that the `penguins` dataset wasn't tidy and that it looked instead like `untidy_penguins` below. 
-
-In `untidy_penguins`, **body_mass_g** was recorded separately for *male*, *female*, and **sex** *NA* penguins.
+We can pretend that `penguins` wasn't tidy and that it looked instead like `untidy_penguins` below, where **body_mass_g** was recorded separately for *male*, *female*, and *NA* **sex** penguins.
 
 ```{r}
-untidy_penguins <-
-  penguins %>%
-    pivot_wider(names_from = sex,
-                values_from = body_mass_g)
+untidy_penguins <- 
+  penguins %>% pivot_wider(names_from = sex, values_from = body_mass_g)
 untidy_penguins
 ```
 
