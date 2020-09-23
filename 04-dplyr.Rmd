@@ -111,47 +111,60 @@ penguins %>%
 ]
 ]
 
+
 .panel[.panel-name[Group By & Summarize]
 
 .pull-left[
-We can summarize the data using `group_by()` and `summarize()` to obtain counts by **species** and **sex**
-```{r}
-penguins %>% 
-  group_by(species, sex) %>% #<<
-  summarize(n = n())         #<<
-```
+.middle[We can use `group_by()` to group our data by **species** and **sex**, and `summarize()` to calculate the average **body_mass_g** for each grouping.]
 ]
 
 .pull-right[
-And because we're just _counting_, we also have the option to use `count()` which simplifies our code!
-
-.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
-
 ```{r}
 penguins %>%
-  count(species, sex) #<<
+  select(species, sex, body_mass_g) %>%
+  group_by(species, sex) %>%          #<<
+  summarize(mean = mean(body_mass_g)) #<<
 ```
 ]
 ]
 
-.panel[.panel-name[Mutate: Ex. 1]
+
+.panel[.panel-name[Counting 1]
+If we're just interested in _counting_ the observations in each grouping, we can group and summarize with special functions `count()` and `add_count()`.
+
+----
 
 .pull-left[
-We can use `mutate()` to create a new variable **n_species** that adds up all observations per **species**
+Counting can be done with `group_by()` and `summarize()`, but it's a little cumbersome. 
+
+It involves...
+1. using `mutate()` to create an intermediate variable **n_species** that adds up all observations per **species**, and
+2. an `ungroup()`-ing step
+]
+
+.pull-right[
 ```{r}
 penguins %>% 
   group_by(species) %>%
-  mutate(n_species = n()) %>% #<<
-  ungroup() %>%
+  mutate(n_species = n()) %>%            #<<
+  ungroup() %>%                          #<<
   group_by(species, sex, n_species) %>%
-  summarize(n = n()) 
+  summarize(n = n())
 ```
 ]
+]
 
-.pull-right[
-**OR** we can use `count()`'s friend `add_count()` to create **n_species**, again because we're just _counting_
+.panel[.panel-name[Counting 2]
+If we're just interested in _counting_ the observations in each grouping, we can group and summarize with special functions `count()` and `add_count()`.
+
+----
+
+.pull-left[
+In contrast, `count()` and `add_count()` offer a simplified approach
 
 .small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
+]
+.pull-right[
 ```{r}
 penguins %>% 
   count(species, sex) %>%
@@ -161,52 +174,29 @@ penguins %>%
 ]
 ]
 
-.panel[.panel-name[Mutate: Ex. 2]
-
-With either approach, we can use `mutate()` to create a new variable **prop**, which represents the proportion of penguins of each **sex**, grouped by **species**
+.panel[.panel-name[Mutate]
 
 .pull-left[
-```{r}
-penguins %>% 
-  group_by(species) %>%
-  mutate(n_species = n()) %>%
-  ungroup() %>%
-  group_by(species, sex, n_species) %>%
-  summarize(n = n()) %>%
-  mutate(prop = n/n_species*100) #<<
-```
+We can add to our counting example by using `mutate()` to create a new variable **prop**, which represents the proportion of penguins of each **sex**, grouped by **species**
 
+.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
 ]
 .pull-right[
-.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
-
 ```{r}
 penguins %>% 
   count(species, sex) %>%
   add_count(species, wt = n, 
             name = "n_species") %>%
-  mutate(prop = n/n_species*100) #<<
+  mutate(prop = n/n_species*100)     #<<
 ```
 ]
 ]
 
 .panel[.panel-name[Filter]
 
-Finally, we can filter rows to only show us **Chinstrap** penguin summaries by adding `filter()` to our pipeline
-
 .pull-left[
-```{r}
-penguins %>% 
-  group_by(species) %>%
-  mutate(n_species = n()) %>%
-  ungroup() %>%
-  group_by(species, sex, n_species) %>%
-  summarize(n = n()) %>%
-  mutate(prop = n/n_species*100) %>%
-  filter(species == "Chinstrap") #<<
-```
+Finally, we can filter rows to only show us **Chinstrap** penguin summaries by adding `filter()` to our pipeline]
 
-]
 .pull-right[
 ```{r}
 penguins %>% 

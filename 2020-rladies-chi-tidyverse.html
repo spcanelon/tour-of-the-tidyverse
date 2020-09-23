@@ -1190,12 +1190,12 @@ ggplot(data = penguins,
 ### You might see
 
 .pull-left[
-- Gentoo penguins have higher body mass than Adelie and Chinstrap penguins
+- Gentoo penguins have higher body mass than Adélie and Chinstrap penguins
 - Higher body mass among male Gentoo penguins compared to female penguins
-- Pattern not as discernable when comparing Adelie and Chinstrap penguins
-- No `NA`s among Chinstrap penguin data points! `sex` was available for each observation
+- Pattern not as discernible when comparing Adélie and Chinstrap penguins
+- No _NA_s among Chinstrap penguin data points! **sex** was available for each observation
 
-I wonder what percentage of observations are `NA` for each species? Let's get the tidyverse to help us with this!
+I wonder what percentage of observations are _NA_ for each species? Let's get the tidyverse to help us with this!
 
 Next stop, `dplyr`!
 ]
@@ -1368,66 +1368,59 @@ penguins %&gt;%
 ]
 ]
 
+
 .panel[.panel-name[Group By &amp; Summarize]
 
 .pull-left[
-We can summarize the data using `group_by()` and `summarize()` to obtain counts by **species** and **sex**
-
-```r
-penguins %&gt;% 
-* group_by(species, sex) %&gt;%
-* summarize(n = n())
-## # A tibble: 8 x 3
-## # Groups:   species [3]
-##   species   sex        n
-##   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;
-## 1 Adelie    female    73
-## 2 Adelie    male      73
-## 3 Adelie    &lt;NA&gt;       6
-## 4 Chinstrap female    34
-## 5 Chinstrap male      34
-## 6 Gentoo    female    58
-## 7 Gentoo    male      61
-## 8 Gentoo    &lt;NA&gt;       5
-```
+.middle[We can use `group_by()` to group our data by **species** and **sex**, and `summarize()` to calculate the average **body_mass_g** for each grouping.]
 ]
 
 .pull-right[
-And because we're just _counting_, we also have the option to use `count()` which simplifies our code!
-
-.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
-
 
 ```r
 penguins %&gt;%
-* count(species, sex)
+  select(species, sex, body_mass_g) %&gt;%
+* group_by(species, sex) %&gt;%
+* summarize(mean = mean(body_mass_g))
 ## # A tibble: 8 x 3
-##   species   sex        n
-##   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;
-## 1 Adelie    female    73
-## 2 Adelie    male      73
-## 3 Adelie    &lt;NA&gt;       6
-## 4 Chinstrap female    34
-## 5 Chinstrap male      34
-## 6 Gentoo    female    58
-## 7 Gentoo    male      61
-## 8 Gentoo    &lt;NA&gt;       5
+## # Groups:   species [3]
+##   species   sex     mean
+##   &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;
+## 1 Adelie    female 3369.
+## 2 Adelie    male   4043.
+## 3 Adelie    &lt;NA&gt;     NA 
+## 4 Chinstrap female 3527.
+## 5 Chinstrap male   3939.
+## 6 Gentoo    female 4680.
+## 7 Gentoo    male   5485.
+## 8 Gentoo    &lt;NA&gt;     NA
 ```
 ]
 ]
 
-.panel[.panel-name[Mutate: Ex. 1]
+
+.panel[.panel-name[Counting 1]
+If we're just interested in _counting_ the observations in each grouping, we can group and summarize with special functions `count()` and `add_count()`.
+
+----
 
 .pull-left[
-We can use `mutate()` to create a new variable **n_species** that adds up all observations per **species**
+Counting can be done with `group_by()` and `summarize()`, but it's a little cumbersome. 
+
+It involves...
+1. using `mutate()` to create an intermediate variable **n_species** that adds up all observations per **species**, and
+2. an `ungroup()`-ing step
+]
+
+.pull-right[
 
 ```r
 penguins %&gt;% 
   group_by(species) %&gt;%
 * mutate(n_species = n()) %&gt;%
-  ungroup() %&gt;%
+* ungroup() %&gt;%
   group_by(species, sex, n_species) %&gt;%
-  summarize(n = n()) 
+  summarize(n = n())
 ## # A tibble: 8 x 4
 ## # Groups:   species, sex [8]
 ##   species   sex    n_species     n
@@ -1442,11 +1435,19 @@ penguins %&gt;%
 ## 8 Gentoo    &lt;NA&gt;         124     5
 ```
 ]
+]
 
-.pull-right[
-**OR** we can use `count()`'s friend `add_count()` to create **n_species**, again because we're just _counting_
+.panel[.panel-name[Counting 2]
+If we're just interested in _counting_ the observations in each grouping, we can group and summarize with special functions `count()` and `add_count()`.
+
+----
+
+.pull-left[
+In contrast, `count()` and `add_count()` offer a simplified approach
 
 .small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
+]
+.pull-right[
 
 ```r
 penguins %&gt;% 
@@ -1468,38 +1469,14 @@ penguins %&gt;%
 ]
 ]
 
-.panel[.panel-name[Mutate: Ex. 2]
-
-With either approach, we can use `mutate()` to create a new variable **prop**, which represents the proportion of penguins of each **sex**, grouped by **species**
+.panel[.panel-name[Mutate]
 
 .pull-left[
+We can add to our counting example by using `mutate()` to create a new variable **prop**, which represents the proportion of penguins of each **sex**, grouped by **species**
 
-```r
-penguins %&gt;% 
-  group_by(species) %&gt;%
-  mutate(n_species = n()) %&gt;%
-  ungroup() %&gt;%
-  group_by(species, sex, n_species) %&gt;%
-  summarize(count = n()) %&gt;%
-* mutate(prop = count/n_species*100)
-## # A tibble: 8 x 5
-## # Groups:   species, sex [8]
-##   species   sex    n_species count  prop
-##   &lt;fct&gt;     &lt;fct&gt;      &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
-## 1 Adelie    female       152    73 48.0 
-## 2 Adelie    male         152    73 48.0 
-## 3 Adelie    &lt;NA&gt;         152     6  3.95
-## 4 Chinstrap female        68    34 50   
-## 5 Chinstrap male          68    34 50   
-## 6 Gentoo    female       124    58 46.8 
-## 7 Gentoo    male         124    61 49.2 
-## 8 Gentoo    &lt;NA&gt;         124     5  4.03
-```
-
+.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
 ]
 .pull-right[
-.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
-
 
 ```r
 penguins %&gt;% 
@@ -1524,28 +1501,9 @@ penguins %&gt;%
 
 .panel[.panel-name[Filter]
 
-Finally, we can filter rows to only show us **Chinstrap** penguin summaries by adding `filter()` to our pipeline
-
 .pull-left[
+Finally, we can filter rows to only show us **Chinstrap** penguin summaries by adding `filter()` to our pipeline]
 
-```r
-penguins %&gt;% 
-  group_by(species) %&gt;%
-  mutate(n_species = n()) %&gt;%
-  ungroup() %&gt;%
-  group_by(species, sex, n_species) %&gt;%
-  summarize(count = n()) %&gt;%
-  mutate(prop = count/n_species*100) %&gt;%
-* filter(species == "Chinstrap")
-## # A tibble: 2 x 5
-## # Groups:   species, sex [2]
-##   species   sex    n_species count  prop
-##   &lt;fct&gt;     &lt;fct&gt;      &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
-## 1 Chinstrap female        68    34    50
-## 2 Chinstrap male          68    34    50
-```
-
-]
 .pull-right[
 
 ```r
@@ -1901,7 +1859,7 @@ untidy_penguins
 
 ### Now let's make it tidy again!
 
-#### We'll use the help of `pivot_longer()`
+We'll use the help of `pivot_longer()`
 
 
 ```r
@@ -2009,12 +1967,12 @@ background-size: 80px
 
 .pull-left[
 ### Let's turn this plot
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-53-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-50-1.png" width="504" /&gt;
 ]
 
 .pull-right[
 ### Into this one!
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-54-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-51-1.png" width="504" /&gt;
 
 .panel[.panel-name[Option 1]
 
@@ -2041,7 +1999,7 @@ penguins %&gt;%
 ]
 
 .pull-right[
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-57-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-54-1.png" width="504" /&gt;
 ]
 ]
 
@@ -2058,7 +2016,7 @@ penguins %&gt;%
 * scale_fill_manual(values = nord::nord_palettes$frost)
 ```
 
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-58-1.png" width="360" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-55-1.png" width="360" /&gt;
 ]
 
 .pull-right[
@@ -2071,7 +2029,7 @@ penguins %&gt;%
 * nord::scale_fill_nord(palette = "frost")
 ```
 
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-59-1.png" width="360" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-56-1.png" width="360" /&gt;
 ]
 ]
 
