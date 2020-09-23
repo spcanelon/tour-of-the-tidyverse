@@ -5,9 +5,6 @@ h1, h2, h3 {
 a, a > code {
   color: #88398a;
 }
-.remark-code-line-highlighted { 
-  background-color: rgba(136, 57, 138, 0.3); 
-}
 
 .inverse {
   /*background-color: #2E3440;*/
@@ -120,9 +117,16 @@ a, a > code {
 /* inline code highlighting */
 /* https://github.com/yihui/xaringan/wiki/Inline-code-highlighting */
 
+.remark-code-line-highlighted { 
+  /*background-color: rgba(136, 57, 138, 0.3); */
+  /*background-color: rgba(86, 36, 87, 0.25);*/
+  background-color: rgba(204, 189, 204, 0.6);
+}
+
 .remark-inline-code{
   /* background: #F5F5F5; /* lighter */
-  background: #e7e8e2; /* darker */
-  border-radius: 2px;
-  padding: 1.5px;
+  /*background: #e7e8e2; /* darker */
+  background: rgba(204, 189, 204, 0.4);
+  border-radius: 0px;
+  padding: 0.5 0 0.5 0px;
 }
