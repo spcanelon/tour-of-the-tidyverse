@@ -176,51 +176,65 @@ penguins %>%
 
 ## group_by() and summarize()
 Summarizing the data using `group_by()` and `summarize()`
+
+We can use `group_by()` to group our data by **species** and **sex**, and `summarize()` to calculate the average **body_mass_g** for each grouping.
 ```{r group-by-summarize}
-penguins %>% 
-  group_by(species, sex) %>%
-  summarize(n = n())
+penguins %>%
+  select(species, sex, body_mass_g) %>%
+  group_by(species, sex) %>%         
+  summarize(mean = mean(body_mass_g))
 ```
 
 ## count() and add_count()
-Because we're just _counting_ observations in this example, we also have the option to use `count()` which simplifies our code a little.
+If we're just interested in _counting_ the observations in each grouping, we can group and summarize with special functions `count()` and `add_count()`.
 
-> Thank you to Alison Hill for [these suggestions](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)!
+Counting can be done with `group_by()` and `summarize()`, but it's a little cumbersome. 
+
+It involves...
+1. using `mutate()` to create an intermediate variable **n_species** that adds up all observations per **species**, and
+2. an `ungroup()`-ing step
+
+```{r}
+penguins %>% 
+  group_by(species) %>%
+  mutate(n_species = n()) %>%            
+  ungroup() %>%                          
+  group_by(species, sex, n_species) %>%
+  summarize(n = n())
+```
+
+In contrast, `count()` and `add_count()` offer a simplified approach.
+
+> Thank you to Alison Hill for [this suggestion](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)!
 
 ```{r count}
-penguins %>%
-  count(species, sex)
+penguins %>% 
+  count(species, sex) %>%
+  add_count(species, wt = n,    
+            name = "n_species") 
 ```
 
 ## mutate()
+We can add to our counting example by using `mutate()` to create a new variable **prop**, which represents the proportion of penguins of each **sex**, grouped by **species**
 
-### Option 1
-Creating new variables with `mutate()`
-```{r group-by-summarize-mutate}
-penguins %>% 
-  group_by(species) %>%
-  mutate(n_species = n()) %>%
-  ungroup() %>%
-  group_by(species, sex, n_species) %>%
-  summarize(n = n()) %>%
-  mutate(prop = n/n_species*100)
-```
+> Thank you to Alison Hill for [this suggestions](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)!
 
-### Option 2
-We can also use `mutate()` along with `add_count()` to add up the counts per species group to use as a denominator ("n_species") when we calculate the proportion by sex.
-```{r count-mutate}
+```{r}
 penguins %>% 
   count(species, sex) %>%
-  add_count(species, wt = n, name = "n_species") %>%
-  mutate(prop = n/n_species*100)
+  add_count(species, wt = n, 
+            name = "n_species") %>%
+  mutate(prop = n/n_species*100) 
 ```
 
+
 ## filter()
-Regardless of which approach we take to summarize our data, we can proceed to filtering rows by adding on a filtering step to our pipeline using `filter()`
+Finally, we can filter rows to only show us **Chinstrap** penguin summaries by adding `filter()` to our pipeline
 ```{r filter}
 penguins %>% 
   count(species, sex) %>%
-  add_count(species, wt = n, name = "n_species") %>%
+  add_count(species, wt = n, 
+            name = "n_species") %>%
   mutate(prop = n/n_species*100) %>%
   filter(species == "Chinstrap")
 ```
