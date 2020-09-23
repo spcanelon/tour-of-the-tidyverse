@@ -87,7 +87,7 @@ untidy_penguins
 
 ### Now let's make it tidy again!
 
-#### We'll use the help of `pivot_longer()`
+We'll use the help of `pivot_longer()`
 
 ```{r}
 untidy_penguins %>%
