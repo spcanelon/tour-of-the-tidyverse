@@ -31,6 +31,7 @@ library(nord)
 library(prismatic)
 library(xaringanExtra)
 xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view", "share_again"))
+xaringanExtra::use_clipboard()
 xaringanExtra::style_share_again(share_buttons = c("twitter", "linkedin", "pocket"))
 xaringanExtra::embed_xaringan(
   url = "https://spcanelon.github.io/2020-rladies-chi-tidyverse", ratio = "16:9")
