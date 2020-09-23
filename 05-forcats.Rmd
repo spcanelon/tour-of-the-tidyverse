@@ -26,7 +26,7 @@ background-size: 80px
 .panel[.panel-name[Overview]
 ### Helps us work with **categorical variables** or factors. 
 
-### These are variables that have a fixed and known set of possible values, like `species`, `island`, and `sex` in our `penguins` dataset.
+### These are variables that have a fixed and known set of possible values, like **species**, **island**, and **sex** in our `penguins` dataset.
 ]
 
 .panel[.panel-name[Cheatsheet]
@@ -61,7 +61,7 @@ background-size: 80px
 .panelset[
 .panel[.panel-name[Code]
 .pull-left[
-### Currently the `year` variable in `penguins` is continuous from 2007 to 2009.
+### Currently the **year** variable in `penguins` is continuous from 2007 to 2009.
 
 ### There may be situations where this isn't what we want and we might want to turn it into a categorical variable instead.
 ]
@@ -81,7 +81,7 @@ penguins %>%
 ]
 
 .panel[.panel-name[Result]
-### The result is a new factor `year_factor` with levels `2007`, `2008` and `2009`
+### The result is a new factor **year_factor** with levels **2007**, **2008**, and **2009**
 .pull-left[
 ```{r}
 penguins_new <-

@@ -38,6 +38,7 @@ class: title-slide, center, bottom
 
 ### August 31, 2020
 
+
 ---
 class: about-me, middle, center
 
@@ -172,22 +173,22 @@ background-size: 80px
 
 .panelset[
 .panel[.panel-name[Read data in]
-.center[Both options will get you the same dataset!]
-.pull-left[
+.center[
+### Both options below will get you the same dataset!]
+
+Option 1
 
 ```r
 # option 1: load using URL ----
 raw_adelie_url &lt;- read_csv("https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.219.3&amp;entityid=002f3893385f710df69eeebe893144ff")
 ```
-]
-.pull-right[
+
+Option 2
 
 ```r
 # option 2: load using filepath ----
 raw_adelie_filepath &lt;- read_csv("tutorial/raw_adelie.csv")
 ```
-]
-
 ]
 
 .panel[.panel-name[Save data]
@@ -1139,7 +1140,8 @@ Let's see if body mass varies by penguin sex
 .pull-left[
 
 ```r
-ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
+ggplot(data = penguins, 
+*      aes(x = sex, y = body_mass_g)) +
   geom_point()
 ```
 ]
@@ -1154,8 +1156,9 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 .pull-left[
 
 ```r
-ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
-  geom_boxplot()
+ggplot(data = penguins, 
+       aes(x = sex, y = body_mass_g)) +
+* geom_boxplot()
 ```
 ]
 
@@ -1169,8 +1172,9 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 .pull-left[
 
 ```r
-ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
-  geom_boxplot(aes(fill = species))
+ggplot(data = penguins, 
+       aes(x = sex, y = body_mass_g)) +
+* geom_boxplot(aes(fill = species))
 ```
 
 ### &lt;br/&gt; What do you notice?
@@ -1233,12 +1237,13 @@ background-size: 80px
 - ...and more!
 ]
 .pull-right[
-#### Pick observations by their values with `filter()`.
-#### Reorder the rows with `arrange()`.
-#### Pick variables by their names `select()`.
-#### Create new variables with functions of existing variables `mutate()`.
-#### Collapse many values down to a single summary `summarize()`.
-#### and `group_by()` gets the above functions to operate group-by-group rather than on the entire dataset
+- Pick observations by their values with `filter()`.
+- Reorder the rows with `arrange()`.
+- Pick variables by their names `select()`.
+- Create new variables with functions of existing variables with `mutate()`.
+- Collapse many values down to a single summary with `summarize()`.
+- `group_by()` gets the above functions to operate group-by-group rather than on the entire dataset. 
+- and `count()` + `add_count()` simplify `group_by()` + `summarize()` when you just want to count
 ]
 ]
 
@@ -1270,6 +1275,7 @@ background-size: 80px
 # dplyr: exercise
 
 .panelset[
+
 .panel[.panel-name[Select]
 .center[ 
 ### Can you spot the difference in performing the same operation?
@@ -1294,6 +1300,7 @@ select(penguins, species, sex, body_mass_g)
 ## # … with 334 more rows
 ```
 ]
+
 .pull-right[
 
 ```r
@@ -1318,6 +1325,9 @@ penguins %&gt;%
 ]
 
 .panel[.panel-name[Arrange]
+
+We can use `arrange()` to arrange our data in descending order by **body_mass_g**
+
 .pull-left[
 
 ```r
@@ -1339,7 +1349,7 @@ glimpse(penguins)
 ```r
 penguins %&gt;%
   select(species, sex, body_mass_g) %&gt;%
-  arrange(desc(body_mass_g))
+* arrange(desc(body_mass_g))
 ## # A tibble: 344 x 3
 ##    species sex   body_mass_g
 ##    &lt;fct&gt;   &lt;fct&gt;       &lt;int&gt;
@@ -1359,15 +1369,17 @@ penguins %&gt;%
 ]
 
 .panel[.panel-name[Group By &amp; Summarize]
-#### Summarizing the data using `group_by()` and `summarize()`
+
+.pull-left[
+We can summarize the data using `group_by()` and `summarize()` to obtain counts by **species** and **sex**
 
 ```r
 penguins %&gt;% 
-  group_by(species, sex) %&gt;%
-  summarize(count = n())
+* group_by(species, sex) %&gt;%
+* summarize(n = n())
 ## # A tibble: 8 x 3
 ## # Groups:   species [3]
-##   species   sex    count
+##   species   sex        n
 ##   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;
 ## 1 Adelie    female    73
 ## 2 Adelie    male      73
@@ -1380,51 +1392,176 @@ penguins %&gt;%
 ```
 ]
 
-.panel[.panel-name[Mutate]
-#### Creating new variables with `mutate()`
+.pull-right[
+And because we're just _counting_, we also have the option to use `count()` which simplifies our code!
+
+.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
+
+
+```r
+penguins %&gt;%
+* count(species, sex)
+## # A tibble: 8 x 3
+##   species   sex        n
+##   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;
+## 1 Adelie    female    73
+## 2 Adelie    male      73
+## 3 Adelie    &lt;NA&gt;       6
+## 4 Chinstrap female    34
+## 5 Chinstrap male      34
+## 6 Gentoo    female    58
+## 7 Gentoo    male      61
+## 8 Gentoo    &lt;NA&gt;       5
+```
+]
+]
+
+.panel[.panel-name[Mutate: Ex. 1]
+
+.pull-left[
+We can use `mutate()` to create a new variable **n_species** that adds up all observations per **species**
 
 ```r
 penguins %&gt;% 
   group_by(species) %&gt;%
-  mutate(count_species = n()) %&gt;%
+* mutate(n_species = n()) %&gt;%
   ungroup() %&gt;%
-  group_by(species, sex, count_species) %&gt;%
-  summarize(count = n()) %&gt;%
-  mutate(prop = count/count_species*100)
-## # A tibble: 8 x 5
+  group_by(species, sex, n_species) %&gt;%
+  summarize(n = n()) 
+## # A tibble: 8 x 4
 ## # Groups:   species, sex [8]
-##   species   sex    count_species count  prop
-##   &lt;fct&gt;     &lt;fct&gt;          &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
-## 1 Adelie    female           152    73 48.0 
-## 2 Adelie    male             152    73 48.0 
-## 3 Adelie    &lt;NA&gt;             152     6  3.95
-## 4 Chinstrap female            68    34 50   
-## 5 Chinstrap male              68    34 50   
-## 6 Gentoo    female           124    58 46.8 
-## 7 Gentoo    male             124    61 49.2 
-## 8 Gentoo    &lt;NA&gt;             124     5  4.03
+##   species   sex    n_species     n
+##   &lt;fct&gt;     &lt;fct&gt;      &lt;int&gt; &lt;int&gt;
+## 1 Adelie    female       152    73
+## 2 Adelie    male         152    73
+## 3 Adelie    &lt;NA&gt;         152     6
+## 4 Chinstrap female        68    34
+## 5 Chinstrap male          68    34
+## 6 Gentoo    female       124    58
+## 7 Gentoo    male         124    61
+## 8 Gentoo    &lt;NA&gt;         124     5
 ```
 ]
 
-.panel[.panel-name[Filter]
-#### Filtering rows using `filter()`
+.pull-right[
+**OR** we can use `count()`'s friend `add_count()` to create **n_species**, again because we're just _counting_
+
+.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
+
+```r
+penguins %&gt;% 
+  count(species, sex) %&gt;%
+* add_count(species, wt = n,
+*           name = "n_species")
+## # A tibble: 8 x 4
+##   species   sex        n n_species
+##   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;     &lt;int&gt;
+## 1 Adelie    female    73       152
+## 2 Adelie    male      73       152
+## 3 Adelie    &lt;NA&gt;       6       152
+## 4 Chinstrap female    34        68
+## 5 Chinstrap male      34        68
+## 6 Gentoo    female    58       124
+## 7 Gentoo    male      61       124
+## 8 Gentoo    &lt;NA&gt;       5       124
+```
+]
+]
+
+.panel[.panel-name[Mutate: Ex. 2]
+
+With either approach, we can use `mutate()` to create a new variable **prop**, which represents the proportion of penguins of each **sex**, grouped by **species**
+
+.pull-left[
 
 ```r
 penguins %&gt;% 
   group_by(species) %&gt;%
-  mutate(count_species = n()) %&gt;%
+  mutate(n_species = n()) %&gt;%
   ungroup() %&gt;%
-  group_by(species, sex, count_species) %&gt;%
+  group_by(species, sex, n_species) %&gt;%
   summarize(count = n()) %&gt;%
-  mutate(percentage = count/count_species*100) %&gt;%
-  filter(species == "Chinstrap")
+* mutate(prop = count/n_species*100)
+## # A tibble: 8 x 5
+## # Groups:   species, sex [8]
+##   species   sex    n_species count  prop
+##   &lt;fct&gt;     &lt;fct&gt;      &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 Adelie    female       152    73 48.0 
+## 2 Adelie    male         152    73 48.0 
+## 3 Adelie    &lt;NA&gt;         152     6  3.95
+## 4 Chinstrap female        68    34 50   
+## 5 Chinstrap male          68    34 50   
+## 6 Gentoo    female       124    58 46.8 
+## 7 Gentoo    male         124    61 49.2 
+## 8 Gentoo    &lt;NA&gt;         124     5  4.03
+```
+
+]
+.pull-right[
+.small-text[Example kindly [contributed by Alison Hill (@apreshill)](https://github.com/spcanelon/2020-rladies-chi-tidyverse/issues/2)]
+
+
+```r
+penguins %&gt;% 
+  count(species, sex) %&gt;%
+  add_count(species, wt = n, 
+            name = "n_species") %&gt;%
+* mutate(prop = n/n_species*100)
+## # A tibble: 8 x 5
+##   species   sex        n n_species  prop
+##   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;     &lt;int&gt; &lt;dbl&gt;
+## 1 Adelie    female    73       152 48.0 
+## 2 Adelie    male      73       152 48.0 
+## 3 Adelie    &lt;NA&gt;       6       152  3.95
+## 4 Chinstrap female    34        68 50   
+## 5 Chinstrap male      34        68 50   
+## 6 Gentoo    female    58       124 46.8 
+## 7 Gentoo    male      61       124 49.2 
+## 8 Gentoo    &lt;NA&gt;       5       124  4.03
+```
+]
+]
+
+.panel[.panel-name[Filter]
+
+Finally, we can filter rows to only show us **Chinstrap** penguin summaries by adding `filter()` to our pipeline
+
+.pull-left[
+
+```r
+penguins %&gt;% 
+  group_by(species) %&gt;%
+  mutate(n_species = n()) %&gt;%
+  ungroup() %&gt;%
+  group_by(species, sex, n_species) %&gt;%
+  summarize(count = n()) %&gt;%
+  mutate(prop = count/n_species*100) %&gt;%
+* filter(species == "Chinstrap")
 ## # A tibble: 2 x 5
 ## # Groups:   species, sex [2]
-##   species   sex    count_species count percentage
-##   &lt;fct&gt;     &lt;fct&gt;          &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;
-## 1 Chinstrap female            68    34         50
-## 2 Chinstrap male              68    34         50
+##   species   sex    n_species count  prop
+##   &lt;fct&gt;     &lt;fct&gt;      &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 Chinstrap female        68    34    50
+## 2 Chinstrap male          68    34    50
 ```
+
+]
+.pull-right[
+
+```r
+penguins %&gt;% 
+  count(species, sex) %&gt;%
+  add_count(species, wt = n, 
+            name = "n_species") %&gt;%
+  mutate(prop = n/n_species*100) %&gt;%
+* filter(species == "Chinstrap")
+## # A tibble: 2 x 5
+##   species   sex        n n_species  prop
+##   &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;     &lt;int&gt; &lt;dbl&gt;
+## 1 Chinstrap female    34        68    50
+## 2 Chinstrap male      34        68    50
+```
+]
 ]
 
 ]
@@ -1452,7 +1589,7 @@ background-size: 80px
 .panel[.panel-name[Overview]
 ### Helps us work with **categorical variables** or factors. 
 
-### These are variables that have a fixed and known set of possible values, like `species`, `island`, and `sex` in our `penguins` dataset.
+### These are variables that have a fixed and known set of possible values, like **species**, **island**, and **sex** in our `penguins` dataset.
 ]
 
 .panel[.panel-name[Cheatsheet]
@@ -1485,7 +1622,7 @@ background-size: 80px
 .panelset[
 .panel[.panel-name[Code]
 .pull-left[
-### Currently the `year` variable in `penguins` is continuous from 2007 to 2009.
+### Currently the **year** variable in `penguins` is continuous from 2007 to 2009.
 
 ### There may be situations where this isn't what we want and we might want to turn it into a categorical variable instead.
 ]
@@ -1496,7 +1633,9 @@ background-size: 80px
 
 ```r
 penguins %&gt;%
-  mutate(year_factor = factor(year, levels = unique(year)))
+  mutate(year_factor = 
+*          factor(year,
+*                 levels = unique(year)))
 ```
 ]
 
@@ -1504,13 +1643,15 @@ penguins %&gt;%
 ]
 
 .panel[.panel-name[Result]
-### The result is a new factor `year_factor` with levels `2007`, `2008` and `2009`
+### The result is a new factor **year_factor** with levels **2007**, **2008**, and **2009**
 .pull-left[
 
 ```r
 penguins_new &lt;-
   penguins %&gt;%
-  mutate(year_factor = factor(year, levels = unique(year)))
+  mutate(year_factor = 
+*          factor(year,
+*                 levels = unique(year)))
 penguins_new
 ## # A tibble: 344 x 9
 ##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
@@ -1535,6 +1676,7 @@ penguins_new
 ```r
 class(penguins_new$year_factor)
 ## [1] "factor"
+
 levels(penguins_new$year_factor)
 ## [1] "2007" "2008" "2009"
 ```
@@ -1617,7 +1759,7 @@ background-size: 80px
 ```r
 penguins %&gt;%
   select(species, island) %&gt;%
-  mutate(ISLAND = str_to_upper(island))
+* mutate(ISLAND = str_to_upper(island))
 ## # A tibble: 344 x 3
 ##    species island    ISLAND   
 ##    &lt;fct&gt;   &lt;fct&gt;     &lt;chr&gt;    
@@ -1643,7 +1785,7 @@ penguins %&gt;%
 penguins %&gt;%
   select(species, island) %&gt;%
   mutate(ISLAND = str_to_upper(island)) %&gt;%
-  mutate(species_island = str_c(species, ISLAND, sep = "_"))
+* mutate(species_island = str_c(species, ISLAND, sep = "_"))
 ## # A tibble: 344 x 4
 ##    species island    ISLAND    species_island  
 ##    &lt;fct&gt;   &lt;fct&gt;     &lt;chr&gt;     &lt;chr&gt;           
@@ -1728,7 +1870,7 @@ background-size: 80px
 
 We can pretend that the `penguins` dataset wasn't tidy and that it looked instead like `untidy_penguins` below. 
 
-In `untidy_penguins`, `body_mass_g` was recorded separately for `male`, `female`, and sex `NA` penguins.
+In `untidy_penguins`, **body_mass_g** was recorded separately for *male*, *female*, and **sex** *NA* penguins.
 
 
 ```r
@@ -1764,9 +1906,9 @@ untidy_penguins
 
 ```r
 untidy_penguins %&gt;%
-  pivot_longer(cols = male:`NA`, 
-               names_to = "sex",
-               values_to = "body_mass_g")
+* pivot_longer(cols = male:`NA`,
+*              names_to = "sex",
+*              values_to = "body_mass_g")
 ## # A tibble: 1,032 x 8
 ##    species island bill_length_mm bill_depth_mm flipper_length_…  year sex  
 ##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt; &lt;int&gt; &lt;chr&gt;
@@ -1806,9 +1948,21 @@ background-size: 80px
 .panelset[
 
 .panel[.panel-name[Overview]
+.pull-left[
 ### Provides tools for working with functions and vectors 
 
-### The `map()` family of functions helps us replace for loops, &lt;br/&gt; making our code easier to read and more succint.
+### The `purrr` family of functions helps us replace for loops, making our code easier to read and more succint.
+]
+
+.pull-right[
+### With `purrr` you can
+
+- Iterate over a single input with `map()`
+- Iterate over two inputs in parallel with `map2()`
+- Iterate with multiple arguments with `pmap()`
+- Iterate with multiple arguments and functions with `invoke_map()`
+- Call a function for its side-effects with `walk()`, `walk2()`, and `pwalk()`
+]
 ]
 
 .panel[.panel-name[Cheatsheet]
@@ -1842,7 +1996,7 @@ background-size: 80px
 .panel[.panel-name[Time for a change?]
 
 .pull-left[
-### Ok, we love our earlier boxplot showing us `body_mass_g` by `sex` and colored by `species`... but let's change up the colors to keep with our Antarctica theme!
+### Ok, we love our earlier boxplot showing us **body_mass_g** by **sex** and colored by **species**... but let's change up the colors to keep with our Antarctica theme!
 
 ### I'm a big fan of the color palettes in the `nord` 📦
 ]
@@ -1855,12 +2009,12 @@ background-size: 80px
 
 .pull-left[
 ### Let's turn this plot
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-48-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-53-1.png" width="504" /&gt;
 ]
 
 .pull-right[
 ### Into this one!
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-49-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-54-1.png" width="504" /&gt;
 
 .panel[.panel-name[Option 1]
 
@@ -1869,23 +2023,25 @@ background-size: 80px
 ```r
 library(nord)
 
-# you can choose colors using the color hex codes
+# you can choose colors using 
+# the color hex codes
 nord::nord_palettes$frost
 ## [1] "#8FBCBB" "#88C0D0" "#81A1C1" "#5E81AC"
 ```
 
 
 ```r
-# and assign them using the `scale_fill_manual()` function
+# and assign them using the 
+# `scale_fill_manual()` function
 penguins %&gt;%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = c("#8FBCBB", "#88C0D0", "#81A1C1"))
+* scale_fill_manual(values = c("#8FBCBB", "#88C0D0", "#81A1C1"))
 ```
 ]
 
 .pull-right[
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-52-1.png" width="504" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-57-1.png" width="504" /&gt;
 ]
 ]
 
@@ -1899,10 +2055,10 @@ penguins %&gt;%
 penguins %&gt;%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  scale_fill_manual(values = nord::nord_palettes$frost)
+* scale_fill_manual(values = nord::nord_palettes$frost)
 ```
 
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-53-1.png" width="360" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-58-1.png" width="360" /&gt;
 ]
 
 .pull-right[
@@ -1912,10 +2068,10 @@ And some color palette packages also come with their own functions like `scale_f
 penguins %&gt;%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
-  nord::scale_fill_nord(palette = "frost")
+* nord::scale_fill_nord(palette = "frost")
 ```
 
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-54-1.png" width="360" /&gt;
+&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-59-1.png" width="360" /&gt;
 ]
 ]
 

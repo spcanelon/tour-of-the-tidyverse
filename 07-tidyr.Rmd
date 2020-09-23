@@ -71,7 +71,7 @@ background-size: 80px
 
 We can pretend that the `penguins` dataset wasn't tidy and that it looked instead like `untidy_penguins` below. 
 
-In `untidy_penguins`, `body_mass_g` was recorded separately for `male`, `female`, and sex `NA` penguins.
+In `untidy_penguins`, **body_mass_g** was recorded separately for *male*, *female*, and **sex** *NA* penguins.
 
 ```{r}
 untidy_penguins <-
