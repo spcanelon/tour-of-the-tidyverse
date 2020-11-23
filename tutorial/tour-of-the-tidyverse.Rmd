@@ -1,39 +1,46 @@
 ---
 title: "An Antarctic Tour of the Tidyverse"
 author: "Silvia P. Canelón, PhD (@spcanelon)"
-date: "First created on Aug 31, 2020 (updated on Sept 22, 2020)"
+date: "First created on Aug 31, 2020 (updated: Nov 22, 2020)"
 institute: "University of Pennsylvania"
 output:
-  html_notebook:
-    fig_width: 7.2
-    highlight: pygments
+  html_document:
+    df_print: paged
     number_sections: no
-    theme: lumen
+    theme: flatly
     toc: yes
     toc_float: yes
-  html_document:
-    toc: yes
-    df_print: paged
 ---
 
-```{r}
-knitr::opts_chunk$set(message = FALSE, warning = FALSE, collapse = TRUE)
+```{r, echo=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, collapse = FALSE)
 ```
 
-# About {palmerpenguins}
+# `r icon::fa("images")` Slides
+
+The slide deck includes the examples in this R notebook as well as links to cheatsheets for each tidyverse package and additional reading
+
+- https://spcanelon.github.io/tour-of-the-tidyverse
+
+# `r icon::fa("book-open")` About {palmerpenguins}
 - [{palmerpenguins} Documentation](https://allisonhorst.github.io/palmerpenguins/)
 - [Allison Horst's GitHub repo for Palmer Penguins dataset](https://github.com/allisonhorst/palmerpenguins)
 
-```{r, eval = FALSE}
-# install.packages("remotes")
-# remotes::install_github("allisonhorst/palmerpenguins")
+```{r package-install, eval = FALSE}
+install.packages(c(
+  "devtools",
+  "tidyverse",
+  "palmerpenguins"))
+
+devtools::install_github("hadley/emo")
 ```
 
-# Loading packages
+# `r emo::ji("package")` Loading packages
 ```{r}
 # loading packages
 library(tidyverse)
 library(palmerpenguins)
+library(emo)
 
 # viewing data sets in package "palmerpenguins"
 data(package = "palmerpenguins")
@@ -76,7 +83,8 @@ as_tibble(penguins)
 as.data.frame(penguins)
 ```
 
-# What differences do you see?
+## What differences do you see?
+
 You might see a tibble prints:
 
 - variable classes
@@ -141,7 +149,9 @@ penguins %>%
 
 # What do you notice?
 ```
+
 ## What observations can you make from the plot?
+
 You might see:
 
 - Gentoo penguins have higher body mass than Adelie and Chinstrap penguins
@@ -377,7 +387,7 @@ prismatic::color(nord::nord_palettes$frost)
 nord::nord_palettes %>% map(prismatic::color)
 ```
 
-# Extra material below!
+# Bonus material!
 
 ## Recreating a {palmerpenguins} plot
 

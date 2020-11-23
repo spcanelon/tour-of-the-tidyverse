@@ -1,0 +1,175 @@
+---
+title: "An Antarctic Tour of the Tidyverse"
+subtitle: "Boland Lab Meeting"
+author: "Silvia Canelón, PhD"
+institute: "University of Pennsylvania, Philadelphia, PA, US"
+date: "November 23, 2020"
+output:
+  xaringan::moon_reader:
+    css: 
+    - default
+    - css/spc.css
+    - css/spc-fonts.css
+    lib_dir: libs
+    seal: false 
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r", "css", "yaml"]
+      countIncrementalSlides: true
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(collapse = TRUE,
+                      fig.retina = 3,
+                      warning = FALSE,
+                      message = FALSE)
+
+library(tidyverse)
+library(palmerpenguins)
+library(nord)
+library(prismatic)
+library(xaringanExtra)
+xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view", "share_again"))
+#xaringanExtra::use_clipboard()
+xaringanExtra::style_share_again(share_buttons = c("twitter", "linkedin", "pocket"))
+xaringanExtra::embed_xaringan(
+  url = "https://spcanelon.github.io/tour-of-the-tidyverse", ratio = "16:9")
+```
+
+
+class: title-slide, center, bottom, inverse
+
+```{r title-slide, echo=FALSE, out.width=400}
+knitr::include_graphics("images/lter_penguins.png")
+```
+# `r rmarkdown::metadata$title`
+
+----
+
+### `r rmarkdown::metadata$author`
+
+`r rmarkdown::metadata$date` | Boland Lab Meeting
+
+---
+class: center, middle, inverse
+
+# Links
+
+### `r icon::fa("images")` [Slides (webpage)](https://spcanelon.github.io/tour-of-the-tidyverse)<br>if you want to come along for the ride
+
+--
+
+### `r icon::fa("link")` [R Markdown notebook (webpage)](https://spcanelon.github.io/tour-of-the-tidyverse/tutorial/tour-of-the-tidyverse.html)<br>if you want to follow along more closely
+
+--
+
+### `r icon::fa("link")` [R Markdown file (.Rmd download)](https://spcanelon.github.io/tour-of-the-tidyverse/tutorial/tour-of-the-tidyverse.Rmd)<br>if you have R/RStudio installed locally
+
+--
+
+### `r icon::fa("cloud")` [RStudio Cloud project]( https://rstudio.cloud/project/1567300)<br>if you don't have R/RStudio installed locally<br>(requires setting up a free RStudio Cloud account)
+
+---
+class: left, middle
+
+# Acknowledgments
+
+### [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/articles/intro.html) `r emo::ji("package")` developed by [Allison Horst](https://www.allisonhorst.com/), [Alison Hill](https://alison.rbind.io/), and [Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php).
+
+### Penguin artwork by Allison Horst ([@allison_horst](https://twitter.com/allison_horst))
+
+### Slides made using Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`
+
+### Photographs from various photographers on Unsplash, and noted on the relevant slide
+
+---
+class: left, top
+background-image: url(images/logo.png)
+background-position: 1050px 50px
+background-size: 80px
+
+# Meet our penguin friends!
+
+<div class="flex" style="margin: 0 0em;">
+  <div class="column">
+    <h3> Chinstrap </h3>
+    <img src="images/penguin_chinstrap.jpg" style="width: 100%;">
+  </div>
+  
+  <div class="column" style="margin: 0 1em;">
+    <h3> Gentoo </h3>
+    <img src="images/penguin_gentoo.jpg" style="">
+  </div>
+  
+  <div class="column" style="margin: 0 0em;">
+    <h3> Adélie </h3>
+    <img src="images/penguin_adelie.jpg" style="">
+  </div>
+</div>
+
+.footnote[`r emo::ji("penguin")`<span>Photos by <a href="https://unsplash.com/@longmaspirit?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Long Ma</a> on <a href="https://unsplash.com/collections/12240655/palmerpenguins/d5aed8c855e26061e5e651d3f180b76d?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+]
+
+---
+class: right, top
+background-image: url(images/pptx/tidyverse.png)
+background-size: 1150px
+
+## Collection of R packages, including <br/> these 8 core packages (and more!)
+
+---
+
+```{r 01-readr, child="01-readr.Rmd"}
+```
+
+---
+
+```{r 02-tibble, child="02-tibble.Rmd"}
+```
+
+---
+
+```{r 03-ggplot2, child="03-ggplot2.Rmd"}
+```
+
+---
+
+```{r 04-dplyr, child="04-dplyr.Rmd"}
+```
+
+---
+
+```{r 05-forcats, child="05-forcats.Rmd"}
+```
+
+---
+
+```{r 06-stringr, child="06-stringr.Rmd"}
+```
+
+---
+
+```{r 07-tidyr, child="07-tidyr.Rmd"}
+```
+
+---
+
+```{r 08-purrr, child="08-purrr.Rmd"}
+```
+
+---
+class: about-me, about-me-slide, middle, center
+
+
+.pull-left[
+<img style="border-radius: 50%;" src="https://silvia.rbind.io/authors/silvia/avatar.png" width="170px"/>
+# Thank you!
+
+[`r icon::fa("link")` silvia.rbind.io](https://silvia.rbind.io)<br/>
+[`r icon::fa("twitter")` @spcanelon](https://twitter.com/spcanelon)<br/>
+[`r icon::fa("github")` @spcanelon](https://github.com/spcanelon)<br/>
+]
+
