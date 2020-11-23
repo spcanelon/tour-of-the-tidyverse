@@ -87,7 +87,7 @@ background-size: 80px
 
 .pull-left[
 ### Let's turn this plot
-```{r echo=FALSE, warning=FALSE, fig.height=5}
+```{r echo=FALSE, warning=FALSE, fig.height=4.5}
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species))
@@ -96,7 +96,7 @@ penguins %>%
 
 .pull-right[
 ### Into this one!
-```{r echo=FALSE, warning=FALSE, fig.height=5}
+```{r echo=FALSE, warning=FALSE, fig.height=4.5}
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
@@ -125,7 +125,7 @@ penguins %>%
 ]
 
 .pull-right[
-```{r echo=FALSE, fig.height=5}
+```{r echo=FALSE, fig.height=4.5}
 # and assign them using the `scale_fill_manual()` function
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
@@ -140,7 +140,7 @@ penguins %>%
 
 .pull-left[
 ...but you might prefer to use the palette name! <br/>
-```{r eval=TRUE, warning=FALSE, fig.height=3, fig.width=5}
+```{r eval=TRUE, warning=FALSE, fig.height=3}
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +
@@ -150,7 +150,7 @@ penguins %>%
 
 .pull-right[
 And some color palette packages also come with their own functions like `scale_fill_nord()`
-```{r eval=TRUE, warning=FALSE, fig.height=3, fig.width=5}
+```{r eval=TRUE, warning=FALSE, fig.height=3}
 penguins %>%
   ggplot(aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species)) +

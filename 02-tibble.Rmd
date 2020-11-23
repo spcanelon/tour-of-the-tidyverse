@@ -63,7 +63,7 @@ background-size: 80px
 
 .panelset[
 .panel[.panel-name[Code]
-Let's take a look at the differences!
+### Let's take a look at the differences!
 ```{r eval=FALSE}
 # try each of these commands in the console and see if you can spot the differences!
 

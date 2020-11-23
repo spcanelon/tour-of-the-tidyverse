@@ -1,17 +1,19 @@
 ---
 title: "An Antarctic Tour of the Tidyverse"
-subtitle: "R-Ladies Chicago"
+subtitle: "Boland Lab Meeting"
 author: "Silvia Canelón, PhD"
 institute: "University of Pennsylvania, Philadelphia, PA, US"
-date: "August 31, 2020"
+date: "November 23, 2020"
 output:
   xaringan::moon_reader:
-    css: ["default", "rladies-spc.css", "rladies-fonts-spc.css"]
-    #css: ["default", "rladies", "rladies-fonts"]
+    css: 
+    - default
+    - css/rladies-spc.css
+    - css/rladies-fonts-spc.css
     lib_dir: libs
     seal: false 
     nature:
-      highlightStyle: github
+      highlightStyle: googlecode
       highlightLines: true
       highlightLanguage: ["r", "css", "yaml"]
       countIncrementalSlides: true
@@ -31,44 +33,25 @@ library(nord)
 library(prismatic)
 library(xaringanExtra)
 xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view", "share_again"))
-xaringanExtra::use_clipboard()
+#xaringanExtra::use_clipboard()
 xaringanExtra::style_share_again(share_buttons = c("twitter", "linkedin", "pocket"))
 xaringanExtra::embed_xaringan(
-  url = "https://spcanelon.github.io/2020-rladies-chi-tidyverse", ratio = "16:9")
+  url = "https://spcanelon.github.io/tour-of-the-tidyverse", ratio = "16:9")
 ```
 
 
-class: title-slide, center, bottom
+class: title-slide, center, bottom, inverse
 
 ```{r title-slide, echo=FALSE, out.width=400}
 knitr::include_graphics("images/lter_penguins.png")
 ```
 # `r rmarkdown::metadata$title`
 
-## `r rmarkdown::metadata$subtitle`
+----
 
 ### `r rmarkdown::metadata$author`
 
-### `r rmarkdown::metadata$date`
-
-
----
-class: about-me, middle, center
-
-## Silvia Canelón 
-
-### Postdoctoral Research Scientist
-
-### University of Pennsylvania, Philadelphia, PA, USA
-
-<img style="border-radius: 50%;" src="https://silvia.rbind.io/authors/silvia/avatar_hu5008cfaae4fe27558f3c3604a254cbf4_10721386_270x270_fill_lanczos_center_2.png" width="150px"/>
-
-
-[`r icon::fa("link")` silvia.rbind.io](https://silvia.rbind.io)<br/>
-[`r icon::fa("twitter")` @spcanelon](https://twitter.com/spcanelon)<br/>
-[`r icon::fa("github")` @spcanelon](https://github.com/spcanelon)  
-
-.footnote[<span>Photo by <a href="https://unsplash.com/@lukehuff?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">lucas huffman</a> on <a href="https://unsplash.com/s/photos/antarctica?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>]
+`r rmarkdown::metadata$date` | Boland Lab Meeting
 
 ---
 class: left, middle
@@ -79,9 +62,7 @@ class: left, middle
 
 ### Penguin artwork by Allison Horst ([@allison_horst](https://twitter.com/allison_horst))
 
-### Slide inspiration from Alison Hill ([@apreshill](https://twitter.com/apreshill))'s recent education training materials "[Teaching in Production](https://rstudio-education.github.io/teaching-in-production/)"
-
-### Slides made using Dr. Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
+### Slides made using Dr. Yihui Xie's [xaringan](https://github.com/yihui/xaringan) `r emo::ji("package")` and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) `r emo::ji("package")`
 
 ### Photographs from various photographers on Unsplash, and noted on the relevant slide
 
@@ -161,9 +142,15 @@ background-size: 1150px
 ```
 
 ---
-class: about-me, middle, center
+class: about-me, about-me-slide, middle, center
 
-# Thank you! 
 
-## Any questions?
+.pull-left[
+<img style="border-radius: 50%;" src="https://silvia.rbind.io/authors/silvia/avatar.png" width="170px"/>
+# Thank you!
+
+[`r icon::fa("link")` silvia.rbind.io](https://silvia.rbind.io)<br/>
+[`r icon::fa("twitter")` @spcanelon](https://twitter.com/spcanelon)<br/>
+[`r icon::fa("github")` @spcanelon](https://github.com/spcanelon)<br/>
+]
 

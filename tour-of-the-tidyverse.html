@@ -4,7 +4,8 @@
     <title>An Antarctic Tour of the Tidyverse</title>
     <meta charset="utf-8" />
     <meta name="author" content="Silvia Canelón, PhD" />
-    <meta name="date" content="2020-08-31" />
+    <meta name="date" content="2020-11-23" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
@@ -15,13 +16,10 @@
     <script src="libs/shareon/shareon.min.js"></script>
     <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
-    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
-    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
-    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
     <script src="libs/fitvids/fitvids.min.js"></script>
     <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="rladies-spc.css" type="text/css" />
-    <link rel="stylesheet" href="rladies-fonts-spc.css" type="text/css" />
+    <link rel="stylesheet" href="css/rladies-spc.css" type="text/css" />
+    <link rel="stylesheet" href="css/rladies-fonts-spc.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -30,35 +28,16 @@
 
 
 
-class: title-slide, center, bottom
+class: title-slide, center, bottom, inverse
 
 &lt;img src="images/lter_penguins.png" width="400" /&gt;
 # An Antarctic Tour of the Tidyverse
 
-## R-Ladies Chicago
+----
 
 ### Silvia Canelón, PhD
 
-### August 31, 2020
-
-
----
-class: about-me, middle, center
-
-## Silvia Canelón 
-
-### Postdoctoral Research Scientist
-
-### University of Pennsylvania, Philadelphia, PA, USA
-
-&lt;img style="border-radius: 50%;" src="https://silvia.rbind.io/authors/silvia/avatar_hu5008cfaae4fe27558f3c3604a254cbf4_10721386_270x270_fill_lanczos_center_2.png" width="150px"/&gt;
-
-
-[<i class="fas  fa-link "></i> silvia.rbind.io](https://silvia.rbind.io)&lt;br/&gt;
-[<i class="fab  fa-twitter "></i> @spcanelon](https://twitter.com/spcanelon)&lt;br/&gt;
-[<i class="fab  fa-github "></i> @spcanelon](https://github.com/spcanelon)  
-
-.footnote[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@lukehuff?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;lucas huffman&lt;/a&gt; on &lt;a href="https://unsplash.com/s/photos/antarctica?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
+November 23, 2020 | Boland Lab Meeting
 
 ---
 class: left, middle
@@ -69,9 +48,7 @@ class: left, middle
 
 ### Penguin artwork by Allison Horst ([@allison_horst](https://twitter.com/allison_horst))
 
-### Slide inspiration from Alison Hill ([@apreshill](https://twitter.com/apreshill))'s recent education training materials "[Teaching in Production](https://rstudio-education.github.io/teaching-in-production/)"
-
-### Slides made using Dr. Yihui Xie's [xaringan](https://github.com/yihui/xaringan) 📦 and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) 📦, and adapted from the [R-Ladies `xaringan` theme designed by Alison Hill](https://alison.rbind.io/post/2017-12-18-r-ladies-presentation-ninja/)
+### Slides made using Dr. Yihui Xie's [xaringan](https://github.com/yihui/xaringan) 📦 and Garrick Aden-Buie's [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) 📦
 
 ### Photographs from various photographers on Unsplash, and noted on the relevant slide
 
@@ -225,15 +202,17 @@ head(penguins)
 penguins_raw &lt;- palmerpenguins::penguins_raw
 head(penguins_raw)
 ## # A tibble: 6 x 17
-##   studyName `Sample Number` Species Region Island Stage `Individual ID` `Clutch Complet… `Date Egg` `Culmen Length … `Culmen Depth (… `Flipper Length…
-##   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt;            &lt;date&gt;                &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-## 1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1            Yes              2007-11-11             39.1             18.7              181
-## 2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2            Yes              2007-11-11             39.5             17.4              186
-## 3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1            Yes              2007-11-16             40.3             18                195
-## 4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2            Yes              2007-11-16             NA               NA                 NA
-## 5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1            Yes              2007-11-16             36.7             19.3              193
-## 6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2            Yes              2007-11-16             39.3             20.6              190
-## # … with 5 more variables: `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;, `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;
+##   studyName `Sample Number` Species Region Island Stage `Individual ID` `Clutch Complet…
+##   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt;           
+## 1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1            Yes             
+## 2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2            Yes             
+## 3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1            Yes             
+## 4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2            Yes             
+## 5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1            Yes             
+## 6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2            Yes             
+## # … with 9 more variables: `Date Egg` &lt;date&gt;, `Culmen Length (mm)` &lt;dbl&gt;, `Culmen Depth
+## #   (mm)` &lt;dbl&gt;, `Flipper Length (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;, `Delta 15 N
+## #   (o/oo)` &lt;dbl&gt;, `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;
 ```
 ]
 ]
@@ -297,7 +276,7 @@ background-size: 80px
 
 .panelset[
 .panel[.panel-name[Code]
-Let's take a look at the differences!
+### Let's take a look at the differences!
 
 ```r
 # try each of these commands in the console and see if you can spot the differences!
@@ -559,14 +538,14 @@ View(penguins)
 glimpse(penguins)
 ## Rows: 344
 ## Columns: 8
-## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie…
-## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, To…
-## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8, 37.8, 41.1, 38.6, 34.6, 36.6, 38.7, 42.5, 34.4, 46.0, 37.8, 37.7, 35.9…
-## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1, 17.3, 17.6, 21.2, 21.1, 17.8, 19.0, 20.7, 18.4, 21.5, 18.3, 18.7, 19.2…
-## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182, 191, 198, 185, 195, 197, 184, 194, 174, 180, 189, 185, 180, 187, 183, …
-## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300, 3700, 3200, 3800, 4400, 3700, 3450, 4500, 3325, 4200, 3400, 3600, 3800…
-## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male, NA, NA, NA, NA, female, male, male, female, female, male, female, male, female, …
-## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20…
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, T…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8, 37.…
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1, 17.…
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182, 191…
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300, 370…
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male, NA, NA, NA, N…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2…
 ```
 ]
 ]
@@ -585,7 +564,7 @@ ggplot(data = penguins,
 ]
 
 .pull-right[
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-18-1.png" width="504" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-18-1.png" width="504" /&gt;
 ]
 ]
 
@@ -601,7 +580,7 @@ ggplot(data = penguins,
 ]
 
 .pull-right[
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-20-1.png" width="504" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-20-1.png" width="504" /&gt;
 ]
 ]
 
@@ -615,11 +594,11 @@ ggplot(data = penguins,
 * geom_boxplot(aes(fill = species))
 ```
 
-### &lt;br/&gt; What do you notice?
+### &lt;br&gt;What do you notice?
 ]
 
 .pull-right[
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-22-1.png" width="504" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-22-1.png" width="504" /&gt;
 ]
 ]
 
@@ -635,7 +614,7 @@ ggplot(data = penguins,
 ]
 
 .pull-right[
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-23-1.png" width="504" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-23-1.png" width="504" /&gt;
 ]
 ]
 ]
@@ -768,14 +747,14 @@ We can use `arrange()` to arrange our data in descending order by **body_mass_g*
 glimpse(penguins)
 ## Rows: 344
 ## Columns: 8
-## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie…
-## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, To…
-## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8, 37.8, 41.1, 38.6, 34.6, 36.6, 38.7, 42.5, 34.4, 46.0, 37.8, 37.7, 35.9…
-## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1, 17.3, 17.6, 21.2, 21.1, 17.8, 19.0, 20.7, 18.4, 21.5, 18.3, 18.7, 19.2…
-## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182, 191, 198, 185, 195, 197, 184, 194, 174, 180, 189, 185, 180, 187, 183, …
-## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300, 3700, 3200, 3800, 4400, 3700, 3450, 4500, 3325, 4200, 3400, 3600, 3800…
-## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male, NA, NA, NA, NA, female, male, male, female, female, male, female, male, female, …
-## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20…
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, T…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8, 37.…
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1, 17.…
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182, 191…
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300, 370…
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male, NA, NA, NA, N…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2…
 ```
 ]
 .pull-right[
@@ -1046,19 +1025,19 @@ penguins_new &lt;-
 *                 levels = unique(year)))
 penguins_new
 ## # A tibble: 344 x 9
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year year_factor
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt; &lt;fct&gt;      
-##  1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007 2007       
-##  2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007 2007       
-##  3 Adelie  Torgersen           40.3          18                 195        3250 female  2007 2007       
-##  4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007 2007       
-##  5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007 2007       
-##  6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007 2007       
-##  7 Adelie  Torgersen           38.9          17.8               181        3625 female  2007 2007       
-##  8 Adelie  Torgersen           39.2          19.6               195        4675 male    2007 2007       
-##  9 Adelie  Torgersen           34.1          18.1               193        3475 &lt;NA&gt;    2007 2007       
-## 10 Adelie  Torgersen           42            20.2               190        4250 &lt;NA&gt;    2007 2007       
-## # … with 334 more rows
+##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex    year
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt; &lt;int&gt;
+##  1 Adelie  Torge…           39.1          18.7              181        3750 male   2007
+##  2 Adelie  Torge…           39.5          17.4              186        3800 fema…  2007
+##  3 Adelie  Torge…           40.3          18                195        3250 fema…  2007
+##  4 Adelie  Torge…           NA            NA                 NA          NA &lt;NA&gt;   2007
+##  5 Adelie  Torge…           36.7          19.3              193        3450 fema…  2007
+##  6 Adelie  Torge…           39.3          20.6              190        3650 male   2007
+##  7 Adelie  Torge…           38.9          17.8              181        3625 fema…  2007
+##  8 Adelie  Torge…           39.2          19.6              195        4675 male   2007
+##  9 Adelie  Torge…           34.1          18.1              193        3475 &lt;NA&gt;   2007
+## 10 Adelie  Torge…           42            20.2              190        4250 &lt;NA&gt;   2007
+## # … with 334 more rows, and 1 more variable: year_factor &lt;fct&gt;
 ```
 ]
 
@@ -1098,7 +1077,9 @@ background-size: 80px
 .panel[.panel-name[Overview]
 
 .pull-left[
-### `stringr` helps us manipulate strings! The package includes many functions to help us with **regular expressions**, which are a concise language for describing patterns in strings.
+### `stringr` helps us manipulate strings! 
+
+### The package includes many functions to help us with **regular expressions**, &lt;br&gt;which are a concise language for describing patterns in strings.
 ]
 
 .pull-right[
@@ -1396,12 +1377,12 @@ background-size: 80px
 
 .pull-left[
 ### Let's turn this plot
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-50-1.png" width="504" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-50-1.png" width="504" /&gt;
 ]
 
 .pull-right[
 ### Into this one!
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-51-1.png" width="504" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-51-1.png" width="504" /&gt;
 
 .panel[.panel-name[Option 1]
 
@@ -1428,7 +1409,7 @@ penguins %&gt;%
 ]
 
 .pull-right[
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-54-1.png" width="504" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-54-1.png" width="504" /&gt;
 ]
 ]
 
@@ -1445,7 +1426,7 @@ penguins %&gt;%
 * scale_fill_manual(values = nord::nord_palettes$frost)
 ```
 
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-55-1.png" width="360" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-55-1.png" width="504" /&gt;
 ]
 
 .pull-right[
@@ -1458,7 +1439,7 @@ penguins %&gt;%
 * nord::scale_fill_nord(palette = "frost")
 ```
 
-&lt;img src="2020-rladies-chi-tidyverse_files/figure-html/unnamed-chunk-56-1.png" width="360" /&gt;
+&lt;img src="tour-of-the-tidyverse_files/figure-html/unnamed-chunk-56-1.png" width="504" /&gt;
 ]
 ]
 
@@ -1509,16 +1490,23 @@ nord::nord_palettes %&gt;% map(prismatic::color)
 ]
 
 ---
-class: about-me, middle, center
+class: about-me, about-me-slide, middle, center
 
-# Thank you! 
 
-## Any questions?
+.pull-left[
+&lt;img style="border-radius: 50%;" src="https://silvia.rbind.io/authors/silvia/avatar.png" width="170px"/&gt;
+# Thank you!
+
+[<i class="fas  fa-link "></i> silvia.rbind.io](https://silvia.rbind.io)&lt;br/&gt;
+[<i class="fab  fa-twitter "></i> @spcanelon](https://twitter.com/spcanelon)&lt;br/&gt;
+[<i class="fab  fa-github "></i> @spcanelon](https://github.com/spcanelon)&lt;br/&gt;
+]
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
+"highlightStyle": "googlecode",
 "highlightLines": true,
 "highlightLanguage": ["r", "css", "yaml"],
 "countIncrementalSlides": true,

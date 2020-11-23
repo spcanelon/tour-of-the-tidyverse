@@ -124,11 +124,11 @@ ggplot(data = penguins,
   geom_boxplot(aes(fill = species)) #<<
 ```
 
-### <br/> What do you notice?
+### <br>What do you notice?
 ]
 
 .pull-right[
-```{r echo=FALSE, warning=FALSE, fig.height=5}
+```{r echo=FALSE, warning=FALSE, fig.height=4.5}
 ggplot(data = penguins, 
        aes(x = sex, y = body_mass_g)) +
   geom_boxplot(aes(fill = species))

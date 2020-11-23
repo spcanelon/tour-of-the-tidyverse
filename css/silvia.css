@@ -1,0 +1,240 @@
+:root {
+/* COLOR VARIABLES */
+/* primary and secondary colors and variants */
+--spc-primary:            #122140; /* primary color */
+--spc-primary-light:      #3d486b; /* primary color, lighter variant */
+--spc-primary-dark:       #00001b; /* primary color, darker variant */
+--spc-secondary:          #e5be00; /* secondary color */
+--spc-secondary-light:    #fff14d; /* secondary color, lighter variant */
+--spc-secondary-dark:     #ae8f00; /* secondary color, darker variant */
+
+/* text colors */
+--spc-text-high:          rgba(255, 255, 255, 0.87); /* high emphasis/high priority, white 87% opacity */
+--spc-text-medium:        rgba(255, 255, 255, 0.60); /* medium emphasis, white 60% opacity */
+--spc-text-low:           rgba(255, 255, 255, 0.45); /* disabled text, white 45% opacity */
+/*--spc-text-low:         rgba(255, 255, 255, 0.38); /* disabled text, white 38% opacity */
+
+/* surface colors */
+--rstudio-bkg: #F8F8F8;
+--spc-bkg-light-std: #EEEEEE;                   /* light mode background */
+--spc-bkg-dark-std: #121212;                    /* dark mode background (00dp elevation level) */
+
+/* COLOR CALCULATIONS */
+/* below from mix(--spc-primary, --spc-bkg-dark-std, 25) */
+--spc-bkg-dark: #12151d;                                 /* custom bkg */
+/* below from mix(--spc-primary, --spc-bkg-dark-std, 40) */
+--spc-00dp: #121824;                                     /* 00dp surface */
+/* below from mix(--spc-00dp, white, 95)                 /* 00dp with 5% white overlay */
+--spc-01dp: #1d232e;
+/* below from mix(--spc-00dp, white, 93)                 /* 00dp with 7% white overlay */
+--spc-02dp: #222833;
+/* below from mix(--spc-00dp, white, 92)                 /* 00dp with 8% white overlay */
+--spc-03dp: #242a35;
+/* below from mix(--spc-00dp, white, 91)                 /* 00dp with 9% white overlay */
+--spc-04dp: #272c37;
+
+/* error colors */
+--spc-error: rgba(169, 5, 51, 1);
+--spc-error-light: rgba(253, 244, 244, 1);
+}
+
+/* slide content */
+
+.remark-slide-content {
+  border-top: 20px solid var(--spc-00dp);
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 1em 2em 1em 2em
+}
+
+.remark-inline-code{
+  /*background: #F5F5F5; /* lighter */
+  background: #e7e8e2; /* darker */
+  color: var(--spc-primary);
+  font-weight: 400;
+  border-radius: 3px;
+  padding: 4px;
+}
+/* code highlight */
+.remark-code-line-highlighted {
+  background-color: var(--spc-secondary-light) !important;
+}
+/*.title-slide .inverse .remark-slide-content {
+  background-color: var(--rstudio-bkg);
+}*/
+
+.inverse {
+  background-color: var(--spc-00dp);
+  text-shadow: none;
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+  padding-right: 100px;
+}
+
+/* Removes colored bar from top of the slide resulting in a clear slide */
+.clear{
+  border-top: 0px solid var(--rstudio-bkg);
+}
+
+/* headings */
+h1 {
+  font-weight: 405;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 00px;
+  margin-bottom: 10px; /* space below text */
+  color: var(--spc-primary);
+}
+h2, h3, h4 {
+  font-weight: 400;
+  text-align: left;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-left: 00px;
+  margin-bottom: 0px;
+  text-shadow: none;
+  color: var(--spc-primary-dark);
+}
+
+.remark-slide-content h1 {
+  font-size: 35px;
+}
+.remark-slide-content h2 {
+  font-size: 30px;
+}
+.remark-slide-content h3 {
+  font-size: 25px;
+}
+
+/* tables */
+th, td {
+    padding: 0px 10px 0px 10px; /* spacing */
+}
+table { /* remove color from tables */
+  margin: auto;
+  border-top: none;
+  border-bottom: none;
+}
+table thead th { border-bottom: none; }
+thead, tfoot, tr:nth-child(even) { background: none; }
+
+/* title slide */
+.title-slide {
+  background-size: 250px;
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+  padding-right: 100px;
+  background-color: var(--rstudio-bkg);
+  border-top: 40px solid var(--rstudio-bkg);
+}
+.title-slide h1  {
+  color: var(--spc-primary-dark);
+  font-size: 45px;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-top: 20px;
+}
+.title-slide h2  {
+  color: var(--spc-primary);
+  font-size: 30px;
+  font-weight: 500;
+  text-align: left;
+  margin-top: -25px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-bottom: -20px;
+}
+.title-slide h3  {
+  color: var(--spc-primary-light);
+  font-size: 25px;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: -30px;
+}
+
+hr {
+  content: '';
+  display: block;
+  border: none;
+  background-color: red;
+  color: red;
+  height: 2px;
+}
+/*
+hr, .mline h1::after {
+  margin: 1em 15px 0 15px;
+}
+
+.mline h1::after {
+  margin: 10px 15px 0 15px;
+}*/
+
+.remark-slide-number {
+  font-size: 13pt;
+  color: var(--spc-00dp);
+  opacity: 1;
+}
+.inverse .remark-slide-number {
+  font-size: 13pt;
+  color: var(--rstudio-bkg);
+  opacity: 1;
+}
+
+/* turns off slide numbers for title page: https://github.com/gnab/remark/issues/298 */
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+a, a > code {
+  color: var(--spc-secondary-dark);   /* sets color of links */
+  text-decoration: none;              /* turns off background coloring of links */
+}
+
+/*********************/
+/* FINAL SLIDE
+/*********************/
+
+.goodbye {
+  background-color: var(--spc-00dp);
+  color: var(--spc-text-medium);
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.goodbye h1 {
+  color: var(--spc-secondary-dark);
+  font-size: 45px;
+}
+
+.goodbye h2, .goodbye h3, .goodbye h4 {
+  color: var(--spc-text-high);
+}
+
+img.circle {
+  border-radius:50%;
+}
+
+/* slide layout */
+.pull-left {
+  float: left;
+  width: 40%;
+}
+
+.pull-right {
+  float: right;
+  width: 55%;
+}
+
+.pull-left-equal {
+  float: left;
+  width: 50%;
+}
+
+.pull-right-equal {
+  float: right;
+  width: 50%;
+}

@@ -26,7 +26,9 @@ background-size: 80px
 .panel[.panel-name[Overview]
 
 .pull-left[
-### `stringr` helps us manipulate strings! The package includes many functions to help us with **regular expressions**, which are a concise language for describing patterns in strings.
+### `stringr` helps us manipulate strings! 
+
+### The package includes many functions to help us with **regular expressions**, <br>which are a concise language for describing patterns in strings.
 ]
 
 .pull-right[
